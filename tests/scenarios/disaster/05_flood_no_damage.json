@@ -1,0 +1,30 @@
+{
+  "name": "Flood nearby but the home wasn't damaged and no disaster was declared",
+  "today": "2026-10-15",
+  "input_text": "There was flooding in our town but our house is fine.",
+  "facts": {
+    "phase": "recovering",
+    "hazards": [
+      "flood"
+    ],
+    "home_damaged": false,
+    "declared": "no",
+    "lost_work": false
+  },
+  "expected": {
+    "steps_in_order": [
+      "return_safely",
+      "avoid_scams",
+      "emotional_support"
+    ],
+    "may_apply": [],
+    "not_included": [
+      "document_damage",
+      "file_insurance_claim",
+      "apply_fema",
+      "sba_loan",
+      "fema_appeal",
+      "disaster_unemployment"
+    ]
+  }
+}

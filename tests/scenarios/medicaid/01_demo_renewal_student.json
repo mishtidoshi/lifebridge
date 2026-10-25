@@ -1,0 +1,33 @@
+{
+  "name": "Demo: California adult got a Medi-Cal renewal form, goes to school, no exemptions",
+  "today": "2026-10-15",
+  "input_text": "I got a yellow envelope saying I need to renew my Medi-Cal. What do I send, and by when?",
+  "facts": {
+    "state": "ca",
+    "situation": ["renewal_letter"],
+    "age_group": "19_to_64",
+    "exemptions": ["none"],
+    "activities": ["school"]
+  },
+  "expected": {
+    "steps_in_order": [
+      "update_contact_ca",
+      "renew_ca",
+      "six_month_ca",
+      "learn_work_rules",
+      "keep_activity_records",
+      "answer_work_rules_letter",
+      "still_stuck_ca"
+    ],
+    "may_apply": ["answer_work_rules_letter"],
+    "not_included": [
+      "find_state_agency",
+      "renew_other_state",
+      "ask_about_exemption",
+      "report_changes_ca",
+      "restore_coverage_ca",
+      "marketplace_ca",
+      "still_stuck_other_state"
+    ]
+  }
+}

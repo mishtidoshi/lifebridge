@@ -1,0 +1,40 @@
+{
+  "name": "Demo: San José senior, self-employed parents, applying to UCs and CSUs",
+  "today": "2026-10-15",
+  "input_text": "I'm a senior in San José, my parents are self-employed, and I'm applying to UCs and CSUs.",
+  "facts": {
+    "state": "ca",
+    "grade_level": "hs_senior",
+    "citizenship_status": "us_citizen",
+    "dependency_status": "dependent",
+    "parent_self_employed": true,
+    "college_types": ["public_4yr"]
+  },
+  "expected": {
+    "steps_in_order": [
+      "choose_application",
+      "federal_aid_types",
+      "fafsa_create_accounts",
+      "parent_account_without_ssn",
+      "gather_documents",
+      "list_colleges",
+      "submit_fafsa",
+      "confirm_gpa",
+      "state_aid_ca",
+      "review_submission",
+      "webgrants_account",
+      "respond_verification",
+      "college_extra_forms",
+      "compare_offers"
+    ],
+    "may_apply": ["parent_account_without_ssn", "respond_verification"],
+    "not_included": [
+      "cadaa_create_account",
+      "submit_cadaa",
+      "css_profile",
+      "state_aid_tx",
+      "alt_app_tx",
+      "undocumented_other_aid"
+    ]
+  }
+}

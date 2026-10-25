@@ -1,0 +1,37 @@
+{
+  "name": "Texas parent of a toddler whose Medicaid ended",
+  "today": "2026-10-15",
+  "input_text": "My Medicaid in Texas got cancelled and I have a two-year-old.",
+  "facts": {
+    "state": "tx",
+    "situation": [
+      "coverage_ended"
+    ],
+    "age_group": "19_to_64",
+    "exemptions": [
+      "parent_young_child"
+    ]
+  },
+  "expected": {
+    "steps_in_order": [
+      "find_state_agency",
+      "restore_coverage_other_state",
+      "renew_other_state",
+      "learn_work_rules",
+      "ask_about_exemption",
+      "answer_work_rules_letter",
+      "marketplace_other_state",
+      "still_stuck_other_state"
+    ],
+    "may_apply": [
+      "answer_work_rules_letter"
+    ],
+    "not_included": [
+      "keep_activity_records",
+      "report_changes_other_state",
+      "restore_coverage_ca",
+      "update_contact_ca",
+      "six_month_ca"
+    ]
+  }
+}

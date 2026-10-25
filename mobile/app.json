@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "LifeBridge",
+    "slug": "lifebridge",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#46B1DD",
+        "foregroundImage": "./assets/android-icon-foreground.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "single",
+      "name": "LifeBridge",
+      "shortName": "LifeBridge",
+      "themeColor": "#1B6E8C",
+      "backgroundColor": "#F5F8FA"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-secure-store"
+    ],
+    "scheme": "lifebridge"
+  }
+}

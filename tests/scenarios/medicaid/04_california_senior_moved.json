@@ -1,0 +1,29 @@
+{
+  "name": "California adult 65 or older who moved",
+  "today": "2026-10-15",
+  "input_text": "My grandma has Medi-Cal and just moved to a new apartment.",
+  "facts": {
+    "state": "ca",
+    "situation": [
+      "life_change"
+    ],
+    "age_group": "65_plus"
+  },
+  "expected": {
+    "steps_in_order": [
+      "update_contact_ca",
+      "renew_ca",
+      "report_changes_ca",
+      "still_stuck_ca"
+    ],
+    "may_apply": [],
+    "not_included": [
+      "six_month_ca",
+      "learn_work_rules",
+      "keep_activity_records",
+      "ask_about_exemption",
+      "answer_work_rules_letter",
+      "restore_coverage_ca"
+    ]
+  }
+}

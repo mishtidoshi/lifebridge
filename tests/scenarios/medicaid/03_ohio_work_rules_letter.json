@@ -1,0 +1,37 @@
+{
+  "name": "Ohio adult with a job who got a work-rules letter",
+  "today": "2026-10-15",
+  "input_text": "I work part time in Ohio and got a letter saying I didn't meet the Medicaid work rules.",
+  "facts": {
+    "state": "oh",
+    "situation": [
+      "work_rules"
+    ],
+    "age_group": "19_to_64",
+    "exemptions": [
+      "none"
+    ],
+    "activities": [
+      "job"
+    ],
+    "got_work_rules_notice": true
+  },
+  "expected": {
+    "steps_in_order": [
+      "find_state_agency",
+      "renew_other_state",
+      "learn_work_rules",
+      "keep_activity_records",
+      "answer_work_rules_letter",
+      "still_stuck_other_state"
+    ],
+    "may_apply": [],
+    "not_included": [
+      "ask_about_exemption",
+      "restore_coverage_other_state",
+      "marketplace_other_state",
+      "report_changes_other_state",
+      "six_month_ca"
+    ]
+  }
+}

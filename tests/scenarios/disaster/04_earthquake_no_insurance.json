@@ -1,0 +1,37 @@
+{
+  "name": "Earthquake damaged the home, no insurance, not sure about a declaration, a parent lost work",
+  "today": "2026-10-15",
+  "input_text": "The earthquake cracked our walls, we don't have insurance, and my dad can't work.",
+  "facts": {
+    "phase": "recovering",
+    "hazards": [
+      "earthquake"
+    ],
+    "home_damaged": true,
+    "has_insurance": "no",
+    "declared": "not_sure",
+    "lost_work": true
+  },
+  "expected": {
+    "steps_in_order": [
+      "return_safely",
+      "document_damage",
+      "apply_fema",
+      "avoid_scams",
+      "sba_loan",
+      "fema_appeal",
+      "disaster_unemployment",
+      "emotional_support"
+    ],
+    "may_apply": [
+      "apply_fema",
+      "sba_loan",
+      "fema_appeal"
+    ],
+    "not_included": [
+      "file_insurance_claim",
+      "prep_earthquake",
+      "earthquake_now"
+    ]
+  }
+}

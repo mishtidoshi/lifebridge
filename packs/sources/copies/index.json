@@ -1,0 +1,30 @@
+{
+  "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf": {
+    "file": "studentaid-2027-28-fafsa-form.txt",
+    "saved": "2026-10-12"
+  },
+  "https://www.dhcs.ca.gov/medi-cal/help/": {
+    "file": "dhcs-medi-cal-help.txt",
+    "saved": "2026-10-13"
+  },
+  "https://www.dhcs.ca.gov/medi-cal/updates/medi-cal-changes/": {
+    "file": "dhcs-medi-cal-changes.txt",
+    "saved": "2026-10-13"
+  },
+  "https://www.dhcs.ca.gov/medi-cal/keep/": {
+    "file": "dhcs-medi-cal-keep.txt",
+    "saved": "2026-10-13"
+  },
+  "https://www.medicaid.gov/about-us/where-can-people-get-help-medicaid-chip": {
+    "file": "medicaid-gov-get-help.txt",
+    "saved": "2026-10-13"
+  },
+  "https://www.fema.gov/fact-sheet/how-apply-assistance": {
+    "file": "fema-how-to-apply.txt",
+    "saved": "2026-10-14"
+  },
+  "https://www.fema.gov/assistance/individual/after-applying/appeals": {
+    "file": "fema-appeals.txt",
+    "saved": "2026-10-14"
+  }
+}

@@ -1,0 +1,4408 @@
+{
+  "schema_version": 1,
+  "id": "financial_aid",
+  "title": "Financial Aid for College",
+  "summary": "Apply for federal and state aid for 2027–28, step by step, in any U.S. state.",
+  "icon": "graduation-cap",
+  "status": "draft",
+  "region": "US",
+  "routing_hint": "A student (or their family) in the United States who is applying to college or already in college and needs to apply for financial aid: the FAFSA, their state's aid and applications, or college aid offers.",
+  "example_inputs": [
+    "I'm a senior in Texas applying to community college and a state university.",
+    "I'm undocumented and want to go to community college next year. How do I get financial aid?",
+    "My mom doesn't have a Social Security number. Can I still do the FAFSA?",
+    "I'm a senior in San José, my parents are self-employed, and I'm applying to UCs and CSUs."
+  ],
+  "routing_signals": [
+    "fafsa",
+    "financial aid",
+    "dream act",
+    "cadaa",
+    "cal grant",
+    "college",
+    "colleges",
+    "university",
+    "scholarship",
+    "tuition",
+    "aid offer",
+    "aid offers",
+    "award letter",
+    "student aid",
+    "webgrants",
+    "pell grant",
+    "state aid",
+    "state grant",
+    "pay for college",
+    "paying for college",
+    "money for college",
+    "money for school",
+    "school",
+    "student loan",
+    "student loans",
+    "grant",
+    "grants",
+    "work study",
+    "fafsa id"
+  ],
+  "cycle": {
+    "label": "2027–28 school year",
+    "starts": "2026-10-01",
+    "ends": "2028-06-30"
+  },
+  "notices": [
+    {
+      "id": "junior_next_cycle",
+      "applies_if": {
+        "fact": "grade_level",
+        "eq": "hs_junior"
+      },
+      "message": "This plan is for students starting college in fall 2027. Juniors apply in the next cycle, which is expected to open October 1, 2027. You can look through these steps now to get ready.",
+      "stop_plan": false
+    }
+  ],
+  "facts": [
+    {
+      "id": "state",
+      "question": "Which state do you live in? (Use your state of legal residence.)",
+      "type": "enum",
+      "options": [
+        {
+          "value": "al",
+          "label": "Alabama",
+          "signals": [
+            "alabama",
+            "birmingham",
+            "montgomery alabama"
+          ]
+        },
+        {
+          "value": "ak",
+          "label": "Alaska",
+          "signals": [
+            "alaska",
+            "anchorage"
+          ]
+        },
+        {
+          "value": "az",
+          "label": "Arizona",
+          "signals": [
+            "arizona",
+            "phoenix",
+            "tucson"
+          ]
+        },
+        {
+          "value": "ar",
+          "label": "Arkansas",
+          "signals": [
+            "arkansas",
+            "little rock"
+          ]
+        },
+        {
+          "value": "ca",
+          "label": "California",
+          "signals": [
+            "california",
+            "san jose",
+            "san josé",
+            "los angeles",
+            "san diego",
+            "san francisco",
+            "bay area",
+            "sacramento",
+            "oakland",
+            "fresno"
+          ]
+        },
+        {
+          "value": "co",
+          "label": "Colorado",
+          "signals": [
+            "colorado",
+            "denver"
+          ]
+        },
+        {
+          "value": "ct",
+          "label": "Connecticut",
+          "signals": [
+            "connecticut",
+            "hartford"
+          ]
+        },
+        {
+          "value": "de",
+          "label": "Delaware",
+          "signals": [
+            "delaware",
+            "wilmington delaware"
+          ]
+        },
+        {
+          "value": "dc",
+          "label": "District of Columbia",
+          "signals": [
+            "washington dc",
+            "washington d c",
+            "district of columbia"
+          ]
+        },
+        {
+          "value": "fl",
+          "label": "Florida",
+          "signals": [
+            "florida",
+            "miami",
+            "orlando",
+            "tampa",
+            "jacksonville"
+          ]
+        },
+        {
+          "value": "ga",
+          "label": "Georgia",
+          "signals": [
+            "georgia",
+            "atlanta"
+          ]
+        },
+        {
+          "value": "hi",
+          "label": "Hawaii",
+          "signals": [
+            "hawaii",
+            "honolulu"
+          ]
+        },
+        {
+          "value": "id",
+          "label": "Idaho",
+          "signals": [
+            "idaho",
+            "boise"
+          ]
+        },
+        {
+          "value": "il",
+          "label": "Illinois",
+          "signals": [
+            "illinois",
+            "chicago"
+          ]
+        },
+        {
+          "value": "in",
+          "label": "Indiana",
+          "signals": [
+            "indiana",
+            "indianapolis"
+          ]
+        },
+        {
+          "value": "ia",
+          "label": "Iowa",
+          "signals": [
+            "iowa",
+            "des moines"
+          ]
+        },
+        {
+          "value": "ks",
+          "label": "Kansas",
+          "signals": [
+            "kansas",
+            "wichita"
+          ]
+        },
+        {
+          "value": "ky",
+          "label": "Kentucky",
+          "signals": [
+            "kentucky",
+            "louisville",
+            "lexington kentucky"
+          ]
+        },
+        {
+          "value": "la",
+          "label": "Louisiana",
+          "signals": [
+            "louisiana",
+            "new orleans",
+            "baton rouge"
+          ]
+        },
+        {
+          "value": "me",
+          "label": "Maine",
+          "signals": [
+            "maine",
+            "portland maine"
+          ]
+        },
+        {
+          "value": "md",
+          "label": "Maryland",
+          "signals": [
+            "maryland",
+            "baltimore"
+          ]
+        },
+        {
+          "value": "ma",
+          "label": "Massachusetts",
+          "signals": [
+            "massachusetts",
+            "boston"
+          ]
+        },
+        {
+          "value": "mi",
+          "label": "Michigan",
+          "signals": [
+            "michigan",
+            "detroit"
+          ]
+        },
+        {
+          "value": "mn",
+          "label": "Minnesota",
+          "signals": [
+            "minnesota",
+            "minneapolis",
+            "saint paul",
+            "st paul"
+          ]
+        },
+        {
+          "value": "ms",
+          "label": "Mississippi",
+          "signals": [
+            "mississippi",
+            "jackson mississippi"
+          ]
+        },
+        {
+          "value": "mo",
+          "label": "Missouri",
+          "signals": [
+            "missouri",
+            "st louis",
+            "saint louis",
+            "kansas city missouri"
+          ]
+        },
+        {
+          "value": "mt",
+          "label": "Montana",
+          "signals": [
+            "montana",
+            "billings"
+          ]
+        },
+        {
+          "value": "ne",
+          "label": "Nebraska",
+          "signals": [
+            "nebraska",
+            "omaha",
+            "lincoln nebraska"
+          ]
+        },
+        {
+          "value": "nv",
+          "label": "Nevada",
+          "signals": [
+            "nevada",
+            "las vegas",
+            "reno"
+          ]
+        },
+        {
+          "value": "nh",
+          "label": "New Hampshire",
+          "signals": [
+            "new hampshire",
+            "manchester new hampshire"
+          ]
+        },
+        {
+          "value": "nj",
+          "label": "New Jersey",
+          "signals": [
+            "new jersey",
+            "newark",
+            "jersey city"
+          ]
+        },
+        {
+          "value": "nm",
+          "label": "New Mexico",
+          "signals": [
+            "new mexico",
+            "albuquerque",
+            "santa fe"
+          ]
+        },
+        {
+          "value": "ny",
+          "label": "New York",
+          "signals": [
+            "new york",
+            "new york city",
+            "nyc",
+            "brooklyn",
+            "queens",
+            "the bronx",
+            "buffalo"
+          ]
+        },
+        {
+          "value": "nc",
+          "label": "North Carolina",
+          "signals": [
+            "north carolina",
+            "charlotte",
+            "raleigh"
+          ]
+        },
+        {
+          "value": "nd",
+          "label": "North Dakota",
+          "signals": [
+            "north dakota",
+            "fargo"
+          ]
+        },
+        {
+          "value": "oh",
+          "label": "Ohio",
+          "signals": [
+            "ohio",
+            "columbus ohio",
+            "cleveland",
+            "cincinnati"
+          ]
+        },
+        {
+          "value": "ok",
+          "label": "Oklahoma",
+          "signals": [
+            "oklahoma",
+            "oklahoma city",
+            "tulsa"
+          ]
+        },
+        {
+          "value": "or",
+          "label": "Oregon",
+          "signals": [
+            "oregon",
+            "portland oregon",
+            "eugene",
+            "salem oregon"
+          ]
+        },
+        {
+          "value": "pa",
+          "label": "Pennsylvania",
+          "signals": [
+            "pennsylvania",
+            "philadelphia",
+            "pittsburgh"
+          ]
+        },
+        {
+          "value": "ri",
+          "label": "Rhode Island",
+          "signals": [
+            "rhode island",
+            "providence"
+          ]
+        },
+        {
+          "value": "sc",
+          "label": "South Carolina",
+          "signals": [
+            "south carolina",
+            "charleston south carolina",
+            "columbia south carolina"
+          ]
+        },
+        {
+          "value": "sd",
+          "label": "South Dakota",
+          "signals": [
+            "south dakota",
+            "sioux falls"
+          ]
+        },
+        {
+          "value": "tn",
+          "label": "Tennessee",
+          "signals": [
+            "tennessee",
+            "nashville",
+            "memphis",
+            "knoxville"
+          ]
+        },
+        {
+          "value": "tx",
+          "label": "Texas",
+          "signals": [
+            "texas",
+            "houston",
+            "dallas",
+            "san antonio",
+            "austin texas",
+            "el paso",
+            "fort worth"
+          ]
+        },
+        {
+          "value": "ut",
+          "label": "Utah",
+          "signals": [
+            "utah",
+            "salt lake city"
+          ]
+        },
+        {
+          "value": "vt",
+          "label": "Vermont",
+          "signals": [
+            "vermont",
+            "burlington vermont"
+          ]
+        },
+        {
+          "value": "va",
+          "label": "Virginia",
+          "signals": [
+            "virginia",
+            "richmond",
+            "virginia beach",
+            "norfolk"
+          ]
+        },
+        {
+          "value": "wa",
+          "label": "Washington",
+          "signals": [
+            "washington state",
+            "seattle",
+            "spokane",
+            "tacoma"
+          ]
+        },
+        {
+          "value": "wv",
+          "label": "West Virginia",
+          "signals": [
+            "west virginia",
+            "charleston west virginia"
+          ]
+        },
+        {
+          "value": "wi",
+          "label": "Wisconsin",
+          "signals": [
+            "wisconsin",
+            "milwaukee",
+            "madison wisconsin"
+          ]
+        },
+        {
+          "value": "wy",
+          "label": "Wyoming",
+          "signals": [
+            "wyoming",
+            "cheyenne",
+            "casper"
+          ]
+        },
+        {
+          "value": "other",
+          "label": "A U.S. territory or outside the U.S.",
+          "signals": [
+            "puerto rico",
+            "guam",
+            "us virgin islands",
+            "american samoa"
+          ]
+        }
+      ],
+      "ask_if_missing": true,
+      "required": true,
+      "ignore_if_after": [
+        "west"
+      ],
+      "shared": true
+    },
+    {
+      "id": "grade_level",
+      "question": "Where is the student right now?",
+      "type": "enum",
+      "options": [
+        {
+          "value": "hs_senior",
+          "label": "High school senior",
+          "signals": [
+            "senior",
+            "seniors",
+            "12th grade",
+            "12th grader",
+            "twelfth grade",
+            "graduating this year"
+          ]
+        },
+        {
+          "value": "hs_junior",
+          "label": "High school junior",
+          "signals": [
+            "junior",
+            "11th grade",
+            "11th grader",
+            "eleventh grade"
+          ]
+        },
+        {
+          "value": "college_student",
+          "label": "Already in college",
+          "signals": [
+            "in college",
+            "college student",
+            "university student",
+            "already in college",
+            "transfer student"
+          ]
+        },
+        {
+          "value": "returning_adult",
+          "label": "Adult going back to school",
+          "signals": [
+            "going back to school",
+            "go back to school",
+            "returning to school",
+            "back to college",
+            "adult student"
+          ]
+        }
+      ],
+      "ask_if_missing": true
+    },
+    {
+      "id": "citizenship_status",
+      "question": "What is the student's citizenship or immigration status?",
+      "type": "enum",
+      "options": [
+        {
+          "value": "us_citizen",
+          "label": "U.S. citizen",
+          "signals": [
+            "citizen",
+            "us citizen",
+            "american citizen",
+            "born in the us",
+            "born in california",
+            "born here",
+            "born in america"
+          ]
+        },
+        {
+          "value": "eligible_noncitizen",
+          "label": "Permanent resident (green card) or other eligible noncitizen",
+          "signals": [
+            "green card",
+            "permanent resident",
+            "eligible noncitizen",
+            "refugee",
+            "asylee"
+          ]
+        },
+        {
+          "value": "undocumented_or_daca",
+          "label": "Undocumented, DACA, or TPS",
+          "signals": [
+            "undocumented",
+            "daca",
+            "dreamer",
+            "tps",
+            "no papers",
+            "ab 540",
+            "ab540"
+          ]
+        },
+        {
+          "value": "not_sure",
+          "label": "Not sure / prefer not to say",
+          "means_unknown": true
+        }
+      ],
+      "ask_if_missing": true,
+      "sensitive": true,
+      "ignore_if_after": [
+        "mom",
+        "dad",
+        "mother",
+        "father",
+        "parent",
+        "parents",
+        "stepmom",
+        "stepdad",
+        "stepmother",
+        "stepfather",
+        "guardian"
+      ]
+    },
+    {
+      "id": "dependency_status",
+      "question": "Will the student include parent information on the application?",
+      "type": "enum",
+      "options": [
+        {
+          "value": "dependent",
+          "label": "Yes — parent information is included (most high school students)",
+          "signals": [
+            "dependent",
+            "live with my parents",
+            "living with my parents",
+            "parents claim me"
+          ]
+        },
+        {
+          "value": "independent",
+          "label": "No — the student is independent",
+          "signals": [
+            "independent student",
+            "foster care",
+            "foster youth",
+            "homeless",
+            "emancipated",
+            "ward of the court",
+            "unaccompanied"
+          ]
+        },
+        {
+          "value": "not_sure",
+          "label": "Not sure",
+          "means_unknown": true
+        }
+      ],
+      "ask_if_missing": true,
+      "model": false
+    },
+    {
+      "id": "parent_ssn",
+      "question": "Do the student's parents have Social Security numbers?",
+      "type": "enum",
+      "options": [
+        {
+          "value": "all",
+          "label": "Yes, all of them",
+          "signals": [
+            "have social security numbers",
+            "has a social security number",
+            "have ssns",
+            "has an ssn"
+          ]
+        },
+        {
+          "value": "some_or_none",
+          "label": "One or both do not",
+          "signals": [
+            "doesn't have a social security number",
+            "don't have social security numbers",
+            "dont have social security numbers",
+            "doesnt have a social security number",
+            "no social security number",
+            "without a social security number",
+            "doesn't have an ssn",
+            "doesnt have an ssn",
+            "don't have ssns",
+            "no ssn",
+            "without an ssn",
+            "itin",
+            "parents are undocumented",
+            "parent is undocumented",
+            "mom is undocumented",
+            "dad is undocumented",
+            "mother is undocumented",
+            "father is undocumented"
+          ]
+        },
+        {
+          "value": "not_sure",
+          "label": "Not sure / prefer not to say",
+          "means_unknown": true
+        }
+      ],
+      "ask_if_missing": false,
+      "sensitive": true
+    },
+    {
+      "id": "parent_self_employed",
+      "question": "Is a parent self-employed or does a parent own a business?",
+      "type": "bool",
+      "signals_yes": [
+        "self employed",
+        "own a business",
+        "owns a business",
+        "own their own business",
+        "run a business",
+        "runs a business",
+        "business owner",
+        "small business",
+        "freelance",
+        "freelancer",
+        "independent contractor",
+        "1099"
+      ],
+      "ask_if_missing": false
+    },
+    {
+      "id": "college_types",
+      "question": "Which kinds of colleges is the student applying to?",
+      "type": "multi",
+      "options": [
+        {
+          "value": "public_4yr",
+          "label": "Public university in my state",
+          "signals": [
+            "state university",
+            "state school",
+            "public university",
+            "public college",
+            "uc",
+            "ucs",
+            "university of california",
+            "ucla",
+            "uc berkeley",
+            "berkeley",
+            "ucsd",
+            "uc davis",
+            "uc irvine",
+            "csu",
+            "csus",
+            "cal state",
+            "cal states",
+            "san jose state",
+            "sjsu",
+            "cal poly",
+            "ut austin",
+            "texas a&m",
+            "suny",
+            "cuny"
+          ]
+        },
+        {
+          "value": "community_college",
+          "label": "Community college",
+          "signals": [
+            "community college",
+            "community colleges",
+            "junior college",
+            "de anza",
+            "foothill college"
+          ]
+        },
+        {
+          "value": "private",
+          "label": "Private college or university",
+          "signals": [
+            "private college",
+            "private colleges",
+            "private university",
+            "stanford",
+            "usc",
+            "santa clara university",
+            "harvard",
+            "yale",
+            "princeton",
+            "nyu",
+            "ivy league"
+          ]
+        },
+        {
+          "value": "out_of_state",
+          "label": "College in another state",
+          "signals": [
+            "out of state",
+            "another state",
+            "outside california",
+            "outside my state"
+          ]
+        }
+      ],
+      "ask_if_missing": true
+    },
+    {
+      "id": "received_verification",
+      "question": "Has a college or the government asked you to verify your application information?",
+      "type": "bool",
+      "signals_yes": [
+        "verification",
+        "selected for verification",
+        "asked to verify",
+        "verify my",
+        "verify our"
+      ],
+      "ask_if_missing": false
+    },
+    {
+      "id": "application_status",
+      "question": "Have you already started or submitted your FAFSA or Dream Act Application?",
+      "type": "enum",
+      "options": [
+        {
+          "value": "not_started",
+          "label": "Not started",
+          "signals": [
+            "haven't started",
+            "havent started",
+            "not started",
+            "haven't filled out",
+            "havent filled out",
+            "haven't done"
+          ]
+        },
+        {
+          "value": "in_progress",
+          "label": "Started, not submitted",
+          "signals": [
+            "started",
+            "working on my fafsa",
+            "working on the fafsa",
+            "halfway through",
+            "in progress"
+          ]
+        },
+        {
+          "value": "submitted",
+          "label": "Submitted",
+          "signals": [
+            "submitted",
+            "already did my fafsa",
+            "already did the fafsa",
+            "already filled out",
+            "finished my fafsa",
+            "finished the fafsa",
+            "completed my fafsa",
+            "completed the fafsa",
+            "turned in",
+            "sent in"
+          ]
+        }
+      ],
+      "ask_if_missing": false
+    }
+  ],
+  "documents": [
+    {
+      "id": "student_ssn",
+      "name": "Student's Social Security number",
+      "who": "Student",
+      "note": "Needed to create a StudentAid.gov account and to file the FAFSA.",
+      "applies_if": {
+        "fact": "citizenship_status",
+        "in": [
+          "us_citizen",
+          "eligible_noncitizen"
+        ]
+      }
+    },
+    {
+      "id": "email_and_phone",
+      "name": "An email address and phone number for each person who needs an account",
+      "who": "Student and parent(s)",
+      "note": "Each person needs their own email. Don't share one email between people.",
+      "applies_if": {
+        "always": true
+      }
+    },
+    {
+      "id": "tax_returns_2025",
+      "name": "2025 federal tax return(s)",
+      "who": "Student and parent(s), if they filed",
+      "note": "The 2027–28 application uses 2025 tax information. You'll reuse these for college forms too.",
+      "applies_if": {
+        "always": true
+      }
+    },
+    {
+      "id": "w2_forms_2025",
+      "name": "2025 W-2 forms and other income records",
+      "who": "Student and parent(s)",
+      "note": "Especially important if someone didn't file taxes.",
+      "applies_if": {
+        "always": true
+      }
+    },
+    {
+      "id": "untaxed_income",
+      "name": "Records of untaxed income",
+      "who": "Student and parent(s)",
+      "note": "For example, child support received or certain retirement contributions.",
+      "applies_if": {
+        "always": true
+      }
+    },
+    {
+      "id": "bank_and_assets",
+      "name": "Current bank balances and investment values",
+      "who": "Student and parent(s)",
+      "note": "Use the amounts on the day you fill out the application.",
+      "applies_if": {
+        "always": true
+      }
+    },
+    {
+      "id": "business_records",
+      "name": "Business records (for example, Schedule C and the business's value)",
+      "who": "Self-employed parent(s)",
+      "note": "Check what the application asks about business income and net worth before you start.",
+      "applies_if": {
+        "fact": "parent_self_employed",
+        "eq": true
+      }
+    }
+  ],
+  "deadlines": [
+    {
+      "id": "cal_grant_deadline",
+      "label": "Cal Grant deadline: application and GPA",
+      "date": "2027-03-02",
+      "kind": "hard",
+      "note": "The application and a school-certified GPA must be in by this date (date postmarked).",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "if_missed": "Community college students may have a later Cal Grant deadline. Ask your counselor or check CSAC for what you can still apply for."
+    },
+    {
+      "id": "federal_fafsa_deadline",
+      "label": "Last day to submit the 2027–28 FAFSA (federal)",
+      "date": "2028-06-30",
+      "kind": "hard",
+      "note": "This is the federal deadline. State and college deadlines come much earlier, so don't wait for it.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "college_priority_deadlines",
+      "label": "Each college's priority financial aid deadline",
+      "date": null,
+      "kind": "varies",
+      "note": "Look this up on each college's financial aid page. Applying by the priority date can mean more aid.",
+      "source_url": null,
+      "last_verified": null
+    },
+    {
+      "id": "verification_deadline",
+      "label": "Verification deadline",
+      "date": null,
+      "kind": "from_letter",
+      "note": "Use the date in the email or letter from your college.",
+      "source_url": null,
+      "last_verified": null
+    },
+    {
+      "id": "acceptance_deadline",
+      "label": "Deadline to accept a college's offer",
+      "date": null,
+      "kind": "varies",
+      "note": "Often around May 1 for fall admission. Check each college's admission letter.",
+      "source_url": null,
+      "last_verified": null
+    },
+    {
+      "id": "ca_cc_cal_grant_deadline",
+      "label": "Additional community college Cal Grants",
+      "date": "2027-09-02",
+      "kind": "hard",
+      "note": "Date postmarked. Only for students going to a California community college.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "al_deadline",
+      "label": "Alabama state aid",
+      "date": null,
+      "kind": "varies",
+      "note": "Your state doesn't list one deadline. Check with each college's financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "ak_aeg_deadline",
+      "label": "Alaska Education Grant",
+      "date": null,
+      "kind": "varies",
+      "note": "As soon as possible after Oct. 1, 2026. Awards are made while money lasts, so earlier is better.",
+      "asap": true,
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "ak_aps_deadline",
+      "label": "Alaska Performance Scholarship (priority)",
+      "date": "2027-06-30",
+      "kind": "priority",
+      "note": "Awards made while money lasts.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "az_deadline",
+      "label": "Arizona Promise Program (priority)",
+      "date": "2027-04-01",
+      "kind": "priority",
+      "note": "",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "ar_deadline",
+      "label": "Academic Challenge and ArFuture Grant (fall)",
+      "date": "2027-07-01",
+      "kind": "hard",
+      "note": "Governor's Scholars (Distinguished) is due March 1, 2027. ArFuture spring term: Jan. 10, 2028.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "co_deadline",
+      "label": "Colorado state aid",
+      "date": null,
+      "kind": "varies",
+      "note": "Your state doesn't list one deadline. Check with each college's financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "ct_deadline",
+      "label": "Connecticut state aid (priority)",
+      "date": "2027-02-15",
+      "kind": "priority",
+      "note": "More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "de_deadline",
+      "label": "Delaware state aid",
+      "date": "2027-05-15",
+      "kind": "hard",
+      "note": "",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "dc_deadline",
+      "label": "DC state aid (priority)",
+      "date": "2027-06-25",
+      "kind": "priority",
+      "note": "",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "dc_tag_deadline",
+      "label": "DC Tuition Assistance Grant: DC OneApp (priority)",
+      "date": "2027-07-01",
+      "kind": "priority",
+      "note": "Submit the DC OneApp and supporting documents.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "fl_deadline",
+      "label": "Florida state aid (date processed)",
+      "date": "2027-05-15",
+      "kind": "hard",
+      "note": "",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "ga_deadline",
+      "label": "Georgia state aid",
+      "date": null,
+      "kind": "varies",
+      "note": "As soon as possible after Oct. 1, 2026. Awards are made while money lasts, so earlier is better. More forms may be required.",
+      "asap": true,
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "hi_deadline",
+      "label": "Hawaii state aid",
+      "date": null,
+      "kind": "varies",
+      "note": "Your state doesn't list one deadline. Check with each college's financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "id_deadline",
+      "label": "Idaho Opportunity Scholarship",
+      "date": "2027-03-01",
+      "kind": "hard",
+      "note": "More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "il_deadline",
+      "label": "Illinois Monetary Award Program (MAP)",
+      "date": null,
+      "kind": "varies",
+      "note": "As soon as possible after Oct. 1, 2026. Awards are made while money lasts, so earlier is better.",
+      "asap": true,
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "in_deadline",
+      "label": "Indiana state grants",
+      "date": "2027-04-15",
+      "kind": "hard",
+      "note": "Frank O'Bannon Grant, 21st Century Scholarship, Workforce Ready Grant, and Adult Student Grant.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "ia_deadline",
+      "label": "Iowa state aid",
+      "date": "2027-07-01",
+      "kind": "hard",
+      "note": "Earlier priority deadlines may exist for some programs.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "ks_deadline",
+      "label": "Kansas state aid (priority)",
+      "date": "2027-04-01",
+      "kind": "priority",
+      "note": "More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "ky_deadline",
+      "label": "Kentucky state aid",
+      "date": null,
+      "kind": "varies",
+      "note": "As soon as possible after Oct. 1, 2026. Awards are made while money lasts, so earlier is better.",
+      "asap": true,
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "la_rec_deadline",
+      "label": "Louisiana state aid (recommended)",
+      "date": "2027-02-01",
+      "kind": "priority",
+      "note": "The final deadline is July 1, 2028, but Feb. 1, 2027 is recommended.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "la_deadline",
+      "label": "Louisiana state aid (final)",
+      "date": "2028-07-01",
+      "kind": "hard",
+      "note": "",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "me_deadline",
+      "label": "Maine state aid",
+      "date": "2027-05-01",
+      "kind": "hard",
+      "note": "",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "md_deadline",
+      "label": "Howard P. Rawlings Educational Excellence Awards",
+      "date": "2027-03-01",
+      "kind": "hard",
+      "note": "",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "ma_deadline",
+      "label": "Massachusetts state aid (priority)",
+      "date": "2027-05-01",
+      "kind": "priority",
+      "note": "",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "mi_deadline",
+      "label": "Michigan Competitive Scholarship and Tuition Grant (priority)",
+      "date": "2027-07-01",
+      "kind": "priority",
+      "note": "",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "mn_nsp_deadline",
+      "label": "North Star Promise (priority)",
+      "date": "2027-06-01",
+      "kind": "priority",
+      "note": "The Minnesota State Grant is due by the 30th day of your term.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "ms_help_deadline",
+      "label": "Mississippi HELP Grant",
+      "date": "2027-04-30",
+      "kind": "hard",
+      "note": "",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "ms_deadline",
+      "label": "Mississippi MTAG and MESG Grants",
+      "date": "2027-10-15",
+      "kind": "hard",
+      "note": "",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "mo_deadline",
+      "label": "Missouri state aid (priority)",
+      "date": "2027-02-01",
+      "kind": "priority",
+      "note": "Applications are accepted through April 1, 2027.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "mt_deadline",
+      "label": "Montana state aid",
+      "date": null,
+      "kind": "varies",
+      "note": "As soon as possible after Oct. 1, 2026. Awards are made while money lasts, so earlier is better. More forms may be required.",
+      "asap": true,
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "ne_deadline",
+      "label": "Nebraska state aid",
+      "date": null,
+      "kind": "varies",
+      "note": "Your state doesn't list one deadline. Check with each college's financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "nv_ssog_deadline",
+      "label": "Silver State Opportunity Grant",
+      "date": null,
+      "kind": "varies",
+      "note": "As soon as possible after Oct. 1, 2026. Awards are made while money lasts, so earlier is better.",
+      "asap": true,
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "nv_deadline",
+      "label": "Nevada Promise Scholarship",
+      "date": "2027-04-01",
+      "kind": "hard",
+      "note": "More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "nh_deadline",
+      "label": "New Hampshire state aid",
+      "date": null,
+      "kind": "varies",
+      "note": "Your state doesn't list one deadline. Check with each college's financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "nj_deadline",
+      "label": "New Jersey Tuition Aid Grant (new applicants)",
+      "date": "2027-09-15",
+      "kind": "hard",
+      "note": "This is for fall and spring terms. Renewal applicants: April 15, 2027. Spring term only: Feb. 15, 2028.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "nm_deadline",
+      "label": "New Mexico state aid",
+      "date": null,
+      "kind": "varies",
+      "note": "Your state doesn't list one deadline. Check with each college's financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "ny_deadline",
+      "label": "New York state aid",
+      "date": "2028-06-30",
+      "kind": "hard",
+      "note": "More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "nc_deadline",
+      "label": "North Carolina state aid (priority)",
+      "date": "2027-06-01",
+      "kind": "priority",
+      "note": "For UNC System schools and community colleges. Private colleges: as soon as possible after Oct. 1, 2026.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "nd_deadline",
+      "label": "North Dakota state aid",
+      "date": null,
+      "kind": "varies",
+      "note": "As soon as possible after Oct. 1, 2026. Awards are made while money lasts, so earlier is better.",
+      "asap": true,
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "oh_deadline",
+      "label": "Ohio state aid",
+      "date": "2027-10-01",
+      "kind": "hard",
+      "note": "",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "ok_deadline",
+      "label": "Oklahoma state aid",
+      "date": null,
+      "kind": "varies",
+      "note": "Your state doesn't list one deadline. Check with each college's financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "or_oog_deadline",
+      "label": "Oregon Opportunity Grant",
+      "date": null,
+      "kind": "varies",
+      "note": "As soon as possible after Oct. 1, 2026. Awards are made while money lasts, so earlier is better.",
+      "asap": true,
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "or_deadline",
+      "label": "OSAC private scholarships",
+      "date": "2027-03-01",
+      "kind": "hard",
+      "note": "More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "pa_deadline",
+      "label": "Pennsylvania State Grant",
+      "date": "2027-05-01",
+      "kind": "hard",
+      "note": "First-time applicants at a community college, trade or technical school, or some two-year programs: Aug. 1, 2027.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "ri_deadline",
+      "label": "Rhode Island state aid",
+      "date": null,
+      "kind": "varies",
+      "note": "Your state doesn't list one deadline. Check with each college's financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "sc_deadline",
+      "label": "South Carolina need-based grants",
+      "date": null,
+      "kind": "varies",
+      "note": "First come, first served while money lasts, so apply early. SC Tuition Grants (private SC colleges only): Aug. 1, 2027.",
+      "asap": true,
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "sd_deadline",
+      "label": "South Dakota state aid",
+      "date": null,
+      "kind": "varies",
+      "note": "Your state doesn't list one deadline. Check with each college's financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "tn_deadline",
+      "label": "Tennessee Promise and state grant",
+      "date": "2027-04-01",
+      "kind": "hard",
+      "note": "Other state grants are first come, first served. Lottery scholarship: fall term Sept. 1, 2027.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "tx_deadline",
+      "label": "Texas state aid (priority)",
+      "date": "2027-01-15",
+      "kind": "priority",
+      "note": "Private and two-year colleges may have different deadlines. More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "ut_deadline",
+      "label": "Utah state aid",
+      "date": null,
+      "kind": "varies",
+      "note": "Your state doesn't list one deadline. Check with each college's financial aid office. Awards are made while money lasts.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "vt_deadline",
+      "label": "Vermont state aid",
+      "date": null,
+      "kind": "varies",
+      "note": "As soon as possible after Oct. 1, 2026. Awards are made while money lasts, so earlier is better. More forms may be required.",
+      "asap": true,
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "va_deadline",
+      "label": "Virginia state aid",
+      "date": null,
+      "kind": "varies",
+      "note": "As soon as possible after Oct. 1, 2026. Awards are made while money lasts, so earlier is better. Deadlines vary by college.",
+      "asap": true,
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "wa_deadline",
+      "label": "Washington College Grant",
+      "date": null,
+      "kind": "varies",
+      "note": "As soon as possible after Oct. 1, 2026. Money is available year round, and all eligible students are awarded.",
+      "asap": true,
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "wv_promise_deadline",
+      "label": "PROMISE Scholarship",
+      "date": "2027-03-01",
+      "kind": "hard",
+      "note": "New applicants also submit an extra form.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "wv_deadline",
+      "label": "WV Higher Education Grant",
+      "date": "2027-04-15",
+      "kind": "hard",
+      "note": "WV Invests Grant (priority): April 15, 2027.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "wi_deadline",
+      "label": "Wisconsin state aid",
+      "date": null,
+      "kind": "varies",
+      "note": "Your state doesn't list one deadline. Check with each college's financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "wy_deadline",
+      "label": "Wyoming state aid",
+      "date": null,
+      "kind": "varies",
+      "note": "Your state doesn't list one deadline. Check with each college's financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12"
+    }
+  ],
+  "steps": [
+    {
+      "id": "choose_application",
+      "title": "Choose the right application: the FAFSA or your state's form",
+      "applies_if": {
+        "always": true
+      },
+      "depends_on": [],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "StudentAid.gov",
+        "url": "https://studentaid.gov/"
+      },
+      "plain_explanation": "Most students fill out the FAFSA, the federal form that also counts for most state and college aid. Students who can't file the FAFSA because of their immigration status may be able to use their state's own application instead. LifeBridge shows yours if your state has one. Fill out only one, unless your state or college asks for both. If you're not sure, ask your school counselor.",
+      "source_text": "The information you provide on the FAFSA form is used to determine eligibility for federal student aid, such as grants, work-study, and loans. In addition, most states and colleges use information from the FAFSA form to award nonfederal aid.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "estimated_time": "10 minutes",
+      "done_if": {
+        "fact": "application_status",
+        "in": [
+          "in_progress",
+          "submitted"
+        ]
+      },
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "federal_aid_types",
+      "title": "Learn what federal aid the FAFSA can get you",
+      "applies_if": {
+        "fact": "citizenship_status",
+        "in": [
+          "us_citizen",
+          "eligible_noncitizen"
+        ]
+      },
+      "depends_on": [
+        "choose_application"
+      ],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "StudentAid.gov",
+        "url": "https://studentaid.gov/"
+      },
+      "plain_explanation": "The FAFSA is your application for federal aid. That includes grants like the Pell Grant, which don't have to be paid back; work-study, which pays you for a part-time job while you're in school; and federal student loans, which do have to be paid back. Each college uses your FAFSA to tell you which of these you can get. Every student in every state can apply.",
+      "source_text": "The information you provide on the FAFSA form is used to determine eligibility for federal student aid, such as grants, work-study, and loans. In addition, most states and colleges use information from the FAFSA form to award nonfederal aid.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "estimated_time": "5 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "fafsa_create_accounts",
+      "title": "Create StudentAid.gov accounts for the student and parent(s)",
+      "applies_if": {
+        "fact": "citizenship_status",
+        "in": [
+          "us_citizen",
+          "eligible_noncitizen"
+        ]
+      },
+      "depends_on": [
+        "choose_application"
+      ],
+      "documents": [
+        "student_ssn",
+        "email_and_phone"
+      ],
+      "deadlines": [],
+      "where": {
+        "label": "StudentAid.gov",
+        "url": "https://studentaid.gov/"
+      },
+      "plain_explanation": "The student and each parent who needs to give information on the FAFSA each need their own StudentAid.gov account. Make the accounts a few days before you plan to fill out the FAFSA, because they may need to be confirmed before you can use them.",
+      "source_text": "You’ll need your own StudentAid.gov account to complete the FAFSA form online . If you have any additional FAFSA contributors, they’ll each need their own StudentAid.gov account as well.",
+      "source_url": "https://studentaid.gov/articles/key-facts-accounts/",
+      "last_verified": "2026-10-14",
+      "estimated_time": "15 minutes per person",
+      "done_if": {
+        "fact": "application_status",
+        "in": [
+          "in_progress",
+          "submitted"
+        ]
+      },
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "parent_account_without_ssn",
+      "title": "Set up an account for a parent who doesn't have a Social Security number",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "citizenship_status",
+            "in": [
+              "us_citizen",
+              "eligible_noncitizen"
+            ]
+          },
+          {
+            "fact": "dependency_status",
+            "eq": "dependent"
+          },
+          {
+            "fact": "parent_ssn",
+            "eq": "some_or_none"
+          }
+        ]
+      },
+      "depends_on": [
+        "choose_application"
+      ],
+      "documents": [
+        "email_and_phone"
+      ],
+      "deadlines": [],
+      "where": {
+        "label": "StudentAid.gov",
+        "url": "https://studentaid.gov/"
+      },
+      "plain_explanation": "A parent without a Social Security number can still create a StudentAid.gov account and give their information on the student's FAFSA, but there may be extra steps to confirm their identity. Start this early, since it can take longer.",
+      "source_text": "Contributors who don’t have an SSN can still create a StudentAid.gov account to fill out and sign their required sections of the online FAFSA form.",
+      "source_url": "https://studentaid.gov/articles/key-facts-accounts/",
+      "last_verified": "2026-10-14",
+      "estimated_time": "20–30 minutes, plus waiting time",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "cadaa_create_account",
+      "title": "Create a California Dream Act Application account",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ca"
+          },
+          {
+            "fact": "citizenship_status",
+            "eq": "undocumented_or_daca"
+          }
+        ]
+      },
+      "depends_on": [
+        "choose_application"
+      ],
+      "documents": [
+        "email_and_phone"
+      ],
+      "deadlines": [],
+      "where": {
+        "label": "California Dream Act Application",
+        "url": "https://dream.csac.ca.gov/"
+      },
+      "plain_explanation": "The California Dream Act Application is run by the California Student Aid Commission (CSAC), not the federal government. The student creates an account on the Dream Act website. Parents sign the application using a PIN they set up.",
+      "source_text": "For noncitizens without a Social Security card or with one issued through the federal Deferred Action for Childhood Arrivals (DACA) program, fill out the California Dream Act Application. Contact the California Student Aid Commission or your financial aid office for more information.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-14",
+      "estimated_time": "15 minutes",
+      "done_if": {
+        "fact": "application_status",
+        "in": [
+          "in_progress",
+          "submitted"
+        ]
+      },
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "gather_documents",
+      "title": "Gather tax and household information",
+      "applies_if": {
+        "always": true
+      },
+      "depends_on": [
+        "choose_application"
+      ],
+      "documents": [
+        "tax_returns_2025",
+        "w2_forms_2025",
+        "untaxed_income",
+        "bank_and_assets",
+        "business_records"
+      ],
+      "deadlines": [],
+      "where": null,
+      "plain_explanation": "Collect everything in your document checklist before you sit down to fill out the application. You'll reuse most of these documents for college forms later, so keep them together in one place.",
+      "source_text": "In this article, we cover what you’ll need to access and complete your form: StudentAid.gov account Parent or spouse information Federal income tax return (accessible online) Records of your child support received Records of your assets List of schools you’re interested in attending",
+      "source_url": "https://studentaid.gov/articles/things-you-need-for-fafsa/",
+      "last_verified": "2026-10-14",
+      "estimated_time": "1–2 hours",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "list_colleges",
+      "title": "List the colleges that should receive your information",
+      "applies_if": {
+        "always": true
+      },
+      "depends_on": [],
+      "documents": [],
+      "deadlines": [],
+      "where": null,
+      "plain_explanation": "Your application sends your information to the colleges you list. Add every college you're applying to, even ones you're not sure about. You can usually add more later.",
+      "source_text": "You can add up to 20 schools on the online FAFSA form—and you need to add at least one to submit it. Create a list of the colleges, career schools, or trade schools you’re considering even if you haven’t applied or been accepted yet.",
+      "source_url": "https://studentaid.gov/articles/things-you-need-for-fafsa/",
+      "last_verified": "2026-10-14",
+      "estimated_time": "10 minutes",
+      "done_if": {
+        "fact": "application_status",
+        "eq": "submitted"
+      },
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "submit_fafsa",
+      "title": "Fill out and submit the 2027–28 FAFSA",
+      "applies_if": {
+        "fact": "citizenship_status",
+        "in": [
+          "us_citizen",
+          "eligible_noncitizen"
+        ]
+      },
+      "depends_on": [
+        "federal_aid_types",
+        "fafsa_create_accounts",
+        "parent_account_without_ssn",
+        "gather_documents",
+        "list_colleges"
+      ],
+      "documents": [
+        "tax_returns_2025",
+        "w2_forms_2025",
+        "untaxed_income",
+        "bank_and_assets",
+        "business_records"
+      ],
+      "deadlines": [
+        "college_priority_deadlines",
+        "federal_fafsa_deadline"
+      ],
+      "where": {
+        "label": "StudentAid.gov",
+        "url": "https://studentaid.gov/"
+      },
+      "plain_explanation": "The student fills out their part and invites their parent(s) to fill out theirs. The FAFSA isn't finished until everyone has signed and the whole form is submitted. Aim for each college's priority deadline and your state's deadline. They come long before the federal one.",
+      "source_text": "For federal aid, submit your application as early as possible, but no earlier than October 1, 2026 . We must receive your application no later than June 30, 2028.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-14",
+      "estimated_time": "1 hour",
+      "letter_signals": [
+        "FAFSA Submission Summary",
+        "contributor",
+        "signature needed"
+      ],
+      "done_if": {
+        "fact": "application_status",
+        "eq": "submitted"
+      },
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "submit_cadaa",
+      "title": "Fill out and submit the 2027–28 California Dream Act Application",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ca"
+          },
+          {
+            "fact": "citizenship_status",
+            "eq": "undocumented_or_daca"
+          }
+        ]
+      },
+      "depends_on": [
+        "cadaa_create_account",
+        "gather_documents",
+        "list_colleges"
+      ],
+      "documents": [
+        "tax_returns_2025",
+        "w2_forms_2025",
+        "untaxed_income",
+        "bank_and_assets",
+        "business_records"
+      ],
+      "deadlines": [
+        "college_priority_deadlines",
+        "cal_grant_deadline"
+      ],
+      "where": {
+        "label": "California Dream Act Application",
+        "url": "https://dream.csac.ca.gov/"
+      },
+      "plain_explanation": "Fill out the application, have a parent sign it if needed, and submit it. Aim for each college's priority deadline, and no later than the Cal Grant deadline.",
+      "source_text": "California (CA) For many state financial aid programs: March 2, 2027 (date postmarked). ... For noncitizens without a Social Security card or with one issued through the federal Deferred Action for Childhood Arrivals (DACA) program, fill out the California Dream Act Application.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-14",
+      "estimated_time": "1 hour",
+      "done_if": {
+        "fact": "application_status",
+        "eq": "submitted"
+      },
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "alt_app_co",
+      "title": "Fill out the Colorado Application for State Financial Aid (CASFA)",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "co"
+          },
+          {
+            "fact": "citizenship_status",
+            "eq": "undocumented_or_daca"
+          }
+        ]
+      },
+      "depends_on": [
+        "choose_application",
+        "gather_documents",
+        "list_colleges"
+      ],
+      "documents": [],
+      "deadlines": [
+        "co_deadline",
+        "college_priority_deadlines"
+      ],
+      "where": {
+        "label": "Colorado Application for State Financial Aid (CASFA)",
+        "url": "https://cdhe.colorado.gov/colorado-application-for-state-financial-aid"
+      },
+      "plain_explanation": "Colorado students who can't get federal aid, including undocumented students and students from mixed-status families, use the CASFA to apply for state and college aid at Colorado public colleges. Rules for state aid for undocumented students have been changing, so confirm you're eligible on the official page or with your college's financial aid office before you apply.",
+      "source_text": "CASFA is for students who are not eligible for Federal Student Aid, undocumented students or students from mixed status families or other situations who prefer not to share their contributors' personal data beyond Colorado higher education institutions.",
+      "source_url": "https://cdhe.colorado.gov/colorado-application-for-state-financial-aid",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "alt_app_il",
+      "title": "Fill out the Alternative Application for Illinois Financial Aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "il"
+          },
+          {
+            "fact": "citizenship_status",
+            "eq": "undocumented_or_daca"
+          }
+        ]
+      },
+      "depends_on": [
+        "choose_application",
+        "gather_documents",
+        "list_colleges"
+      ],
+      "documents": [],
+      "deadlines": [
+        "il_deadline",
+        "college_priority_deadlines"
+      ],
+      "where": {
+        "label": "Alternative Application for Illinois Financial Aid",
+        "url": "https://www.isac.org/students/before-college/financial-aid-planning/retention-of-illinois-rise-act/"
+      },
+      "plain_explanation": "Illinois offers an Alternative Application for the Monetary Award Program (MAP) for some students who can't get federal aid. ISAC says a 2026 court ruling changed who is eligible, and the 2027–28 application has new rules. Read ISAC's page carefully before applying. Rules for state aid for undocumented students have been changing, so confirm you're eligible on the official page or with your college's financial aid office before you apply.",
+      "source_text": "",
+      "source_url": "https://www.isac.org/students/before-college/financial-aid-planning/retention-of-illinois-rise-act/",
+      "last_verified": null,
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "alt_app_ma",
+      "title": "Fill out the Massachusetts Application for State Financial Aid (MASFA)",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ma"
+          },
+          {
+            "fact": "citizenship_status",
+            "eq": "undocumented_or_daca"
+          }
+        ]
+      },
+      "depends_on": [
+        "choose_application",
+        "gather_documents",
+        "list_colleges"
+      ],
+      "documents": [],
+      "deadlines": [
+        "ma_deadline",
+        "college_priority_deadlines"
+      ],
+      "where": {
+        "label": "Massachusetts Application for State Financial Aid (MASFA)",
+        "url": "https://www.mass.edu/forstufam/instatetuition/home.asp"
+      },
+      "plain_explanation": "Students who went to high school in Massachusetts for at least three years and can't file the FAFSA use the MASFA. File a new one every year. Rules for state aid for undocumented students have been changing, so confirm you're eligible on the official page or with your college's financial aid office before you apply.",
+      "source_text": "Complete the Massachusetts Application for State Financial Aid (MASFA) if you meet ALL of the following criteria: Are ineligible or unable to complete the FAFSA and Are not present in the United States on a visa or immigration status within the meaning of 8 U.S.C.",
+      "source_url": "https://www.mass.edu/forstufam/instatetuition/home.asp",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "alt_app_md",
+      "title": "Fill out the MHEC One App",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "md"
+          },
+          {
+            "fact": "citizenship_status",
+            "eq": "undocumented_or_daca"
+          }
+        ]
+      },
+      "depends_on": [
+        "choose_application",
+        "gather_documents",
+        "list_colleges"
+      ],
+      "documents": [],
+      "deadlines": [
+        "md_deadline",
+        "college_priority_deadlines"
+      ],
+      "where": {
+        "label": "MHEC One App",
+        "url": "https://mhec.maryland.gov/Pages/MHEC%20One%20App%20FAQs.aspx"
+      },
+      "plain_explanation": "Undocumented Maryland students who qualify for in-state tuition fill out the MHEC One App in the MDCAPS portal, because Maryland can't use the FAFSA for them. Rules for state aid for undocumented students have been changing, so confirm you're eligible on the official page or with your college's financial aid office before you apply.",
+      "source_text": "The new MHEC One App allows qualified children of undocumented immigrants to be considered for various State financial aid programs.",
+      "source_url": "https://mhec.maryland.gov/Pages/MHEC%20One%20App%20FAQs.aspx",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "alt_app_mn",
+      "title": "Fill out the Minnesota Alternative State Financial Aid Application",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "mn"
+          },
+          {
+            "fact": "citizenship_status",
+            "eq": "undocumented_or_daca"
+          }
+        ]
+      },
+      "depends_on": [
+        "choose_application",
+        "gather_documents",
+        "list_colleges"
+      ],
+      "documents": [],
+      "deadlines": [
+        "mn_nsp_deadline",
+        "college_priority_deadlines"
+      ],
+      "where": {
+        "label": "Minnesota Alternative State Financial Aid Application",
+        "url": "https://ohe.mn.gov/mn-dream-act"
+      },
+      "plain_explanation": "Minnesota's alternative application (formerly the MN Dream Act Application) lets eligible undocumented students who went to high school in Minnesota apply for the Minnesota State Grant and other state aid. Rules for state aid for undocumented students have been changing, so confirm you're eligible on the official page or with your college's financial aid office before you apply.",
+      "source_text": "",
+      "source_url": "https://ohe.mn.gov/mn-dream-act",
+      "last_verified": null,
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "alt_app_nj",
+      "title": "Fill out the New Jersey Alternative Financial Aid Application",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "nj"
+          },
+          {
+            "fact": "citizenship_status",
+            "eq": "undocumented_or_daca"
+          }
+        ]
+      },
+      "depends_on": [
+        "choose_application",
+        "gather_documents",
+        "list_colleges"
+      ],
+      "documents": [],
+      "deadlines": [
+        "nj_deadline",
+        "college_priority_deadlines"
+      ],
+      "where": {
+        "label": "New Jersey Alternative Financial Aid Application",
+        "url": "https://www.hesaa.org/pages/njalternativeapplication.aspx"
+      },
+      "plain_explanation": "New Jersey Dreamers who can't file the FAFSA may still get state aid through this application. You apply through your NJFAMS account on the HESAA website. Rules for state aid for undocumented students have been changing, so confirm you're eligible on the official page or with your college's financial aid office before you apply.",
+      "source_text": "If you are an NJ Dreamer and are not eligible for financial assistance under the Free Application for Federal Student Aid (FAFSA®), you may still be eligible for state financial aid through the New Jersey Alternative Financial Aid Application.",
+      "source_url": "https://www.hesaa.org/pages/njalternativeapplication.aspx",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "alt_app_nm",
+      "title": "Fill out the New Mexico alternative financial aid application (through your college)",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "nm"
+          },
+          {
+            "fact": "citizenship_status",
+            "eq": "undocumented_or_daca"
+          }
+        ]
+      },
+      "depends_on": [
+        "choose_application",
+        "gather_documents",
+        "list_colleges"
+      ],
+      "documents": [],
+      "deadlines": [
+        "nm_deadline",
+        "college_priority_deadlines"
+      ],
+      "where": {
+        "label": "New Mexico alternative financial aid application (through your college)",
+        "url": "https://hed.nm.gov/news/for-new-mexico-students-financial-aid-opportunities-abound"
+      },
+      "plain_explanation": "New Mexico residents can get state aid without regard to citizenship. If you can't file the FAFSA, ask your college's financial aid office for their alternative application. Rules for state aid for undocumented students have been changing, so confirm you're eligible on the official page or with your college's financial aid office before you apply.",
+      "source_text": "New Mexico law does not require citizenship status in order for a resident to benefit from state financial aid programs, and financial aid offices have alternative applications for awarding students who are not eligible to complete the FAFSA.",
+      "source_url": "https://hed.nm.gov/news/for-new-mexico-students-financial-aid-opportunities-abound",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "alt_app_ny",
+      "title": "Fill out the NYS DREAM Act application",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ny"
+          },
+          {
+            "fact": "citizenship_status",
+            "eq": "undocumented_or_daca"
+          }
+        ]
+      },
+      "depends_on": [
+        "choose_application",
+        "gather_documents",
+        "list_colleges"
+      ],
+      "documents": [],
+      "deadlines": [
+        "ny_deadline",
+        "college_priority_deadlines"
+      ],
+      "where": {
+        "label": "NYS DREAM Act application",
+        "url": "https://hesc.ny.gov/applying-aid/nys-dream-act"
+      },
+      "plain_explanation": "Undocumented students who finished high school in New York (or get in-state tuition) apply for New York state aid, like TAP, through the NYS DREAM Act application instead of the FAFSA. Rules for state aid for undocumented students have been changing, so confirm you're eligible on the official page or with your college's financial aid office before you apply.",
+      "source_text": "The Senator José Peralta New York State DREAM Act gives students who received their high school degree or GED in New York State and students receiving in-state tuition, including undocumented students, access to New York State‐administered student financial aid to support their higher education costs.",
+      "source_url": "https://hesc.ny.gov/applying-aid/nys-dream-act",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "alt_app_or",
+      "title": "Fill out the Oregon Student Aid Application (ORSAA)",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "or"
+          },
+          {
+            "fact": "citizenship_status",
+            "eq": "undocumented_or_daca"
+          }
+        ]
+      },
+      "depends_on": [
+        "choose_application",
+        "gather_documents",
+        "list_colleges"
+      ],
+      "documents": [],
+      "deadlines": [
+        "or_oog_deadline",
+        "or_deadline",
+        "college_priority_deadlines"
+      ],
+      "where": {
+        "label": "Oregon Student Aid Application (ORSAA)",
+        "url": "https://oregonstudentaid.gov/fafsa-orsaa/fafsaorsaa-information/"
+      },
+      "plain_explanation": "Undocumented Oregon students, including students with DACA or TPS, use the ORSAA to apply for the Oregon Opportunity Grant and other Oregon aid. Rules for state aid for undocumented students have been changing, so confirm you're eligible on the official page or with your college's financial aid office before you apply.",
+      "source_text": "The Oregon Student Aid Application (ORSAA) is an alternative to the FAFSA for undocumented Oregon students including students who have Deferred Action for Childhood Arrivals (DACA) status or Temporary Protected Status (TPS).",
+      "source_url": "https://oregonstudentaid.gov/fafsa-orsaa/fafsaorsaa-information/",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "alt_app_tx",
+      "title": "Fill out the Texas Application for State Financial Aid (TASFA)",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "tx"
+          },
+          {
+            "fact": "citizenship_status",
+            "eq": "undocumented_or_daca"
+          }
+        ]
+      },
+      "depends_on": [
+        "choose_application",
+        "gather_documents",
+        "list_colleges"
+      ],
+      "documents": [],
+      "deadlines": [
+        "tx_deadline",
+        "college_priority_deadlines"
+      ],
+      "where": {
+        "label": "Texas Application for State Financial Aid (TASFA)",
+        "url": "https://www.highered.texas.gov/students-families/tasfa/"
+      },
+      "plain_explanation": "Texas residents (as classified by their college) who can't file the FAFSA can use the TASFA to apply for state and college aid. You send it to each college's financial aid office. Rules for state aid for undocumented students have been changing, so confirm you're eligible on the official page or with your college's financial aid office before you apply.",
+      "source_text": "Filling out the FAFSA allows a student to be considered for a broader range of financial aid options than filling out the Texas Application for State Financial Aid (TASFA).",
+      "source_url": "https://www.highered.texas.gov/students-families/tasfa/",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "alt_app_va",
+      "title": "Fill out the Virginia Alternative State Aid Application (VASA)",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "va"
+          },
+          {
+            "fact": "citizenship_status",
+            "eq": "undocumented_or_daca"
+          }
+        ]
+      },
+      "depends_on": [
+        "choose_application",
+        "gather_documents",
+        "list_colleges"
+      ],
+      "documents": [],
+      "deadlines": [
+        "va_deadline",
+        "college_priority_deadlines"
+      ],
+      "where": {
+        "label": "Virginia Alternative State Aid Application (VASA)",
+        "url": "https://www.schev.edu/"
+      },
+      "plain_explanation": "Students who can't get federal aid but meet Virginia's state aid and residency rules use the VASA. Each Virginia college's financial aid office runs it, so ask yours how and when to apply. Rules for state aid for undocumented students have been changing, so confirm you're eligible on the official page or with your college's financial aid office before you apply.",
+      "source_text": "Students who are ineligible for federal aid but meet state aid and residency requirements can instead complete the Virginia Alternative State Aid Application.",
+      "source_url": "https://www.schev.edu/",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "alt_app_wa",
+      "title": "Fill out the Washington Application for State Financial Aid (WASFA)",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "wa"
+          },
+          {
+            "fact": "citizenship_status",
+            "eq": "undocumented_or_daca"
+          }
+        ]
+      },
+      "depends_on": [
+        "choose_application",
+        "gather_documents",
+        "list_colleges"
+      ],
+      "documents": [],
+      "deadlines": [
+        "wa_deadline",
+        "college_priority_deadlines"
+      ],
+      "where": {
+        "label": "Washington Application for State Financial Aid (WASFA)",
+        "url": "https://wsac.wa.gov/wasfa"
+      },
+      "plain_explanation": "Washington residents who can't (or prefer not to) file the FAFSA can use the WASFA to apply for the Washington College Grant and other state aid. Rules for state aid for undocumented students have been changing, so confirm you're eligible on the official page or with your college's financial aid office before you apply.",
+      "source_text": "The Washington Application for State Financial Aid (WASFA) is for people who choose not to file a federal FAFSA application.",
+      "source_url": "https://wsac.wa.gov/wasfa",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "confirm_gpa",
+      "title": "Confirm your school is sending your GPA for the Cal Grant",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ca"
+          },
+          {
+            "fact": "grade_level",
+            "eq": "hs_senior"
+          }
+        ]
+      },
+      "depends_on": [],
+      "documents": [],
+      "deadlines": [
+        "cal_grant_deadline"
+      ],
+      "where": {
+        "label": "Your school counselor",
+        "url": null
+      },
+      "plain_explanation": "For a Cal Grant, CSAC needs both your application and your GPA. Many high schools send seniors' GPAs automatically, but not all do. Ask your counselor to confirm that yours will be sent before the deadline.",
+      "source_text": "To qualify for a Cal Grant, your GPA must be submitted to CSAC. Most high schools and colleges do this for you automatically, but it’s your responsibility to confirm.",
+      "source_url": "https://www.csac.ca.gov/cal-grant/faq",
+      "last_verified": "2026-10-14",
+      "estimated_time": "5 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "css_profile",
+      "title": "Check whether your private or out-of-state colleges need the CSS Profile",
+      "applies_if": {
+        "fact": "college_types",
+        "has_any": [
+          "private",
+          "out_of_state"
+        ]
+      },
+      "depends_on": [
+        "gather_documents",
+        "list_colleges"
+      ],
+      "documents": [
+        "tax_returns_2025",
+        "bank_and_assets",
+        "business_records"
+      ],
+      "deadlines": [
+        "college_priority_deadlines"
+      ],
+      "where": {
+        "label": "College Board CSS Profile",
+        "url": "https://cssprofile.collegeboard.org/"
+      },
+      "plain_explanation": "Some private colleges ask for an extra financial aid form called the CSS Profile, in addition to the FAFSA or Dream Act Application. Check each college's financial aid page to see whether they require it, and when it's due.",
+      "source_text": "Each year CSS Profile unlocks access to more than $14 billion in nonfederal aid to thousands of students. ... Review which colleges, schools, and scholarship programs use CSS Profile.",
+      "source_url": "https://cssprofile.collegeboard.org/",
+      "last_verified": "2026-10-14",
+      "estimated_time": "1–2 hours",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "review_submission",
+      "title": "Review your confirmation and fix any errors",
+      "applies_if": {
+        "always": true
+      },
+      "depends_on": [
+        "submit_fafsa",
+        "submit_cadaa",
+        "alt_app_co",
+        "alt_app_il",
+        "alt_app_ma",
+        "alt_app_md",
+        "alt_app_mn",
+        "alt_app_nj",
+        "alt_app_nm",
+        "alt_app_ny",
+        "alt_app_or",
+        "alt_app_tx",
+        "alt_app_va",
+        "alt_app_wa"
+      ],
+      "documents": [],
+      "deadlines": [],
+      "where": null,
+      "plain_explanation": "After you submit, you'll get a summary of your application. Read it carefully. If anything is wrong or missing, such as a missing signature, fix it right away so your colleges and your state get the correct information.",
+      "source_text": "This summary shows the information you submitted on your FAFSA form. It is important to review the summary to make sure all of your information is correct and complete. Make corrections or provide additional information, as necessary.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-14",
+      "estimated_time": "15 minutes",
+      "letter_signals": [
+        "FAFSA Submission Summary",
+        "action required",
+        "correction"
+      ],
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "webgrants_account",
+      "title": "Create a WebGrants account to check your Cal Grant status",
+      "applies_if": {
+        "fact": "state",
+        "eq": "ca"
+      },
+      "depends_on": [
+        "submit_fafsa",
+        "submit_cadaa"
+      ],
+      "documents": [
+        "email_and_phone"
+      ],
+      "deadlines": [],
+      "where": {
+        "label": "CSAC WebGrants",
+        "url": "https://www.csac.ca.gov/"
+      },
+      "plain_explanation": "WebGrants is CSAC's website, where students can see whether their application and GPA were received and check on state awards like the Cal Grant. Check it after you submit, and again in the spring.",
+      "source_text": "One week after submitting a FAFSA/CADAA, create a WebGrants 4 Students account to confirm the status of your state financial aid awards such as the Cal Grant and Middle Class Scholarship.",
+      "source_url": "https://www.csac.ca.gov/cal-grant/faq",
+      "last_verified": "2026-10-14",
+      "estimated_time": "10 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_ca",
+      "title": "Apply for California state aid (Cal Grant and more)",
+      "applies_if": {
+        "fact": "state",
+        "eq": "ca"
+      },
+      "depends_on": [
+        "submit_fafsa",
+        "submit_cadaa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "cal_grant_deadline",
+        "ca_cc_cal_grant_deadline"
+      ],
+      "where": {
+        "label": "California Student Aid Commission (CSAC)",
+        "url": "https://www.csac.ca.gov/"
+      },
+      "plain_explanation": "Your FAFSA or California Dream Act Application also counts as your application for California aid, like the Cal Grant. Submit it, and make sure your GPA is sent, by March 2, 2027. Students going to a community college have a second chance for some Cal Grants until Sept. 2, 2027.",
+      "source_text": "For many state financial aid programs: March 2, 2027 (date postmarked). Cal Grant also requires submission of a school-certified GPA by March 2, 2027. For additional community college Cal Grants: Sept. 2, 2027 (date postmarked). For noncitizens without a Social Security card or with one issued through the federal Deferred Action for Childhood Arrivals (DACA) program, fill out the California Dream Act Application. Contact the California Student Aid Commission or your financial aid office for more information.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_al",
+      "title": "Apply for Alabama state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "al"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "al_deadline"
+      ],
+      "where": {
+        "label": "Alabama Commission on Higher Education",
+        "url": "https://www.ache.edu/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Alabama state aid. Alabama's aid is run by the Alabama Commission on Higher Education. Your state doesn't list one deadline, so ask each college's financial aid office.",
+      "source_text": "Check with your financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_ak",
+      "title": "Apply for Alaska state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ak"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "ak_aeg_deadline",
+        "ak_aps_deadline"
+      ],
+      "where": {
+        "label": "Alaska Commission on Postsecondary Education",
+        "url": "https://acpe.alaska.gov/Funding-Solutions/Alaska-Education-Grant"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Alaska state aid. That includes the Alaska Education Grant and the Alaska Performance Scholarship. Alaska's aid is run by the Alaska Commission on Postsecondary Education. Apply as soon as you can. Money is given out while it lasts.",
+      "source_text": "Alaska Education Grant: As soon as possible after Oct. 1, 2026. Awards made while funds exist. Alaska Performance Scholarship: For priority consideration, submit by June 30, 2027. Awards made while funds exist.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_az",
+      "title": "Apply for Arizona state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "az"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "az_deadline"
+      ],
+      "where": {
+        "label": "Arizona Board of Regents (Arizona Promise Program)",
+        "url": "https://azregents.edu/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Arizona state aid. That includes the Arizona Promise Program. Learn more from the Arizona Board of Regents (Arizona Promise Program). See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "Arizona Promise Program: For priority consideration, submit by April 1, 2027.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_ar",
+      "title": "Apply for Arkansas state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ar"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "ar_deadline"
+      ],
+      "where": {
+        "label": "YOUniversal application (Arkansas Division of Higher Education)",
+        "url": "https://sams.adhe.edu/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Arkansas state aid. That includes the Academic Challenge Scholarship, the Governor's Scholars Program, and the ArFuture Grant. Arkansas also uses its own YOUniversal application for state scholarships and grants. Arkansas's aid is run by the Arkansas Division of Higher Education. See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "Academic Challenge: July 1, 2027. Governor’s Scholars Program: Distinguished, March 1, 2027; Non-Distinguished, July 1, 2027. ArFuture Grant: fall term, July 1, 2027; spring term, Jan. 10, 2028.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_co",
+      "title": "Apply for Colorado state aid",
+      "applies_if": {
+        "fact": "state",
+        "eq": "co"
+      },
+      "depends_on": [
+        "submit_fafsa",
+        "alt_app_co"
+      ],
+      "documents": [],
+      "deadlines": [
+        "co_deadline"
+      ],
+      "where": {
+        "label": "Colorado Department of Higher Education",
+        "url": "https://cdhe.colorado.gov/"
+      },
+      "plain_explanation": "Your FAFSA (or the Colorado Application for State Financial Aid (CASFA), if you used that instead) also counts as your application for most Colorado state aid. Colorado's aid is run by the Colorado Department of Higher Education. Your state doesn't list one deadline, so ask each college's financial aid office.",
+      "source_text": "Check with your financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_ct",
+      "title": "Apply for Connecticut state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ct"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "ct_deadline"
+      ],
+      "where": {
+        "label": "Connecticut Office of Higher Education",
+        "url": "https://www.ohe.ct.gov/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Connecticut state aid. Connecticut's aid is run by the Connecticut Office of Higher Education. See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "For priority consideration, submit by Feb. 15, 2027. Check with your financial aid office or state agency. More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_de",
+      "title": "Apply for Delaware state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "de"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "de_deadline"
+      ],
+      "where": {
+        "label": "Delaware Department of Education",
+        "url": "https://education.delaware.gov/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Delaware state aid. Delaware's aid is run by the Delaware Department of Education. See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "May 15, 2027",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_dc",
+      "title": "Apply for District of Columbia state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "dc"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "dc_deadline",
+        "dc_tag_deadline"
+      ],
+      "where": {
+        "label": "DC OneApp (Office of the State Superintendent of Education (OSSE))",
+        "url": "https://osse.dc.gov/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most District of Columbia state aid. That includes the DC Tuition Assistance Grant (DC TAG). For the DC Tuition Assistance Grant, you also submit the DC OneApp. District of Columbia's aid is run by the Office of the State Superintendent of Education (OSSE). See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "For priority consideration, submit by June 25, 2027. DC Tuition Assistance Grant: For priority consideration, submit the DC OneApp and supporting documents by July 1, 2027.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_fl",
+      "title": "Apply for Florida state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "fl"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "fl_deadline"
+      ],
+      "where": {
+        "label": "Florida Financial Aid Application (Florida Office of Student Financial Assistance)",
+        "url": "https://www.floridastudentfinancialaidsg.org/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Florida state aid. Florida also uses its own Florida Financial Aid Application for state scholarships and grants. Florida's aid is run by the Florida Office of Student Financial Assistance. See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "May 15, 2027 (date processed). Check with your financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_ga",
+      "title": "Apply for Georgia state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ga"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "ga_deadline"
+      ],
+      "where": {
+        "label": "Georgia Student Finance Commission",
+        "url": "https://gsfc.georgia.gov/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Georgia state aid. Georgia's aid is run by the Georgia Student Finance Commission. Apply as soon as you can. Money is given out while it lasts.",
+      "source_text": "As soon as possible after Oct. 1, 2026. Check with your financial aid office. More forms may be required. Refer to Georgia Student Finance Commission’s website for more information.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_hi",
+      "title": "Apply for Hawaii state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "hi"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "hi_deadline"
+      ],
+      "where": {
+        "label": "University of Hawaii System",
+        "url": "https://www.hawaii.edu/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Hawaii state aid. Hawaii's aid is run by the University of Hawaii System. Your state doesn't list one deadline, so ask each college's financial aid office.",
+      "source_text": "Check with your financial aid office. More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_id",
+      "title": "Apply for Idaho state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "id"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "id_deadline"
+      ],
+      "where": {
+        "label": "Idaho State Board of Education",
+        "url": "https://boardofed.idaho.gov/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Idaho state aid. That includes the Idaho Opportunity Scholarship. Idaho's aid is run by the Idaho State Board of Education. See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "Opportunity Scholarship: Submit by March 1, 2027. Check with your financial aid office or state agency. More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_il",
+      "title": "Apply for Illinois state aid",
+      "applies_if": {
+        "fact": "state",
+        "eq": "il"
+      },
+      "depends_on": [
+        "submit_fafsa",
+        "alt_app_il"
+      ],
+      "documents": [],
+      "deadlines": [
+        "il_deadline"
+      ],
+      "where": {
+        "label": "Illinois Student Assistance Commission (ISAC)",
+        "url": "https://www.isac.org/"
+      },
+      "plain_explanation": "Your FAFSA (or the Alternative Application for Illinois Financial Aid, if you used that instead) also counts as your application for most Illinois state aid. That includes the Monetary Award Program (MAP) grant. Illinois's aid is run by the Illinois Student Assistance Commission (ISAC). Apply as soon as you can. Money is given out while it lasts.",
+      "source_text": "As soon as possible after Oct. 1, 2026. Monetary Award Program (MAP): Awards made while funds exist. Refer to the Illinois Student Assistance Commission’s website for program information.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_in",
+      "title": "Apply for Indiana state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "in"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "in_deadline"
+      ],
+      "where": {
+        "label": "Indiana Commission for Higher Education",
+        "url": "https://www.in.gov/che/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Indiana state aid. That includes the Frank O'Bannon Grant and the 21st Century Scholarship. Indiana's aid is run by the Indiana Commission for Higher Education. See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "Frank O’Bannon Grant, 21st Century Scholarship, Workforce Ready Grant, and Adult Student Grant: April 15, 2027",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_ia",
+      "title": "Apply for Iowa state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ia"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "ia_deadline"
+      ],
+      "where": {
+        "label": "Iowa College Aid (Iowa Department of Education)",
+        "url": "https://educate.iowa.gov/higher-ed/financial-aid"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Iowa state aid. Iowa's aid is run by the Iowa College Aid (Iowa Department of Education). See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "July 1, 2027; earlier priority deadlines may exist for certain programs. More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_ks",
+      "title": "Apply for Kansas state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ks"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "ks_deadline"
+      ],
+      "where": {
+        "label": "Kansas Board of Regents",
+        "url": "https://kansasregents.gov/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Kansas state aid. Kansas's aid is run by the Kansas Board of Regents. See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "For priority consideration, submit by April 1, 2027. Check with your financial aid office or state agency. More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_ky",
+      "title": "Apply for Kentucky state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ky"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "ky_deadline"
+      ],
+      "where": {
+        "label": "Kentucky Higher Education Assistance Authority (KHEAA)",
+        "url": "https://www.kheaa.com/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Kentucky state aid. Kentucky's aid is run by the Kentucky Higher Education Assistance Authority (KHEAA). Apply as soon as you can. Money is given out while it lasts.",
+      "source_text": "As soon as possible after Oct. 1, 2026. Awards made while funds exist.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_la",
+      "title": "Apply for Louisiana state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "la"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "la_rec_deadline",
+        "la_deadline"
+      ],
+      "where": {
+        "label": "Louisiana Office of Student Financial Assistance",
+        "url": "https://mylosfa.la.gov/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Louisiana state aid. Louisiana's aid is run by the Louisiana Office of Student Financial Assistance. See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "July 1, 2028 (Feb. 1, 2027, recommended)",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_me",
+      "title": "Apply for Maine state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "me"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "me_deadline"
+      ],
+      "where": {
+        "label": "Finance Authority of Maine (FAME)",
+        "url": "https://www.famemaine.com/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Maine state aid. Maine's aid is run by the Finance Authority of Maine (FAME). See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "May 1, 2027",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_md",
+      "title": "Apply for Maryland state aid",
+      "applies_if": {
+        "fact": "state",
+        "eq": "md"
+      },
+      "depends_on": [
+        "submit_fafsa",
+        "alt_app_md"
+      ],
+      "documents": [],
+      "deadlines": [
+        "md_deadline"
+      ],
+      "where": {
+        "label": "Maryland Higher Education Commission (MHEC)",
+        "url": "https://mhec.maryland.gov/"
+      },
+      "plain_explanation": "Your FAFSA (or the MHEC One App, if you used that instead) also counts as your application for most Maryland state aid. That includes the Howard P. Rawlings Educational Excellence Awards. Maryland's aid is run by the Maryland Higher Education Commission (MHEC). See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "Howard P. Rawlings Educational Excellence Awards (EEA): March 1, 2027",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_ma",
+      "title": "Apply for Massachusetts state aid",
+      "applies_if": {
+        "fact": "state",
+        "eq": "ma"
+      },
+      "depends_on": [
+        "submit_fafsa",
+        "alt_app_ma"
+      ],
+      "documents": [],
+      "deadlines": [
+        "ma_deadline"
+      ],
+      "where": {
+        "label": "Massachusetts Office of Student Financial Assistance",
+        "url": "https://www.mass.edu/osfa/"
+      },
+      "plain_explanation": "Your FAFSA (or the Massachusetts Application for State Financial Aid (MASFA), if you used that instead) also counts as your application for most Massachusetts state aid. Massachusetts's aid is run by the Massachusetts Office of Student Financial Assistance. See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "For priority consideration, submit by May 1, 2027.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_mi",
+      "title": "Apply for Michigan state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "mi"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "mi_deadline"
+      ],
+      "where": {
+        "label": "Michigan Student Aid",
+        "url": "https://www.michigan.gov/mistudentaid/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Michigan state aid. That includes the Michigan Competitive Scholarship and the Michigan Tuition Grant. Michigan's aid is run by the Michigan Student Aid. See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "Michigan Competitive Scholarship and Michigan Tuition Grant: For priority consideration, submit by July 1, 2027.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_mn",
+      "title": "Apply for Minnesota state aid",
+      "applies_if": {
+        "fact": "state",
+        "eq": "mn"
+      },
+      "depends_on": [
+        "submit_fafsa",
+        "alt_app_mn"
+      ],
+      "documents": [],
+      "deadlines": [
+        "mn_nsp_deadline"
+      ],
+      "where": {
+        "label": "Minnesota Office of Higher Education",
+        "url": "https://ohe.mn.gov/"
+      },
+      "plain_explanation": "Your FAFSA (or the Minnesota Alternative State Financial Aid Application, if you used that instead) also counts as your application for most Minnesota state aid. That includes the Minnesota State Grant and the North Star Promise. Minnesota's aid is run by the Minnesota Office of Higher Education. See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "State Grant: By 30th day of term. North Star Promise: For priority consideration, submit by June 1, 2027. All other aid: Check with your financial aid office. More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_ms",
+      "title": "Apply for Mississippi state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ms"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "ms_help_deadline",
+        "ms_deadline"
+      ],
+      "where": {
+        "label": "Mississippi Office of Student Financial Aid",
+        "url": "https://www.msfinancialaid.org/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Mississippi state aid. That includes the MTAG, MESG, and HELP grants. Mississippi's aid is run by the Mississippi Office of Student Financial Aid. See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "MTAG and MESG Grants: Oct. 15, 2027. HELP Grant: April 30, 2027",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_mo",
+      "title": "Apply for Missouri state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "mo"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "mo_deadline"
+      ],
+      "where": {
+        "label": "Missouri Department of Higher Education and Workforce Development",
+        "url": "https://dhewd.mo.gov/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Missouri state aid. Missouri's aid is run by the Missouri Department of Higher Education and Workforce Development. See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "For priority consideration, submit by Feb. 1, 2027. Applications accepted through April 1, 2027.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_mt",
+      "title": "Apply for Montana state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "mt"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "mt_deadline"
+      ],
+      "where": {
+        "label": "Montana University System",
+        "url": "https://mus.edu/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Montana state aid. Montana's aid is run by the Montana University System. Apply as soon as you can. Money is given out while it lasts.",
+      "source_text": "For priority consideration, submit as soon as possible after Oct. 1, 2026. Check with your financial aid office. More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_ne",
+      "title": "Apply for Nebraska state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ne"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "ne_deadline"
+      ],
+      "where": {
+        "label": "Nebraska Coordinating Commission for Postsecondary Education",
+        "url": "https://ccpe.nebraska.gov/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Nebraska state aid. Nebraska's aid is run by the Nebraska Coordinating Commission for Postsecondary Education. Your state doesn't list one deadline, so ask each college's financial aid office.",
+      "source_text": "Check with your financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_nv",
+      "title": "Apply for Nevada state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "nv"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "nv_ssog_deadline",
+        "nv_deadline"
+      ],
+      "where": {
+        "label": "Nevada System of Higher Education",
+        "url": "https://nshe.nevada.edu/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Nevada state aid. That includes the Silver State Opportunity Grant and the Nevada Promise Scholarship. Nevada's aid is run by the Nevada System of Higher Education. Apply as soon as you can. Money is given out while it lasts.",
+      "source_text": "Silver State Opportunity Grant: As soon as possible after Oct. 1, 2026. Awards made while funds exist. Nevada Promise Scholarship: April 1, 2027. More forms may be required. Awards made while funds exist. All other aid, check with your financial aid office. More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_nh",
+      "title": "Apply for New Hampshire state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "nh"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "nh_deadline"
+      ],
+      "where": {
+        "label": "New Hampshire Department of Education, Higher Education Commission",
+        "url": "https://www.education.nh.gov/who-we-are/higher-education-commission"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most New Hampshire state aid. New Hampshire's aid is run by the New Hampshire Department of Education, Higher Education Commission. Your state doesn't list one deadline, so ask each college's financial aid office.",
+      "source_text": "Check with your financial aid office. More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_nj",
+      "title": "Apply for New Jersey state aid",
+      "applies_if": {
+        "fact": "state",
+        "eq": "nj"
+      },
+      "depends_on": [
+        "submit_fafsa",
+        "alt_app_nj"
+      ],
+      "documents": [],
+      "deadlines": [
+        "nj_deadline"
+      ],
+      "where": {
+        "label": "Higher Education Student Assistance Authority (HESAA)",
+        "url": "https://www.hesaa.org/"
+      },
+      "plain_explanation": "Your FAFSA (or the New Jersey Alternative Financial Aid Application, if you used that instead) also counts as your application for most New Jersey state aid. That includes the Tuition Aid Grant (TAG). New Jersey's aid is run by the Higher Education Student Assistance Authority (HESAA). See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "Renewal applicants (2026–27 Tuition Aid Grant recipients): April 15, 2027. All other applicants: fall and spring terms, Sept. 15, 2027; spring term only, Feb. 15, 2028.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_nm",
+      "title": "Apply for New Mexico state aid",
+      "applies_if": {
+        "fact": "state",
+        "eq": "nm"
+      },
+      "depends_on": [
+        "submit_fafsa",
+        "alt_app_nm"
+      ],
+      "documents": [],
+      "deadlines": [
+        "nm_deadline"
+      ],
+      "where": {
+        "label": "New Mexico Higher Education Department",
+        "url": "https://hed.nm.gov/"
+      },
+      "plain_explanation": "Your FAFSA (or the New Mexico alternative financial aid application (through your college), if you used that instead) also counts as your application for most New Mexico state aid. New Mexico's aid is run by the New Mexico Higher Education Department. Your state doesn't list one deadline, so ask each college's financial aid office.",
+      "source_text": "Check with your financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_ny",
+      "title": "Apply for New York state aid",
+      "applies_if": {
+        "fact": "state",
+        "eq": "ny"
+      },
+      "depends_on": [
+        "submit_fafsa",
+        "alt_app_ny"
+      ],
+      "documents": [],
+      "deadlines": [
+        "ny_deadline"
+      ],
+      "where": {
+        "label": "New York State Higher Education Services Corporation (HESC)",
+        "url": "https://hesc.ny.gov/"
+      },
+      "plain_explanation": "Your FAFSA (or the NYS DREAM Act application, if you used that instead) also counts as your application for most New York state aid. New York's aid is run by the New York State Higher Education Services Corporation (HESC). See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "June 30, 2028. More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_nc",
+      "title": "Apply for North Carolina state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "nc"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "nc_deadline"
+      ],
+      "where": {
+        "label": "North Carolina State Education Assistance Authority",
+        "url": "https://www.ncseaa.edu/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most North Carolina state aid. North Carolina's aid is run by the North Carolina State Education Assistance Authority. See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "For priority consideration, submit by June 1, 2027, if attending a UNC System institution or community college. Submit as soon as possible after Oct. 1, 2026, if attending a private institution. Awards made while funds exist.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_nd",
+      "title": "Apply for North Dakota state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "nd"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "nd_deadline"
+      ],
+      "where": {
+        "label": "North Dakota University System",
+        "url": "https://ndus.edu/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most North Dakota state aid. North Dakota's aid is run by the North Dakota University System. Apply as soon as you can. Money is given out while it lasts.",
+      "source_text": "As soon as possible after Oct. 1, 2026. Awards made while funds exist.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_oh",
+      "title": "Apply for Ohio state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "oh"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "oh_deadline"
+      ],
+      "where": {
+        "label": "Ohio Department of Higher Education",
+        "url": "https://highered.ohio.gov/initiatives/affordability/ohio-college-opportunity-grant"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Ohio state aid. Ohio's aid is run by the Ohio Department of Higher Education. See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "Oct. 1, 2027",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_ok",
+      "title": "Apply for Oklahoma state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ok"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "ok_deadline"
+      ],
+      "where": {
+        "label": "Oklahoma State Regents for Higher Education",
+        "url": "https://okhighered.org/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Oklahoma state aid. Oklahoma's aid is run by the Oklahoma State Regents for Higher Education. Your state doesn't list one deadline, so ask each college's financial aid office.",
+      "source_text": "Check with your financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_or",
+      "title": "Apply for Oregon state aid",
+      "applies_if": {
+        "fact": "state",
+        "eq": "or"
+      },
+      "depends_on": [
+        "submit_fafsa",
+        "alt_app_or"
+      ],
+      "documents": [],
+      "deadlines": [
+        "or_oog_deadline",
+        "or_deadline"
+      ],
+      "where": {
+        "label": "Oregon Student Aid (Higher Education Coordinating Commission)",
+        "url": "https://oregonstudentaid.gov/"
+      },
+      "plain_explanation": "Your FAFSA (or the Oregon Student Aid Application (ORSAA), if you used that instead) also counts as your application for most Oregon state aid. That includes the Oregon Opportunity Grant and OSAC scholarships. Oregon's aid is run by the Oregon Student Aid (Higher Education Coordinating Commission). Apply as soon as you can. Money is given out while it lasts.",
+      "source_text": "Oregon Opportunity Grant: As soon as possible after Oct. 1, 2026. Awards made while funds exist. OSAC Private Scholarships: March 1, 2027. More forms may be required. Oregon Promise Grant and other state grants: Contact state agency. More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_pa",
+      "title": "Apply for Pennsylvania state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "pa"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "pa_deadline"
+      ],
+      "where": {
+        "label": "Pennsylvania Higher Education Assistance Agency (PHEAA)",
+        "url": "https://www.pheaa.org/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Pennsylvania state aid. Pennsylvania's aid is run by the Pennsylvania Higher Education Assistance Agency (PHEAA). See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "First-time applicants enrolled in a community college, business/trade/technical school, hospital school of nursing, designated Pennsylvania open-admission institution, or nontransferable two-year program: Aug. 1, 2027. All other applicants: May 1, 2027. More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_ri",
+      "title": "Apply for Rhode Island state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ri"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "ri_deadline"
+      ],
+      "where": {
+        "label": "Rhode Island Office of the Postsecondary Commissioner",
+        "url": "https://riopc.edu/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Rhode Island state aid. Rhode Island's aid is run by the Rhode Island Office of the Postsecondary Commissioner. Your state doesn't list one deadline, so ask each college's financial aid office.",
+      "source_text": "Check with your financial aid office. More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_sc",
+      "title": "Apply for South Carolina state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "sc"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "sc_deadline"
+      ],
+      "where": {
+        "label": "South Carolina Commission on Higher Education",
+        "url": "https://www.che.sc.gov/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most South Carolina state aid. South Carolina's aid is run by the South Carolina Commission on Higher Education. Apply as soon as you can. Money is given out while it lasts.",
+      "source_text": "SC Commission on Higher Education Need-based Grants: first come, first served; awards made while funds exist. SC Tuition Grants: Aug. 1, 2027, for SC independent institutions only.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_sd",
+      "title": "Apply for South Dakota state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "sd"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "sd_deadline"
+      ],
+      "where": {
+        "label": "South Dakota Board of Regents",
+        "url": "https://www.sdbor.edu/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most South Dakota state aid. South Dakota's aid is run by the South Dakota Board of Regents. Your state doesn't list one deadline, so ask each college's financial aid office.",
+      "source_text": "Check with your financial aid office. More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_tn",
+      "title": "Apply for Tennessee state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "tn"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "tn_deadline"
+      ],
+      "where": {
+        "label": "Tennessee Higher Education Commission / Tennessee Student Assistance Corporation",
+        "url": "https://www.tn.gov/thec"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Tennessee state aid. That includes the Tennessee Promise, the Tennessee Student Assistance Award, and the lottery scholarships. Tennessee's aid is run by the Tennessee Higher Education Commission / Tennessee Student Assistance Corporation. See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "State Grant: Prior-year recipients receive award if eligible and apply by April 1, 2027; all other awards made to eligible applicants on a first-come, first-served basis. Awards made while funds exist. Tennessee Promise: April 1, 2027. State Lottery: fall term, Sept. 1, 2027; spring term, March 1, 2028; summer term, May 1, 2028.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_tx",
+      "title": "Apply for Texas state aid",
+      "applies_if": {
+        "fact": "state",
+        "eq": "tx"
+      },
+      "depends_on": [
+        "submit_fafsa",
+        "alt_app_tx"
+      ],
+      "documents": [],
+      "deadlines": [
+        "tx_deadline"
+      ],
+      "where": {
+        "label": "Texas Higher Education Coordinating Board",
+        "url": "https://www.highered.texas.gov/student-financial-aid-programs/"
+      },
+      "plain_explanation": "Your FAFSA (or the Texas Application for State Financial Aid (TASFA), if you used that instead) also counts as your application for most Texas state aid. Texas's aid is run by the Texas Higher Education Coordinating Board. See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "For priority consideration, submit by Jan. 15, 2027. More forms may be required. Private and two-year institutions may have different deadlines; check with your financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_ut",
+      "title": "Apply for Utah state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ut"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "ut_deadline"
+      ],
+      "where": {
+        "label": "Utah System of Higher Education",
+        "url": "https://ushe.edu/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Utah state aid. Utah's aid is run by the Utah System of Higher Education. Your state doesn't list one deadline, so ask each college's financial aid office.",
+      "source_text": "Check with your financial aid office. Awards made while funds exist. More forms may be required. Visit the Utah System of Higher Education website for details about aid options.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_vt",
+      "title": "Apply for Vermont state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "vt"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "vt_deadline"
+      ],
+      "where": {
+        "label": "Vermont Student Assistance Corporation (VSAC)",
+        "url": "https://www.vsac.org/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Vermont state aid. Vermont's aid is run by the Vermont Student Assistance Corporation (VSAC). Apply as soon as you can. Money is given out while it lasts.",
+      "source_text": "As soon as possible after Oct. 1, 2026. Awards made while funds exist. More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_va",
+      "title": "Apply for Virginia state aid",
+      "applies_if": {
+        "fact": "state",
+        "eq": "va"
+      },
+      "depends_on": [
+        "submit_fafsa",
+        "alt_app_va"
+      ],
+      "documents": [],
+      "deadlines": [
+        "va_deadline"
+      ],
+      "where": {
+        "label": "State Council of Higher Education for Virginia (SCHEV)",
+        "url": "https://www.schev.edu/"
+      },
+      "plain_explanation": "Your FAFSA (or the Virginia Alternative State Aid Application (VASA), if you used that instead) also counts as your application for most Virginia state aid. Virginia's aid is run by the State Council of Higher Education for Virginia (SCHEV). Apply as soon as you can. Money is given out while it lasts.",
+      "source_text": "As soon as possible after Oct. 1, 2026. Deadlines vary by institution; check with your financial aid office. Students who are ineligible for federal aid but meet state aid and residency requirements can instead complete the Virginia Alternative State Aid Application. Check with your financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_wa",
+      "title": "Apply for Washington state aid",
+      "applies_if": {
+        "fact": "state",
+        "eq": "wa"
+      },
+      "depends_on": [
+        "submit_fafsa",
+        "alt_app_wa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "wa_deadline"
+      ],
+      "where": {
+        "label": "Washington Student Achievement Council (WSAC)",
+        "url": "https://wsac.wa.gov/"
+      },
+      "plain_explanation": "Your FAFSA (or the Washington Application for State Financial Aid (WASFA), if you used that instead) also counts as your application for most Washington state aid. That includes the Washington College Grant. Washington's aid is run by the Washington Student Achievement Council (WSAC). Apply as soon as you can. Money is given out while it lasts.",
+      "source_text": "As soon as possible after Oct. 1, 2026. Funds available year round, and all eligible students will be awarded. Check with your financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_wv",
+      "title": "Apply for West Virginia state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "wv"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "wv_promise_deadline",
+        "wv_deadline"
+      ],
+      "where": {
+        "label": "West Virginia Higher Education Policy Commission",
+        "url": "https://www.cfwv.com/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most West Virginia state aid. That includes the PROMISE Scholarship, the WV Higher Education Grant, and the WV Invests Grant. West Virginia's aid is run by the West Virginia Higher Education Policy Commission. See the deadline below, and remember colleges may have earlier ones.",
+      "source_text": "Promise Scholarship: March 1, 2027. New applicants must submit additional form. Contact your financial aid office or state agency. WV Higher Education Grant: April 15, 2027. WV Invests Grant: For priority consideration, submit by April 15, 2027.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_wi",
+      "title": "Apply for Wisconsin state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "wi"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "wi_deadline"
+      ],
+      "where": {
+        "label": "Wisconsin Higher Educational Aids Board",
+        "url": "https://heab.state.wi.us/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Wisconsin state aid. Wisconsin's aid is run by the Wisconsin Higher Educational Aids Board. Your state doesn't list one deadline, so ask each college's financial aid office.",
+      "source_text": "Check with your financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_wy",
+      "title": "Apply for Wyoming state aid",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "wy"
+          },
+          {
+            "not": {
+              "fact": "citizenship_status",
+              "eq": "undocumented_or_daca"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "wy_deadline"
+      ],
+      "where": {
+        "label": "Wyoming Hathaway Scholarship (University of Wyoming)",
+        "url": "https://www.uwyo.edu/hathaway/"
+      },
+      "plain_explanation": "Your FAFSA also counts as your application for most Wyoming state aid. That includes the Hathaway Scholarship. Learn more from the Wyoming Hathaway Scholarship (University of Wyoming). Your state doesn't list one deadline, so ask each college's financial aid office.",
+      "source_text": "Check with your financial aid office. More forms may be required.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "state_aid_other",
+      "title": "Ask your college about aid where you live",
+      "applies_if": {
+        "fact": "state",
+        "eq": "other"
+      },
+      "depends_on": [
+        "submit_fafsa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "college_priority_deadlines"
+      ],
+      "where": {
+        "label": "Your college's financial aid office",
+        "url": null
+      },
+      "plain_explanation": "For U.S. territories, the FAFSA lists no single deadline. Ask each college's financial aid office which local aid you can apply for, and whether more forms are needed.",
+      "source_text": "Check with your financial aid office.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "undocumented_other_aid",
+      "title": "Find aid you can get without the FAFSA",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "citizenship_status",
+            "eq": "undocumented_or_daca"
+          },
+          {
+            "not": {
+              "fact": "state",
+              "in": [
+                "co",
+                "il",
+                "ma",
+                "md",
+                "mn",
+                "nj",
+                "nm",
+                "ny",
+                "or",
+                "tx",
+                "va",
+                "wa",
+                "ca"
+              ]
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "choose_application"
+      ],
+      "documents": [],
+      "deadlines": [
+        "college_priority_deadlines"
+      ],
+      "where": {
+        "label": "Your college's financial aid office",
+        "url": null
+      },
+      "plain_explanation": "Students who aren't U.S. citizens or eligible noncitizens can't get federal student aid, and your state may not have its own aid application. You may still get help: ask each college's financial aid office about their own aid and about private scholarships, including ones for undocumented students. If you have DACA and a Social Security number, you can still fill out the FAFSA to be considered for state or college aid. Rules have been changing, so check the latest with your school counselor.",
+      "source_text": "If you are in the U.S. and have been granted Deferred Action for Childhood Arrivals (DACA), an F1 or F2 student visa, a J1 or J2 exchange visitor visa, or a G series visa (pertaining to international organizations), select “Neither citizen nor eligible noncitizen.” You will not be eligible for federal student aid. If you have a Social Security number but are not a citizen or an eligible noncitizen, including if you have been granted DACA, you may still complete the FAFSA form to determine eligibility for state and/or college aid.",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-12",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "respond_verification",
+      "title": "Respond to a verification request",
+      "applies_if": {
+        "fact": "received_verification",
+        "eq": true
+      },
+      "depends_on": [
+        "review_submission"
+      ],
+      "documents": [
+        "tax_returns_2025",
+        "w2_forms_2025"
+      ],
+      "deadlines": [
+        "verification_deadline"
+      ],
+      "where": {
+        "label": "Your college's financial aid office",
+        "url": null
+      },
+      "plain_explanation": "Some students are chosen to prove that the information on their application is correct. This is called verification, and it's common. It doesn't mean you did anything wrong. If you're chosen, send the documents your college asks for by their deadline, or your aid may be delayed.",
+      "source_text": "Verification is the process that schools use to confirm that the data reported on your FAFSA form is accurate. Being selected for verification doesn’t mean that you did anything wrong. ... If you’re selected for verification, make sure you submit any required documentation to your school by the appropriate deadlines to avoid issues with your financial aid.",
+      "source_url": "https://studentaid.gov/articles/things-after-fafsa/",
+      "last_verified": "2026-10-14",
+      "estimated_time": "30–60 minutes",
+      "letter_signals": [
+        "selected for verification",
+        "verification",
+        "verification worksheet",
+        "IRS tax return transcript"
+      ],
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "college_extra_forms",
+      "title": "Check each college's student portal for extra forms",
+      "applies_if": {
+        "always": true
+      },
+      "depends_on": [
+        "submit_fafsa",
+        "submit_cadaa",
+        "alt_app_co",
+        "alt_app_il",
+        "alt_app_ma",
+        "alt_app_md",
+        "alt_app_mn",
+        "alt_app_nj",
+        "alt_app_nm",
+        "alt_app_ny",
+        "alt_app_or",
+        "alt_app_tx",
+        "alt_app_va",
+        "alt_app_wa"
+      ],
+      "documents": [],
+      "deadlines": [
+        "college_priority_deadlines"
+      ],
+      "where": {
+        "label": "Each college's student portal",
+        "url": null
+      },
+      "plain_explanation": "After you apply, each college may ask for more forms in its own student portal or by email. Log in to each portal regularly, and add each college's deadlines to your plan.",
+      "source_text": "",
+      "source_url": null,
+      "last_verified": null,
+      "estimated_time": "15 minutes per college",
+      "judgment": true,
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "compare_offers",
+      "title": "Compare your financial aid offers",
+      "applies_if": {
+        "always": true
+      },
+      "depends_on": [
+        "college_extra_forms"
+      ],
+      "documents": [],
+      "deadlines": [
+        "acceptance_deadline"
+      ],
+      "where": null,
+      "plain_explanation": "Each college sends an aid offer. Compare what you'd actually pay: grants and scholarships don't have to be paid back, but loans do. If you have questions or your family's situation has changed, contact the college's financial aid office before you accept.",
+      "source_text": "All financial aid offers (sometimes called award letters) are different, so how can you tell which school is the best fit? ... This includes whether the aid is money that doesn’t need to be repaid, earned money, or borrowed money.",
+      "source_url": "https://studentaid.gov/articles/evaluating-financial-aid-offers/",
+      "last_verified": "2026-10-14",
+      "estimated_time": "30 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    }
+  ],
+  "why_it_matters": {
+    "text": "Grants, like the federal Pell Grant and state grants, usually don't have to be paid back. Applying on time can mean more money for college that your family keeps.",
+    "source_text": "Unlike student loans, grants generally don’t need to be repaid.",
+    "source_url": "https://studentaid.gov/articles/financial-aid-dictionary/",
+    "last_verified": "2026-10-14"
+  },
+  "help": [
+    {
+      "id": "fsa_info_center",
+      "title": "Questions about the FAFSA? Call Federal Student Aid",
+      "text": "The Federal Student Aid Information Center answers questions about the FAFSA and your StudentAid.gov account: 1-800-433-3243 (1-800-4-FED-AID). Your college's financial aid office can also help with anything about your aid offer or verification.",
+      "where": {
+        "label": "StudentAid.gov help",
+        "url": "https://studentaid.gov/fafsahelp"
+      },
+      "prepare": [
+        "Your StudentAid.gov login",
+        "Your FAFSA Submission Summary, if you've submitted"
+      ],
+      "source_text": "go to StudentAid.gov/fafsahelp or call 1-800-4-FED-AID (1-800-433-3243).",
+      "source_url": "https://studentaid.gov/sites/default/files/2027-28-fafsa-form.pdf",
+      "last_verified": "2026-10-14"
+    },
+    {
+      "id": "congress_casework",
+      "title": "Still stuck with a federal agency? Ask your U.S. Representative's office",
+      "text": "If Federal Student Aid doesn't answer in a reasonable time, or you think a decision is wrong, your member of Congress's office can contact the agency for you. This is free. Find your representative by ZIP code, then look for \"Help with a Federal Agency\" on their website. They can't promise a result, but they can get you an answer.",
+      "where": {
+        "label": "Find your U.S. Representative (House.gov)",
+        "url": "https://www.house.gov/representatives/find-your-representative"
+      },
+      "prepare": [
+        "A signed privacy release form (from the office's website). By law, they need your written permission.",
+        "Your FAFSA confirmation number or Data Release Number (on your FAFSA Submission Summary)",
+        "Your address and a daytime phone number",
+        "Copies of every letter or email from the agency"
+      ],
+      "source_text": "If you can't get an answer from a federal agency in a timely fashion, or if you feel you have been treated unfairly, our office may be able to help resolve a problem or get you the information you need.",
+      "source_url": "https://liccardo.house.gov/services/help-federal-agency",
+      "last_verified": "2026-10-14"
+    }
+  ]
+}

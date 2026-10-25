@@ -1,0 +1,29 @@
+{
+  "name": "Hurricane with flooding happening now",
+  "today": "2026-10-15",
+  "input_text": "A hurricane is coming tonight and the streets are already flooding.",
+  "facts": {
+    "phase": "happening_now",
+    "hazards": [
+      "flood",
+      "hurricane"
+    ]
+  },
+  "expected": {
+    "steps_in_order": [
+      "follow_officials",
+      "find_shelter",
+      "flood_safety_now",
+      "get_alerts",
+      "emotional_support"
+    ],
+    "may_apply": [],
+    "not_included": [
+      "earthquake_now",
+      "make_plan",
+      "build_kit",
+      "return_safely",
+      "apply_fema"
+    ]
+  }
+}

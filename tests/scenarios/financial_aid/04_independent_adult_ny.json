@@ -1,0 +1,41 @@
+{
+  "name": "Independent returning adult in New York (eligible noncitizen) going to community college",
+  "today": "2026-10-15",
+  "input_text": "I'm 27, a green card holder in New York, and I want to go back to community college.",
+  "facts": {
+    "state": "ny",
+    "grade_level": "returning_adult",
+    "citizenship_status": "eligible_noncitizen",
+    "dependency_status": "independent",
+    "college_types": [
+      "community_college"
+    ],
+    "application_status": "not_started"
+  },
+  "expected": {
+    "steps_in_order": [
+      "choose_application",
+      "federal_aid_types",
+      "fafsa_create_accounts",
+      "gather_documents",
+      "list_colleges",
+      "submit_fafsa",
+      "state_aid_ny",
+      "review_submission",
+      "respond_verification",
+      "college_extra_forms",
+      "compare_offers"
+    ],
+    "may_apply": [
+      "respond_verification"
+    ],
+    "not_included": [
+      "parent_account_without_ssn",
+      "alt_app_ny",
+      "css_profile",
+      "confirm_gpa",
+      "cadaa_create_account",
+      "state_aid_ca"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Family getting ready for wildfire season",
+  "today": "2026-10-15",
+  "input_text": "We live near the hills and wildfire season is starting. How do we get ready?",
+  "facts": {
+    "phase": "preparing",
+    "hazards": [
+      "wildfire"
+    ]
+  },
+  "expected": {
+    "steps_in_order": [
+      "get_alerts",
+      "make_plan",
+      "build_kit",
+      "protect_documents",
+      "prep_wildfire"
+    ],
+    "may_apply": [],
+    "not_included": [
+      "prep_flood_insurance",
+      "prep_hurricane",
+      "prep_earthquake",
+      "follow_officials",
+      "return_safely",
+      "apply_fema",
+      "emotional_support"
+    ]
+  }
+}

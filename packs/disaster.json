@@ -1,0 +1,1055 @@
+{
+  "schema_version": 1,
+  "id": "disaster",
+  "title": "Natural Disasters: Prepare and Recover",
+  "summary": "Get ready for wildfires, floods, earthquakes, and hurricanes, and get help after one, including FEMA and insurance.",
+  "icon": "flame",
+  "status": "draft",
+  "region": "US",
+  "routing_hint": "Someone in the United States getting ready for a natural disaster, going through one now, or recovering after one (damage, FEMA help, insurance, lost work).",
+  "routing_signals": [
+    "disaster",
+    "natural disaster",
+    "wildfire",
+    "fire",
+    "flood",
+    "flooding",
+    "earthquake",
+    "hurricane",
+    "tornado",
+    "storm",
+    "evacuate",
+    "evacuation",
+    "fema",
+    "emergency kit",
+    "go bag",
+    "smoke",
+    "damage",
+    "damaged",
+    "power outage",
+    "homeowners insurance",
+    "renters insurance",
+    "emergency"
+  ],
+  "example_inputs": [
+    "We live near the hills and wildfire season is starting. How do we get ready?",
+    "Our apartment flooded in the storm and we have renters insurance. What do we do now?",
+    "There's an evacuation order for our area right now because of a fire.",
+    "The earthquake damaged our house and my dad can't work. Can FEMA help?"
+  ],
+  "facts": [
+    {
+      "id": "phase",
+      "question": "Where are you right now?",
+      "type": "enum",
+      "required": true,
+      "ask_if_missing": true,
+      "options": [
+        {
+          "value": "preparing",
+          "label": "Getting ready before a disaster",
+          "signals": [
+            "get ready",
+            "getting ready",
+            "prepare",
+            "preparing",
+            "be prepared",
+            "emergency kit",
+            "go bag",
+            "in case",
+            "season is starting"
+          ]
+        },
+        {
+          "value": "happening_now",
+          "label": "It's happening now or about to",
+          "signals": [
+            "right now",
+            "evacuation order",
+            "evacuation warning",
+            "is coming",
+            "is approaching",
+            "headed our way",
+            "happening now"
+          ]
+        },
+        {
+          "value": "recovering",
+          "label": "It already happened, and we're recovering",
+          "signals": [
+            "damaged",
+            "destroyed",
+            "burned down",
+            "flooded",
+            "lost our home",
+            "lost my home",
+            "after the",
+            "cleanup",
+            "clean up",
+            "recovering"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hazards",
+      "question": "Which disasters are you dealing with or worried about? Choose all that apply.",
+      "type": "multi",
+      "ask_if_missing": true,
+      "options": [
+        {
+          "value": "wildfire",
+          "label": "Wildfire",
+          "signals": [
+            "wildfire",
+            "wildfires",
+            "fire",
+            "fires",
+            "smoke",
+            "burned"
+          ]
+        },
+        {
+          "value": "flood",
+          "label": "Flood",
+          "signals": [
+            "flood",
+            "floods",
+            "flooded",
+            "flooding",
+            "floodwater"
+          ]
+        },
+        {
+          "value": "earthquake",
+          "label": "Earthquake",
+          "signals": [
+            "earthquake",
+            "earthquakes",
+            "quake"
+          ]
+        },
+        {
+          "value": "hurricane",
+          "label": "Hurricane or tropical storm",
+          "signals": [
+            "hurricane",
+            "hurricanes",
+            "tropical storm"
+          ]
+        },
+        {
+          "value": "other",
+          "label": "Something else (tornado, winter storm, heat, power outage)",
+          "signals": [
+            "tornado",
+            "tornadoes",
+            "winter storm",
+            "blizzard",
+            "heat wave",
+            "power outage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home_damaged",
+      "question": "Was your home or belongings damaged?",
+      "type": "bool",
+      "ask_if_missing": true,
+      "signals_yes": [
+        "damaged",
+        "destroyed",
+        "burned down",
+        "flooded",
+        "lost our home",
+        "lost my home",
+        "roof",
+        "damage"
+      ],
+      "signals_no": []
+    },
+    {
+      "id": "has_insurance",
+      "question": "Do you have homeowners or renters insurance?",
+      "type": "enum",
+      "ask_if_missing": true,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes",
+          "signals": [
+            "homeowners insurance",
+            "renters insurance",
+            "flood insurance",
+            "insurance"
+          ]
+        },
+        {
+          "value": "no",
+          "label": "No",
+          "signals": [
+            "no insurance",
+            "uninsured"
+          ]
+        },
+        {
+          "value": "not_sure",
+          "label": "Not sure",
+          "means_unknown": true
+        }
+      ]
+    },
+    {
+      "id": "declared",
+      "question": "Has a federal major disaster been declared where you live, so FEMA help is open? (The news, your county, or DisasterAssistance.gov will say.)",
+      "type": "enum",
+      "ask_if_missing": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes",
+          "signals": [
+            "disaster declaration",
+            "declared a disaster",
+            "declared a major disaster",
+            "major disaster declaration"
+          ]
+        },
+        {
+          "value": "no",
+          "label": "No"
+        },
+        {
+          "value": "not_sure",
+          "label": "Not sure",
+          "means_unknown": true
+        }
+      ]
+    },
+    {
+      "id": "lost_work",
+      "question": "Did anyone in your household lose work or income because of the disaster?",
+      "type": "bool",
+      "ask_if_missing": false,
+      "signals_yes": [
+        "lost my job",
+        "lost his job",
+        "lost her job",
+        "can't work",
+        "cant work",
+        "out of work",
+        "business closed",
+        "no work"
+      ],
+      "signals_no": []
+    }
+  ],
+  "documents": [
+    {
+      "id": "id_documents",
+      "name": "IDs, birth certificates, and Social Security cards (copies)",
+      "who": "Everyone in the household",
+      "note": "Keep copies in a safe place or saved securely online.",
+      "applies_if": {
+        "always": true
+      }
+    },
+    {
+      "id": "insurance_policies",
+      "name": "Insurance policies and agent contact information",
+      "who": "Household",
+      "note": "Homeowners, renters, flood, car, and health insurance.",
+      "applies_if": {
+        "always": true
+      }
+    },
+    {
+      "id": "damage_photos",
+      "name": "Photos and a list of damage",
+      "who": "Household",
+      "note": "Take them before you clean up.",
+      "applies_if": {
+        "fact": "home_damaged",
+        "eq": true
+      }
+    },
+    {
+      "id": "fema_info",
+      "name": "Information for your FEMA application",
+      "who": "Household",
+      "note": "Your address at the time of the disaster and where you're staying now, Social Security number, household income, insurance information, and bank information for direct deposit.",
+      "applies_if": {
+        "fact": "home_damaged",
+        "eq": true
+      }
+    },
+    {
+      "id": "proof_of_work",
+      "name": "Proof of work or self-employment (pay stubs, tax return)",
+      "who": "Anyone who lost work",
+      "note": "Used to apply for Disaster Unemployment Assistance.",
+      "applies_if": {
+        "fact": "lost_work",
+        "eq": true
+      }
+    }
+  ],
+  "deadlines": [
+    {
+      "id": "fema_apply_deadline",
+      "label": "FEMA application deadline for your disaster",
+      "date": null,
+      "kind": "varies",
+      "note": "Each disaster has its own deadline. Look it up on DisasterAssistance.gov or FEMA's page for your disaster.",
+      "source_url": null,
+      "last_verified": null
+    },
+    {
+      "id": "fema_appeal_60",
+      "label": "Appeal a FEMA decision",
+      "date": null,
+      "kind": "from_letter",
+      "note": "Within 60 days of the date on FEMA's decision letter.",
+      "source_url": "https://www.fema.gov/assistance/individual/after-applying/appeals",
+      "last_verified": "2026-10-13"
+    },
+    {
+      "id": "insurance_claim",
+      "label": "File your insurance claim",
+      "date": null,
+      "kind": "varies",
+      "asap": true,
+      "note": "Your policy sets the time limit. File as soon as you can.",
+      "source_url": null,
+      "last_verified": null
+    }
+  ],
+  "steps": [
+    {
+      "id": "follow_officials",
+      "title": "Follow official instructions, and leave right away if told to evacuate",
+      "applies_if": {
+        "fact": "phase",
+        "eq": "happening_now"
+      },
+      "depends_on": [],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "Ready.gov: evacuation",
+        "url": "https://www.ready.gov/evacuation"
+      },
+      "plain_explanation": "If officials tell you to evacuate, go right away. Don't wait to pack everything. Grab your go bag, medicine, and pets. If you're in danger right now, call 911.",
+      "source_text": "Always follow the instructions of local officials and remember that your evacuation route may be on foot depending on the type of disaster.",
+      "source_url": "https://www.ready.gov/evacuation",
+      "last_verified": "2026-10-13",
+      "estimated_time": "Now",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "find_shelter",
+      "title": "Find an emergency shelter if you need one",
+      "applies_if": {
+        "fact": "phase",
+        "eq": "happening_now"
+      },
+      "depends_on": [
+        "follow_officials"
+      ],
+      "documents": [
+        "id_documents"
+      ],
+      "deadlines": [],
+      "where": {
+        "label": "FEMA app",
+        "url": "https://www.fema.gov/about/news-multimedia/mobile-products"
+      },
+      "plain_explanation": "If you can't stay with friends or family, the FEMA app shows open emergency shelters near you. Local news and your county's alerts also list shelters.",
+      "source_text": "Download the FEMA App where you can receive real-time weather alerts, locate emergency shelters in your area, prepare for common hazards, and more.",
+      "source_url": "https://www.ready.gov/evacuation",
+      "last_verified": "2026-10-13",
+      "estimated_time": "Now",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "flood_safety_now",
+      "title": "Don't walk or drive through floodwater",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "phase",
+            "eq": "happening_now"
+          },
+          {
+            "fact": "hazards",
+            "has_any": [
+              "flood",
+              "hurricane"
+            ]
+          }
+        ]
+      },
+      "depends_on": [],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "Ready.gov: floods",
+        "url": "https://www.ready.gov/floods"
+      },
+      "plain_explanation": "Even shallow moving water can knock you over or sweep a car away. Turn around and find another way. Never drive around barricades.",
+      "source_text": "Do not walk, swim or drive through flood waters. Turn Around, Don't Drown! ... Evacuate immediately, if told to do so. Never drive around barricades.",
+      "source_url": "https://www.ready.gov/floods",
+      "last_verified": "2026-10-13",
+      "estimated_time": "Now",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "earthquake_now",
+      "title": "During shaking: Drop, Cover, and Hold On",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "phase",
+            "eq": "happening_now"
+          },
+          {
+            "fact": "hazards",
+            "has_any": [
+              "earthquake"
+            ]
+          }
+        ]
+      },
+      "depends_on": [],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "Ready.gov: earthquakes",
+        "url": "https://www.ready.gov/earthquakes"
+      },
+      "plain_explanation": "Drop to your hands and knees, cover your head and neck (under a sturdy table if you can), and hold on until the shaking stops.",
+      "source_text": "Drop where you are onto hands and knees. ... Cover your head and neck with one arm and hand. ... Hold until the shaking stops.",
+      "source_url": "https://www.ready.gov/earthquakes",
+      "last_verified": "2026-10-13",
+      "estimated_time": "Now",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "get_alerts",
+      "title": "Set up emergency alerts on your phone",
+      "applies_if": {
+        "any": [
+          {
+            "fact": "phase",
+            "eq": "preparing"
+          },
+          {
+            "fact": "phase",
+            "eq": "happening_now"
+          }
+        ]
+      },
+      "depends_on": [],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "Ready.gov: alerts",
+        "url": "https://www.ready.gov/alerts"
+      },
+      "plain_explanation": "Wireless Emergency Alerts come to your phone like text messages, with a loud sound, for things like evacuation orders. They're free and you don't sign up for them, but check that they're turned on in your phone's settings. Also sign up for your county's local alerts and consider the FEMA app.",
+      "source_text": "WEAs look like text messages but are designed to get your attention with a unique sound and vibration repeated twice. ... You are not charged for receiving WEAs, and there is no need to subscribe.",
+      "source_url": "https://www.ready.gov/alerts",
+      "last_verified": "2026-10-13",
+      "estimated_time": "10 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "make_plan",
+      "title": "Make an emergency plan with your household",
+      "applies_if": {
+        "fact": "phase",
+        "eq": "preparing"
+      },
+      "depends_on": [
+        "get_alerts"
+      ],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "Ready.gov: make a plan",
+        "url": "https://www.ready.gov/plan"
+      },
+      "plain_explanation": "Sit down with your family and decide: how you'll get alerts, where you'll shelter, how you'll evacuate, and how you'll reach each other if you're apart. Write it down using Ready.gov's free form, and practice it.",
+      "source_text": "How will I receive emergency alerts and warnings? What is my shelter plan? What is my evacuation route? What is my family/household communication plan? Do I need to update my emergency preparedness kit?",
+      "source_url": "https://www.ready.gov/plan",
+      "last_verified": "2026-10-13",
+      "estimated_time": "1 hour",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "build_kit",
+      "title": "Build an emergency supply kit",
+      "applies_if": {
+        "fact": "phase",
+        "eq": "preparing"
+      },
+      "depends_on": [
+        "make_plan"
+      ],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "Ready.gov: build a kit",
+        "url": "https://www.ready.gov/kit"
+      },
+      "plain_explanation": "After a disaster, you may be on your own for several days. Pack water (one gallon per person per day), food that won't spoil, a flashlight, a first aid kit, batteries, a radio, phone chargers, and any medicine you need. Keep a smaller go bag ready in case you have to leave fast.",
+      "source_text": "After an emergency, you may need to survive on your own for several days. ... Water (one gallon per person per day for several days, for drinking and sanitation)",
+      "source_url": "https://www.ready.gov/kit",
+      "last_verified": "2026-10-13",
+      "estimated_time": "1–2 hours",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "protect_documents",
+      "title": "Protect copies of your important documents",
+      "applies_if": {
+        "fact": "phase",
+        "eq": "preparing"
+      },
+      "depends_on": [
+        "make_plan"
+      ],
+      "documents": [
+        "id_documents",
+        "insurance_policies"
+      ],
+      "deadlines": [],
+      "where": {
+        "label": "Ready.gov: financial preparedness",
+        "url": "https://www.ready.gov/financial-preparedness"
+      },
+      "plain_explanation": "If your home is damaged, you'll need IDs, insurance papers, and medical information to get help. Make copies now and keep them somewhere safe: a fireproof box, a safe deposit box, or securely saved online.",
+      "source_text": "Store important documents either in a safety deposit box, an external drive or on the cloud to make it easy to access during a disaster.",
+      "source_url": "https://www.ready.gov/financial-preparedness",
+      "last_verified": "2026-10-13",
+      "estimated_time": "1 hour",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "prep_wildfire",
+      "title": "Get your home and family ready for wildfire",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "phase",
+            "eq": "preparing"
+          },
+          {
+            "fact": "hazards",
+            "has_any": [
+              "wildfire"
+            ]
+          }
+        ]
+      },
+      "depends_on": [
+        "make_plan"
+      ],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "Ready.gov: wildfires",
+        "url": "https://www.ready.gov/wildfires"
+      },
+      "plain_explanation": "Clear leaves, dead plants, and anything that burns easily from at least 30 feet around your home. Learn your evacuation routes and where you'll go, including with pets. Keep N95 masks to protect against smoke.",
+      "source_text": "Create a fire-resistant zone that is free of leaves, debris or flammable materials for at least 30 feet from your home. ... If available, store an N95 mask to protect yourself from smoke inhalation.",
+      "source_url": "https://www.ready.gov/wildfires",
+      "last_verified": "2026-10-13",
+      "estimated_time": "A weekend",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "prep_flood_insurance",
+      "title": "Check whether you need flood insurance (it takes up to 30 days to start)",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "phase",
+            "eq": "preparing"
+          },
+          {
+            "fact": "hazards",
+            "has_any": [
+              "flood",
+              "hurricane"
+            ]
+          }
+        ]
+      },
+      "depends_on": [],
+      "documents": [
+        "insurance_policies"
+      ],
+      "deadlines": [],
+      "where": {
+        "label": "FloodSmart (National Flood Insurance Program)",
+        "url": "https://www.floodsmart.gov/"
+      },
+      "plain_explanation": "Regular homeowners insurance doesn't cover flooding. Flood insurance is separate, and it usually takes up to 30 days before it starts, so buy it well before a storm. Renters can get flood insurance for their belongings too.",
+      "source_text": "Homeowner's insurance policies do not cover flooding. It typically takes up to 30 days for a policy to go into effect, so the time to buy is well before a disaster.",
+      "source_url": "https://www.ready.gov/floods",
+      "last_verified": "2026-10-13",
+      "estimated_time": "30 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "prep_hurricane",
+      "title": "Plan where you'll go if a hurricane comes",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "phase",
+            "eq": "preparing"
+          },
+          {
+            "fact": "hazards",
+            "has_any": [
+              "hurricane"
+            ]
+          }
+        ]
+      },
+      "depends_on": [
+        "make_plan"
+      ],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "Ready.gov: hurricanes",
+        "url": "https://www.ready.gov/hurricanes"
+      },
+      "plain_explanation": "Hurricanes can bring flooding, wind, and tornadoes far from the coast. Learn your evacuation routes, practice with your household and pets, and decide where you'll stay. Pack medicine and pet supplies in your go bag.",
+      "source_text": "Learn your evacuation routes, practice with your household and pets, and identify where you will stay. ... Have enough supplies for your household. Include medication, disinfectant supplies and pet supplies in your go bag or car trunk.",
+      "source_url": "https://www.ready.gov/hurricanes",
+      "last_verified": "2026-10-13",
+      "estimated_time": "1 hour",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "prep_earthquake",
+      "title": "Secure heavy furniture and learn Drop, Cover, and Hold On",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "phase",
+            "eq": "preparing"
+          },
+          {
+            "fact": "hazards",
+            "has_any": [
+              "earthquake"
+            ]
+          }
+        ]
+      },
+      "depends_on": [
+        "make_plan"
+      ],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "Ready.gov: earthquakes",
+        "url": "https://www.ready.gov/earthquakes"
+      },
+      "plain_explanation": "Strap bookcases, TVs, and water heaters to the wall so they can't fall. Practice Drop, Cover, and Hold On with your family. Standard homeowners insurance doesn't cover earthquakes, so ask about earthquake insurance.",
+      "source_text": "Secure heavy items in your home like bookcases, refrigerators, water heaters, televisions and objects that hang on walls. ... Consider obtaining an earthquake insurance policy. A standard homeowner's insurance policy does not cover earthquake damage.",
+      "source_url": "https://www.ready.gov/earthquakes",
+      "last_verified": "2026-10-13",
+      "estimated_time": "2 hours",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "return_safely",
+      "title": "Go home only when officials say it's safe",
+      "applies_if": {
+        "fact": "phase",
+        "eq": "recovering"
+      },
+      "depends_on": [],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "Ready.gov: recovering from disaster",
+        "url": "https://www.ready.gov/recovering-disaster"
+      },
+      "plain_explanation": "Wait until local officials say you can return. Don't go inside if you smell gas, if floodwater is still around the building, or if it hasn't been declared safe. Watch for downed power lines, broken glass, and unsafe water.",
+      "source_text": "do not return home before local officials say it is safe to return ... Watch for washed out roads, contaminated buildings, contaminated water, gas leaks, broken glass, damaged electrical wiring and slippery floors",
+      "source_url": "https://www.ready.gov/recovering-disaster",
+      "last_verified": "2026-10-13",
+      "estimated_time": "Varies",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "document_damage",
+      "title": "Take photos of all the damage before you clean up",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "phase",
+            "eq": "recovering"
+          },
+          {
+            "fact": "home_damaged",
+            "eq": true
+          }
+        ]
+      },
+      "depends_on": [
+        "return_safely"
+      ],
+      "documents": [
+        "damage_photos"
+      ],
+      "deadlines": [],
+      "where": {
+        "label": "Ready.gov: recovering from disaster",
+        "url": "https://www.ready.gov/recovering-disaster"
+      },
+      "plain_explanation": "Insurance and FEMA will ask what was damaged. Before you throw anything away or start repairs, take photos and videos of every room and make a list of damaged items. Keep receipts for anything you buy to make your home safe.",
+      "source_text": "Make sure to document all your damages – before you clean up, take photos and make a list",
+      "source_url": "https://www.ready.gov/recovering-disaster",
+      "last_verified": "2026-10-13",
+      "estimated_time": "1–2 hours",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "file_insurance_claim",
+      "title": "File a claim with your insurance company",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "phase",
+            "eq": "recovering"
+          },
+          {
+            "fact": "home_damaged",
+            "eq": true
+          },
+          {
+            "fact": "has_insurance",
+            "eq": "yes"
+          }
+        ]
+      },
+      "depends_on": [
+        "document_damage"
+      ],
+      "documents": [
+        "insurance_policies",
+        "damage_photos"
+      ],
+      "deadlines": [
+        "insurance_claim"
+      ],
+      "where": {
+        "label": "Ready.gov: recovering from disaster",
+        "url": "https://www.ready.gov/recovering-disaster"
+      },
+      "plain_explanation": "Call your insurance company or agent as soon as you can and start a claim. Have your policy number and your damage photos ready. FEMA asks you to file with insurance first, and it can't pay for losses insurance covers.",
+      "source_text": "If you have insurance and damages, you must file a claim with your insurance company",
+      "source_url": "https://www.ready.gov/recovering-disaster",
+      "last_verified": "2026-10-13",
+      "estimated_time": "1 hour",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "apply_fema",
+      "title": "Apply for FEMA disaster assistance",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "phase",
+            "eq": "recovering"
+          },
+          {
+            "fact": "home_damaged",
+            "eq": true
+          },
+          {
+            "not": {
+              "fact": "declared",
+              "eq": "no"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "document_damage",
+        "file_insurance_claim"
+      ],
+      "documents": [
+        "fema_info",
+        "damage_photos"
+      ],
+      "deadlines": [
+        "fema_apply_deadline"
+      ],
+      "where": {
+        "label": "DisasterAssistance.gov",
+        "url": "https://www.disasterassistance.gov/"
+      },
+      "plain_explanation": "If a federal major disaster was declared where you live, FEMA may help with things like temporary housing and repairs that insurance doesn't cover. Apply online at DisasterAssistance.gov, or call 800-621-3362. If you have insurance, file your claim first. Applying is free.",
+      "source_text": "The fastest way to apply is online at DisasterAssistance.gov or the Spanish language DisasterAssistance.gov/es. ... call the FEMA helpline at 800-621-3362. ... If you have insurance, you should file a claim before applying for FEMA assistance. ... FEMA cannot duplicate benefits for losses covered by insurance.",
+      "source_url": "https://www.fema.gov/fact-sheet/how-apply-assistance",
+      "last_verified": "2026-10-13",
+      "estimated_time": "20–30 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "avoid_scams",
+      "title": "Watch out for people pretending to be FEMA",
+      "applies_if": {
+        "fact": "phase",
+        "eq": "recovering"
+      },
+      "depends_on": [],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "FTC: spot FEMA impersonators",
+        "url": "https://consumer.ftc.gov/consumer-alerts/2025/07/spot-avoid-fema-impersonators"
+      },
+      "plain_explanation": "Scammers often call, text, or knock after a disaster. FEMA never charges for help, inspections, or applications. Real FEMA staff wear a badge with their name and photo. If you're not sure, call FEMA at 1-800-621-3362, and report scams at ReportFraud.ftc.gov.",
+      "source_text": "FEMA doesn't charge people for disaster assistance. ... FEMA employees will never ask for money for inspections, disaster assistance, debris removal, grants, help with applications, or appeals.",
+      "source_url": "https://consumer.ftc.gov/consumer-alerts/2025/07/spot-avoid-fema-impersonators",
+      "last_verified": "2026-10-13",
+      "estimated_time": "5 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "sba_loan",
+      "title": "Look into a low-interest SBA disaster loan (for homeowners and renters too)",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "phase",
+            "eq": "recovering"
+          },
+          {
+            "fact": "home_damaged",
+            "eq": true
+          },
+          {
+            "not": {
+              "fact": "declared",
+              "eq": "no"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "apply_fema"
+      ],
+      "documents": [
+        "fema_info"
+      ],
+      "deadlines": [],
+      "where": {
+        "label": "SBA disaster assistance",
+        "url": "https://www.sba.gov/funding-programs/disaster-assistance"
+      },
+      "plain_explanation": "Despite the name, the Small Business Administration also lends to homeowners and renters to repair or replace a home and belongings that insurance didn't fully cover. Questions: 800-659-2955.",
+      "source_text": "Homeowners may apply for up to $500,000 to replace or repair their primary residence ... up to $100,000 to replace or repair personal property - such as clothing, furniture, cars, and appliances - damaged or destroyed in a disaster.",
+      "source_url": "https://www.sba.gov/funding-programs/disaster-assistance",
+      "last_verified": "2026-10-13",
+      "estimated_time": "1 hour",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "fema_appeal",
+      "title": "If you disagree with FEMA's decision, appeal within 60 days",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "phase",
+            "eq": "recovering"
+          },
+          {
+            "fact": "home_damaged",
+            "eq": true
+          },
+          {
+            "not": {
+              "fact": "declared",
+              "eq": "no"
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "apply_fema"
+      ],
+      "documents": [
+        "damage_photos"
+      ],
+      "deadlines": [
+        "fema_appeal_60"
+      ],
+      "where": {
+        "label": "DisasterAssistance.gov",
+        "url": "https://www.disasterassistance.gov/"
+      },
+      "plain_explanation": "FEMA sends a decision letter. If you were turned down or got less than you need, read why, since it's often just a missing document. You can appeal within 60 days of the date on the letter, online, by mail, by fax, or at a Disaster Recovery Center.",
+      "source_text": "If you disagree with FEMA's decision, you may appeal within 60 days of the date of the letter. ... You can submit your appeal documents online, in person, by mail or by fax.",
+      "source_url": "https://www.fema.gov/assistance/individual/after-applying/appeals",
+      "last_verified": "2026-10-13",
+      "estimated_time": "1 hour",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "disaster_unemployment",
+      "title": "If you lost work, apply for Disaster Unemployment Assistance",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "phase",
+            "eq": "recovering"
+          },
+          {
+            "fact": "lost_work",
+            "eq": true
+          }
+        ]
+      },
+      "depends_on": [],
+      "documents": [
+        "proof_of_work"
+      ],
+      "deadlines": [],
+      "where": {
+        "label": "U.S. Department of Labor: DUA",
+        "url": "https://oui.doleta.gov/unemploy/disaster.asp"
+      },
+      "plain_explanation": "If a job or self-employment was lost or interrupted because of a declared major disaster, and you can't get regular unemployment, you may get Disaster Unemployment Assistance. Apply through your state's unemployment office soon, since there's a deadline after each disaster.",
+      "source_text": "Disaster Unemployment Assistance provides financial assistance to individuals whose employment or self-employment has been lost or interrupted as a direct result of a major disaster and who are not eligible for regular unemployment insurance benefits.",
+      "source_url": "https://oui.doleta.gov/unemploy/disaster.asp",
+      "last_verified": "2026-10-13",
+      "estimated_time": "30–60 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "emotional_support",
+      "title": "Talk to someone if you're struggling",
+      "applies_if": {
+        "any": [
+          {
+            "fact": "phase",
+            "eq": "happening_now"
+          },
+          {
+            "fact": "phase",
+            "eq": "recovering"
+          }
+        ]
+      },
+      "depends_on": [],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "Disaster Distress Helpline",
+        "url": "https://www.samhsa.gov/find-help/helplines/disaster-distress-helpline"
+      },
+      "plain_explanation": "Disasters are stressful for everyone, including kids. The Disaster Distress Helpline is free, open 24/7, and has counselors in many languages. Call or text 1-800-985-5990.",
+      "source_text": "This toll-free, multilingual, crisis support service is available 24/7 to all residents in the U.S. and its territories who are experiencing emotional distress related to natural or human-caused disasters. Call or text 1-800-985-5990.",
+      "source_url": "https://www.samhsa.gov/find-help/helplines/disaster-distress-helpline",
+      "last_verified": "2026-10-13",
+      "estimated_time": "Any time",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    }
+  ],
+  "why_it_matters": {
+    "text": "After a declared disaster, FEMA may help pay for things insurance doesn't, like a hotel, basic home repairs, or replacing what you lost. There's a deadline for each disaster, so apply early.",
+    "source_text": "Money may be available to help you with serious needs like hotel costs, displacement costs, basic home repair costs, personal property loss or other disaster-caused needs.",
+    "source_url": "https://www.fema.gov/fact-sheet/how-apply-assistance",
+    "last_verified": "2026-10-14"
+  },
+  "help": [
+    {
+      "id": "fema_helpline",
+      "title": "Questions about FEMA help? Call the FEMA helpline",
+      "text": "Call 800-621-3362 to apply, check your application, or ask about a letter. You can also visit a Disaster Recovery Center near you.",
+      "where": {
+        "label": "DisasterAssistance.gov",
+        "url": "https://www.disasterassistance.gov/"
+      },
+      "prepare": [
+        "Your FEMA application (registration) number",
+        "Your insurance claim information"
+      ],
+      "source_text": "If you can’t apply online, call the FEMA helpline at 800-621-3362.",
+      "source_url": "https://www.fema.gov/fact-sheet/how-apply-assistance",
+      "last_verified": "2026-10-14"
+    },
+    {
+      "id": "congress_casework",
+      "title": "Still stuck with a federal agency? Ask your U.S. Representative's office",
+      "text": "If FEMA doesn't answer in a reasonable time, or you think a decision is wrong, your member of Congress's office can contact the agency for you. This is free. Find your representative by ZIP code, then look for \"Help with a Federal Agency\" on their website. They can't promise a result, but they can get you an answer.",
+      "where": {
+        "label": "Find your U.S. Representative (House.gov)",
+        "url": "https://www.house.gov/representatives/find-your-representative"
+      },
+      "prepare": [
+        "A signed privacy release form (from the office's website). By law, they need your written permission.",
+        "Your FEMA application (registration) number",
+        "Your address and a daytime phone number",
+        "Copies of every letter or email from the agency"
+      ],
+      "source_text": "If you can't get an answer from a federal agency in a timely fashion, or if you feel you have been treated unfairly, our office may be able to help resolve a problem or get you the information you need.",
+      "source_url": "https://liccardo.house.gov/services/help-federal-agency",
+      "last_verified": "2026-10-14"
+    }
+  ]
+}

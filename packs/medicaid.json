@@ -1,0 +1,1593 @@
+{
+  "schema_version": 1,
+  "id": "medicaid",
+  "title": "Keep Your Medicaid",
+  "summary": "Renew on time, report changes, and get ready for the 2027 work rules, in any U.S. state.",
+  "icon": "heart-pulse",
+  "status": "draft",
+  "region": "US",
+  "routing_hint": "Someone in the United States who has Medicaid (some states use their own name for it) and needs to renew it, report a change, understand the new work rules, or get coverage back after it ended.",
+  "routing_signals": [
+    "medicaid",
+    "medi cal",
+    "medical coverage",
+    "health coverage",
+    "health insurance",
+    "renewal packet",
+    "yellow envelope",
+    "benefitscal",
+    "covered california",
+    "masshealth",
+    "tenncare",
+    "apple health",
+    "soonercare",
+    "badgercare",
+    "husky health",
+    "work requirements",
+    "work rules",
+    "community engagement",
+    "health plan",
+    "doctor",
+    "copay",
+    "copayment"
+  ],
+  "example_inputs": [
+    "I got a letter saying I need to renew my Medicaid. What do I send, and by when?",
+    "I'm on Medicaid in Ohio and I go to community college part time. Do the new work rules apply to me?",
+    "My Medicaid ended last month because I missed the renewal. Can I get it back?",
+    "I moved and got a new job. I have Medicaid in New York."
+  ],
+  "notices": [
+    {
+      "id": "medi_cal_name",
+      "applies_if": {
+        "fact": "state",
+        "eq": "ca"
+      },
+      "message": "In California, Medicaid is called Medi-Cal. Your plan includes steps just for Medi-Cal, run by your county office.",
+      "stop_plan": false,
+      "source_url": "https://www.dhcs.ca.gov/medi-cal/help/"
+    },
+    {
+      "id": "rules_changing",
+      "applies_if": {
+        "always": true
+      },
+      "message": "Medicaid rules are changing in 2027 (work rules and more frequent renewals for some adults). Your state Medicaid office or county decides what applies to you and will send you letters, so open them right away.",
+      "stop_plan": false,
+      "source_url": "https://www.federalregister.gov/documents/2026/06/03/2026-11094/medicaid-program-community-engagement-requirement-for-certain-individuals"
+    }
+  ],
+  "facts": [
+    {
+      "id": "state",
+      "question": "Which state do you live in?",
+      "type": "enum",
+      "options": [
+        {
+          "value": "al",
+          "label": "Alabama",
+          "signals": [
+            "alabama",
+            "birmingham",
+            "montgomery alabama"
+          ]
+        },
+        {
+          "value": "ak",
+          "label": "Alaska",
+          "signals": [
+            "alaska",
+            "anchorage"
+          ]
+        },
+        {
+          "value": "az",
+          "label": "Arizona",
+          "signals": [
+            "arizona",
+            "phoenix",
+            "tucson"
+          ]
+        },
+        {
+          "value": "ar",
+          "label": "Arkansas",
+          "signals": [
+            "arkansas",
+            "little rock"
+          ]
+        },
+        {
+          "value": "ca",
+          "label": "California",
+          "signals": [
+            "california",
+            "san jose",
+            "san josé",
+            "los angeles",
+            "san diego",
+            "san francisco",
+            "bay area",
+            "sacramento",
+            "oakland",
+            "fresno"
+          ]
+        },
+        {
+          "value": "co",
+          "label": "Colorado",
+          "signals": [
+            "colorado",
+            "denver"
+          ]
+        },
+        {
+          "value": "ct",
+          "label": "Connecticut",
+          "signals": [
+            "connecticut",
+            "hartford"
+          ]
+        },
+        {
+          "value": "de",
+          "label": "Delaware",
+          "signals": [
+            "delaware",
+            "wilmington delaware"
+          ]
+        },
+        {
+          "value": "dc",
+          "label": "District of Columbia",
+          "signals": [
+            "washington dc",
+            "washington d c",
+            "district of columbia"
+          ]
+        },
+        {
+          "value": "fl",
+          "label": "Florida",
+          "signals": [
+            "florida",
+            "miami",
+            "orlando",
+            "tampa",
+            "jacksonville"
+          ]
+        },
+        {
+          "value": "ga",
+          "label": "Georgia",
+          "signals": [
+            "georgia",
+            "atlanta"
+          ]
+        },
+        {
+          "value": "hi",
+          "label": "Hawaii",
+          "signals": [
+            "hawaii",
+            "honolulu"
+          ]
+        },
+        {
+          "value": "id",
+          "label": "Idaho",
+          "signals": [
+            "idaho",
+            "boise"
+          ]
+        },
+        {
+          "value": "il",
+          "label": "Illinois",
+          "signals": [
+            "illinois",
+            "chicago"
+          ]
+        },
+        {
+          "value": "in",
+          "label": "Indiana",
+          "signals": [
+            "indiana",
+            "indianapolis"
+          ]
+        },
+        {
+          "value": "ia",
+          "label": "Iowa",
+          "signals": [
+            "iowa",
+            "des moines"
+          ]
+        },
+        {
+          "value": "ks",
+          "label": "Kansas",
+          "signals": [
+            "kansas",
+            "wichita"
+          ]
+        },
+        {
+          "value": "ky",
+          "label": "Kentucky",
+          "signals": [
+            "kentucky",
+            "louisville",
+            "lexington kentucky"
+          ]
+        },
+        {
+          "value": "la",
+          "label": "Louisiana",
+          "signals": [
+            "louisiana",
+            "new orleans",
+            "baton rouge"
+          ]
+        },
+        {
+          "value": "me",
+          "label": "Maine",
+          "signals": [
+            "maine",
+            "portland maine"
+          ]
+        },
+        {
+          "value": "md",
+          "label": "Maryland",
+          "signals": [
+            "maryland",
+            "baltimore"
+          ]
+        },
+        {
+          "value": "ma",
+          "label": "Massachusetts",
+          "signals": [
+            "massachusetts",
+            "boston"
+          ]
+        },
+        {
+          "value": "mi",
+          "label": "Michigan",
+          "signals": [
+            "michigan",
+            "detroit"
+          ]
+        },
+        {
+          "value": "mn",
+          "label": "Minnesota",
+          "signals": [
+            "minnesota",
+            "minneapolis",
+            "saint paul",
+            "st paul"
+          ]
+        },
+        {
+          "value": "ms",
+          "label": "Mississippi",
+          "signals": [
+            "mississippi",
+            "jackson mississippi"
+          ]
+        },
+        {
+          "value": "mo",
+          "label": "Missouri",
+          "signals": [
+            "missouri",
+            "st louis",
+            "saint louis",
+            "kansas city missouri"
+          ]
+        },
+        {
+          "value": "mt",
+          "label": "Montana",
+          "signals": [
+            "montana",
+            "billings"
+          ]
+        },
+        {
+          "value": "ne",
+          "label": "Nebraska",
+          "signals": [
+            "nebraska",
+            "omaha",
+            "lincoln nebraska"
+          ]
+        },
+        {
+          "value": "nv",
+          "label": "Nevada",
+          "signals": [
+            "nevada",
+            "las vegas",
+            "reno"
+          ]
+        },
+        {
+          "value": "nh",
+          "label": "New Hampshire",
+          "signals": [
+            "new hampshire",
+            "manchester new hampshire"
+          ]
+        },
+        {
+          "value": "nj",
+          "label": "New Jersey",
+          "signals": [
+            "new jersey",
+            "newark",
+            "jersey city"
+          ]
+        },
+        {
+          "value": "nm",
+          "label": "New Mexico",
+          "signals": [
+            "new mexico",
+            "albuquerque",
+            "santa fe"
+          ]
+        },
+        {
+          "value": "ny",
+          "label": "New York",
+          "signals": [
+            "new york",
+            "new york city",
+            "nyc",
+            "brooklyn",
+            "queens",
+            "the bronx",
+            "buffalo"
+          ]
+        },
+        {
+          "value": "nc",
+          "label": "North Carolina",
+          "signals": [
+            "north carolina",
+            "charlotte",
+            "raleigh"
+          ]
+        },
+        {
+          "value": "nd",
+          "label": "North Dakota",
+          "signals": [
+            "north dakota",
+            "fargo"
+          ]
+        },
+        {
+          "value": "oh",
+          "label": "Ohio",
+          "signals": [
+            "ohio",
+            "columbus ohio",
+            "cleveland",
+            "cincinnati"
+          ]
+        },
+        {
+          "value": "ok",
+          "label": "Oklahoma",
+          "signals": [
+            "oklahoma",
+            "oklahoma city",
+            "tulsa"
+          ]
+        },
+        {
+          "value": "or",
+          "label": "Oregon",
+          "signals": [
+            "oregon",
+            "portland oregon",
+            "eugene",
+            "salem oregon"
+          ]
+        },
+        {
+          "value": "pa",
+          "label": "Pennsylvania",
+          "signals": [
+            "pennsylvania",
+            "philadelphia",
+            "pittsburgh"
+          ]
+        },
+        {
+          "value": "ri",
+          "label": "Rhode Island",
+          "signals": [
+            "rhode island",
+            "providence"
+          ]
+        },
+        {
+          "value": "sc",
+          "label": "South Carolina",
+          "signals": [
+            "south carolina",
+            "charleston south carolina",
+            "columbia south carolina"
+          ]
+        },
+        {
+          "value": "sd",
+          "label": "South Dakota",
+          "signals": [
+            "south dakota",
+            "sioux falls"
+          ]
+        },
+        {
+          "value": "tn",
+          "label": "Tennessee",
+          "signals": [
+            "tennessee",
+            "nashville",
+            "memphis",
+            "knoxville"
+          ]
+        },
+        {
+          "value": "tx",
+          "label": "Texas",
+          "signals": [
+            "texas",
+            "houston",
+            "dallas",
+            "san antonio",
+            "austin texas",
+            "el paso",
+            "fort worth"
+          ]
+        },
+        {
+          "value": "ut",
+          "label": "Utah",
+          "signals": [
+            "utah",
+            "salt lake city"
+          ]
+        },
+        {
+          "value": "vt",
+          "label": "Vermont",
+          "signals": [
+            "vermont",
+            "burlington vermont"
+          ]
+        },
+        {
+          "value": "va",
+          "label": "Virginia",
+          "signals": [
+            "virginia",
+            "richmond",
+            "virginia beach",
+            "norfolk"
+          ]
+        },
+        {
+          "value": "wa",
+          "label": "Washington",
+          "signals": [
+            "washington state",
+            "seattle",
+            "spokane",
+            "tacoma"
+          ]
+        },
+        {
+          "value": "wv",
+          "label": "West Virginia",
+          "signals": [
+            "west virginia",
+            "charleston west virginia"
+          ]
+        },
+        {
+          "value": "wi",
+          "label": "Wisconsin",
+          "signals": [
+            "wisconsin",
+            "milwaukee",
+            "madison wisconsin"
+          ]
+        },
+        {
+          "value": "wy",
+          "label": "Wyoming",
+          "signals": [
+            "wyoming",
+            "cheyenne",
+            "casper"
+          ]
+        },
+        {
+          "value": "other",
+          "label": "A U.S. territory or outside the U.S.",
+          "signals": [
+            "puerto rico",
+            "guam",
+            "us virgin islands",
+            "american samoa"
+          ]
+        }
+      ],
+      "ask_if_missing": true,
+      "required": true,
+      "ignore_if_after": [
+        "west"
+      ],
+      "shared": true
+    },
+    {
+      "id": "situation",
+      "question": "What's going on with your coverage? Choose all that apply.",
+      "type": "multi",
+      "ask_if_missing": true,
+      "options": [
+        {
+          "value": "renewal_letter",
+          "label": "I got a renewal form or letter",
+          "signals": [
+            "renew",
+            "renewal",
+            "renewal form",
+            "renewal letter",
+            "yellow envelope",
+            "redetermination"
+          ]
+        },
+        {
+          "value": "coverage_ended",
+          "label": "My coverage ended, or a letter says it will end",
+          "signals": [
+            "coverage ended",
+            "medi cal ended",
+            "medicaid ended",
+            "lost my medi cal",
+            "lost my medicaid",
+            "lost coverage",
+            "cut off",
+            "terminated",
+            "got dropped",
+            "kicked off",
+            "cancelled",
+            "canceled"
+          ]
+        },
+        {
+          "value": "life_change",
+          "label": "Something changed (address, income, job, family)",
+          "signals": [
+            "moved",
+            "moving",
+            "new address",
+            "new job",
+            "got a job",
+            "lost my job",
+            "raise",
+            "married",
+            "divorced",
+            "separated",
+            "had a baby",
+            "new baby",
+            "income changed"
+          ]
+        },
+        {
+          "value": "work_rules",
+          "label": "I have questions about the new work rules",
+          "signals": [
+            "work rules",
+            "work requirement",
+            "work requirements",
+            "80 hours",
+            "community engagement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "age_group",
+      "question": "How old is the person who has the coverage?",
+      "type": "enum",
+      "model": false,
+      "ask_if_missing": true,
+      "options": [
+        {
+          "value": "under_19",
+          "label": "18 or younger",
+          "signals": [
+            "teenager",
+            "high school student",
+            "under 18",
+            "minor"
+          ]
+        },
+        {
+          "value": "19_to_64",
+          "label": "19 to 64",
+          "signals": [
+            "in my 20s",
+            "in my 30s",
+            "in my 40s",
+            "in my 50s"
+          ]
+        },
+        {
+          "value": "65_plus",
+          "label": "65 or older",
+          "signals": [
+            "65 or older",
+            "over 65",
+            "senior citizen",
+            "retired"
+          ]
+        },
+        {
+          "value": "not_sure",
+          "label": "Not sure",
+          "means_unknown": true
+        }
+      ]
+    },
+    {
+      "id": "exemptions",
+      "question": "Do any of these describe the person? Choose all that apply. (They can mean the work rules don't apply.)",
+      "type": "multi",
+      "ask_if_missing": true,
+      "sensitive": true,
+      "options": [
+        {
+          "value": "pregnant",
+          "label": "Pregnant, or had a baby in the last year",
+          "signals": [
+            "pregnant",
+            "expecting a baby",
+            "just had a baby"
+          ]
+        },
+        {
+          "value": "parent_young_child",
+          "label": "Parent or caregiver of a child 13 or younger",
+          "signals": [
+            "toddler",
+            "single mom",
+            "single dad",
+            "single parent",
+            "my baby"
+          ]
+        },
+        {
+          "value": "disability_or_health",
+          "label": "Has a disability, a serious health condition, or a substance use problem",
+          "signals": [
+            "disability",
+            "disabled",
+            "ssi",
+            "chronic illness",
+            "in treatment"
+          ]
+        },
+        {
+          "value": "medicare",
+          "label": "Has Medicare",
+          "signals": [
+            "medicare"
+          ]
+        },
+        {
+          "value": "american_indian",
+          "label": "American Indian or Alaska Native",
+          "signals": [
+            "american indian",
+            "alaska native",
+            "native american",
+            "tribal member"
+          ]
+        },
+        {
+          "value": "former_foster",
+          "label": "Under 26 and was in foster care at 18",
+          "signals": [
+            "foster care",
+            "foster youth",
+            "aged out"
+          ]
+        },
+        {
+          "value": "recently_released",
+          "label": "Released from jail or prison in the last 90 days",
+          "signals": [
+            "released from jail",
+            "released from prison",
+            "got out of jail",
+            "got out of prison"
+          ]
+        },
+        {
+          "value": "none",
+          "label": "None of these"
+        }
+      ]
+    },
+    {
+      "id": "activities",
+      "question": "What does the person do each month? Choose all that apply.",
+      "type": "multi",
+      "ask_if_missing": false,
+      "options": [
+        {
+          "value": "job",
+          "label": "Works at a job (including self-employed or seasonal work)",
+          "signals": [
+            "job",
+            "i work",
+            "working",
+            "self employed",
+            "seasonal work"
+          ]
+        },
+        {
+          "value": "school",
+          "label": "Goes to school or college",
+          "signals": [
+            "community college",
+            "college",
+            "university",
+            "classes",
+            "school"
+          ]
+        },
+        {
+          "value": "training",
+          "label": "Is in a job training program",
+          "signals": [
+            "job training",
+            "training program",
+            "apprenticeship"
+          ]
+        },
+        {
+          "value": "volunteer",
+          "label": "Volunteers or does community service",
+          "signals": [
+            "volunteer",
+            "volunteering",
+            "community service"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "got_work_rules_notice",
+      "question": "Did you get a letter saying you didn't meet the work rules?",
+      "type": "bool",
+      "ask_if_missing": false,
+      "signals_yes": [
+        "notice of noncompliance",
+        "noncompliance",
+        "didn't meet the work rules",
+        "did not meet the work rules"
+      ],
+      "signals_no": []
+    }
+  ],
+  "documents": [
+    {
+      "id": "renewal_form",
+      "name": "Your renewal form or letter",
+      "who": "The person with coverage",
+      "note": "It has your due date and says what information is needed.",
+      "applies_if": {
+        "always": true
+      }
+    },
+    {
+      "id": "proof_of_income",
+      "name": "Recent pay stubs or other proof of income",
+      "who": "Anyone in the household who works",
+      "note": "Used for renewals, reporting changes, and the work rules.",
+      "applies_if": {
+        "always": true
+      }
+    },
+    {
+      "id": "proof_of_school",
+      "name": "Proof of school enrollment (class schedule or enrollment letter)",
+      "who": "The person with coverage",
+      "note": "Shows you go to school at least half-time, which counts for the work rules.",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "age_group",
+            "eq": "19_to_64"
+          },
+          {
+            "fact": "activities",
+            "has": "school"
+          }
+        ]
+      }
+    },
+    {
+      "id": "proof_of_hours",
+      "name": "Record of training or volunteer hours",
+      "who": "The person with coverage",
+      "note": "A letter or log from the program showing your hours each month.",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "age_group",
+            "eq": "19_to_64"
+          },
+          {
+            "fact": "activities",
+            "has_any": [
+              "training",
+              "volunteer"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "notice_of_action",
+      "name": "The letter (Notice of Action) saying your coverage ended or changed",
+      "who": "The person with coverage",
+      "note": "It has the date you need for deadlines and appeals.",
+      "applies_if": {
+        "fact": "situation",
+        "has": "coverage_ended"
+      }
+    }
+  ],
+  "deadlines": [
+    {
+      "id": "renewal_due",
+      "label": "Renewal due date",
+      "date": null,
+      "kind": "from_letter",
+      "note": "It's on your renewal form or letter.",
+      "source_url": null,
+      "last_verified": null,
+      "if_missed": "Contact your Medicaid office right away. You may still be able to turn it in."
+    },
+    {
+      "id": "work_rules_response",
+      "label": "Answer a work-rules letter",
+      "date": null,
+      "kind": "from_letter",
+      "note": "You have 30 calendar days from the day you get the letter.",
+      "source_url": "https://www.federalregister.gov/documents/2026/06/03/2026-11094/medicaid-program-community-engagement-requirement-for-certain-individuals",
+      "last_verified": "2026-10-13"
+    },
+    {
+      "id": "ca_missing_info_90",
+      "label": "Turn in missing renewal information (Medi-Cal)",
+      "date": null,
+      "kind": "from_letter",
+      "note": "90 days from the date on your renewal form or Notice of Action.",
+      "source_url": "https://www.dhcs.ca.gov/medi-cal/help/",
+      "last_verified": "2026-10-13"
+    },
+    {
+      "id": "ca_fair_hearing_90",
+      "label": "Ask for a State Fair Hearing (Medi-Cal)",
+      "date": null,
+      "kind": "from_letter",
+      "note": "Within 90 days of the date on the Notice of Action.",
+      "source_url": "https://www.dhcs.ca.gov/medi-cal/help/",
+      "last_verified": "2026-10-13"
+    },
+    {
+      "id": "ca_report_change_10",
+      "label": "Report a change (Medi-Cal)",
+      "date": null,
+      "kind": "from_letter",
+      "note": "Within 10 days of the change.",
+      "source_url": "https://www.dhcs.ca.gov/medi-cal/help/",
+      "last_verified": "2026-10-13"
+    },
+    {
+      "id": "marketplace_window",
+      "label": "Sign up for a Marketplace plan after losing Medicaid",
+      "date": null,
+      "kind": "from_letter",
+      "note": "Within 90 days after your Medicaid ended.",
+      "source_url": "https://www.healthcare.gov/coverage-outside-open-enrollment/special-enrollment-period/",
+      "last_verified": "2026-10-13"
+    }
+  ],
+  "steps": [
+    {
+      "id": "restore_coverage_ca",
+      "title": "Get Medi-Cal back: turn in missing information within 90 days",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ca"
+          },
+          {
+            "fact": "situation",
+            "has": "coverage_ended"
+          }
+        ]
+      },
+      "depends_on": [],
+      "documents": [
+        "notice_of_action",
+        "renewal_form",
+        "proof_of_income"
+      ],
+      "deadlines": [
+        "ca_missing_info_90"
+      ],
+      "where": {
+        "label": "Find your county Medi-Cal office",
+        "url": "https://www.dhcs.ca.gov/medi-cal/contact/find-a-county-office/"
+      },
+      "plain_explanation": "If your Medi-Cal ended because a renewal wasn't returned or information was missing, you have 90 days to give your county what's missing without applying again. If you still qualify, your coverage comes back with no gap. After 90 days, you'll need to apply again.",
+      "source_text": "If you do not give the needed information by the due date, your Medi-Cal benefits will end. Your local county office will send you a Notice of Action in the mail. You have 90 days to give your local county office all the missing information without having to re-apply. If you give the missing information within 90 days and still qualify for Medi-Cal, your local county office will reinstate your Medi-Cal with no gaps in coverage.",
+      "source_url": "https://www.dhcs.ca.gov/medi-cal/help/",
+      "last_verified": "2026-10-13",
+      "estimated_time": "30–60 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "restore_coverage_other_state",
+      "title": "Call your state Medicaid office right away about getting coverage back",
+      "applies_if": {
+        "all": [
+          {
+            "not": {
+              "fact": "state",
+              "eq": "ca"
+            }
+          },
+          {
+            "fact": "situation",
+            "has": "coverage_ended"
+          }
+        ]
+      },
+      "depends_on": [
+        "find_state_agency"
+      ],
+      "documents": [
+        "notice_of_action",
+        "renewal_form"
+      ],
+      "deadlines": [],
+      "where": {
+        "label": "Find your state Medicaid agency (Medicaid.gov)",
+        "url": "https://www.medicaid.gov/about-us/where-can-people-get-help-medicaid-chip"
+      },
+      "plain_explanation": "If your coverage ended because of a missed form or missing paperwork, call your state Medicaid office as soon as you can and ask how to get it back. Have your letter ready. If you think the decision is wrong, the letter explains how to ask for a fair hearing and how long you have.",
+      "source_text": "You Must Contact Your State Medicaid Agency to: ... Apply for Medicaid or CHIP ... See if you're eligible for Medicaid or CHIP ... Check on a Medicaid or CHIP application",
+      "source_url": "https://www.medicaid.gov/about-us/where-can-people-get-help-medicaid-chip",
+      "last_verified": "2026-10-13",
+      "estimated_time": "30 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "update_contact_ca",
+      "title": "Update your address, phone, and email for Medi-Cal",
+      "applies_if": {
+        "fact": "state",
+        "eq": "ca"
+      },
+      "depends_on": [],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "BenefitsCal",
+        "url": "https://benefitscal.com/"
+      },
+      "plain_explanation": "Medi-Cal sends renewal forms and other important letters by mail, text, or email. If they can't reach you, you could lose coverage without knowing. Update your contact information in BenefitsCal or with your county office.",
+      "source_text": "You will get letters by mail, text, or email. Make sure your Medi-Cal contact information is up to date so you don’t miss any important messages.",
+      "source_url": "https://www.dhcs.ca.gov/medi-cal/updates/medi-cal-changes/",
+      "last_verified": "2026-10-13",
+      "estimated_time": "10 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "find_state_agency",
+      "title": "Find your state Medicaid office and update your contact information",
+      "applies_if": {
+        "not": {
+          "fact": "state",
+          "eq": "ca"
+        }
+      },
+      "depends_on": [],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "Find your state Medicaid agency (Medicaid.gov)",
+        "url": "https://www.medicaid.gov/about-us/where-can-people-get-help-medicaid-chip"
+      },
+      "plain_explanation": "Each state runs its own Medicaid program, and your state office is who sends renewal forms and letters. Find yours on Medicaid.gov, save its phone number and website, and make sure it has your current address, phone, and email so you don't miss a letter.",
+      "source_text": "You Must Contact Your State Medicaid Agency to: ... Apply for Medicaid or CHIP ... See if you're eligible for Medicaid or CHIP ... Check on a Medicaid or CHIP application ... You may also check the status of your renewal coverage by contacting your State Medicaid Agency.",
+      "source_url": "https://www.medicaid.gov/about-us/where-can-people-get-help-medicaid-chip",
+      "last_verified": "2026-10-13",
+      "estimated_time": "15 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "renew_ca",
+      "title": "Return your Medi-Cal renewal by the due date",
+      "applies_if": {
+        "fact": "state",
+        "eq": "ca"
+      },
+      "depends_on": [
+        "update_contact_ca"
+      ],
+      "documents": [
+        "renewal_form",
+        "proof_of_income"
+      ],
+      "deadlines": [
+        "renewal_due"
+      ],
+      "where": {
+        "label": "BenefitsCal",
+        "url": "https://benefitscal.com/"
+      },
+      "plain_explanation": "Medi-Cal must be renewed at least once a year. If your county can't renew you automatically, it mails a renewal form in a yellow envelope. Fill in anything new or changed and return it online in BenefitsCal, by mail, by phone, or in person before the due date. If you mail it or bring it in, sign it.",
+      "source_text": "To keep your Medi-Cal benefits, you must renew at least once a year. If your local county office cannot renew your Medi-Cal coverage using electronic sources, they will send you a renewal form. ... You can return your information online, in person, by phone, or mail. If you mail or return your renewal form in person, it must be signed.",
+      "source_url": "https://www.dhcs.ca.gov/medi-cal/help/",
+      "last_verified": "2026-10-13",
+      "estimated_time": "30–60 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "renew_other_state",
+      "title": "Return your Medicaid renewal by the due date",
+      "applies_if": {
+        "not": {
+          "fact": "state",
+          "eq": "ca"
+        }
+      },
+      "depends_on": [
+        "find_state_agency"
+      ],
+      "documents": [
+        "renewal_form",
+        "proof_of_income"
+      ],
+      "deadlines": [
+        "renewal_due"
+      ],
+      "where": {
+        "label": "Find your state Medicaid agency (Medicaid.gov)",
+        "url": "https://www.medicaid.gov/about-us/where-can-people-get-help-medicaid-chip"
+      },
+      "plain_explanation": "Medicaid has to be renewed, usually once a year. Your state may renew you automatically, or it may send a form asking for information. Open it right away, answer every question, and send it back before the due date printed on it. If you never got a renewal letter, call your state Medicaid office to check your renewal status.",
+      "source_text": "You may also check the status of your renewal coverage by contacting your State Medicaid Agency.",
+      "source_url": "https://www.medicaid.gov/about-us/where-can-people-get-help-medicaid-chip",
+      "last_verified": "2026-10-13",
+      "estimated_time": "30–60 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "six_month_ca",
+      "title": "Get ready to renew Medi-Cal every six months",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ca"
+          },
+          {
+            "fact": "age_group",
+            "eq": "19_to_64"
+          }
+        ]
+      },
+      "depends_on": [
+        "renew_ca"
+      ],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "DHCS: Medi-Cal changes",
+        "url": "https://www.dhcs.ca.gov/medi-cal/updates/medi-cal-changes/#sixmonths"
+      },
+      "plain_explanation": "Starting March 1, 2027, many adults ages 19 to 64 will have their Medi-Cal checked twice a year instead of once. If that applies to you, expect a renewal about every six months, and don't miss the deadlines. Pregnant people, American Indian and Alaska Native members, and former foster youth under 26 still renew once a year.",
+      "source_text": "Starting March 1, 2027, some Medi-Cal members will have their eligibility checked twice a year instead of once. ... If you miss deadlines, you could lose your Medi-Cal coverage.",
+      "source_url": "https://www.dhcs.ca.gov/medi-cal/updates/medi-cal-changes/",
+      "last_verified": "2026-10-13",
+      "estimated_time": "5 minutes to read",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "learn_work_rules",
+      "title": "Find out if the new work rules apply to you",
+      "applies_if": {
+        "fact": "age_group",
+        "eq": "19_to_64"
+      },
+      "depends_on": [],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "Federal rule (Federal Register)",
+        "url": "https://www.federalregister.gov/documents/2026/06/03/2026-11094/medicaid-program-community-engagement-requirement-for-certain-individuals"
+      },
+      "plain_explanation": "Starting January 1, 2027 (some states may get more time, up to the end of 2028), many adults ages 19 to 64 who got Medicaid through the Affordable Care Act expansion must show, each month, at least 80 hours of work, school (at least half-time), job training, or community service, or about $580 a month in income. Your Medicaid office will send a letter if this applies to you. Many people don't have to follow the rules, like pregnant people and parents of children 13 or younger.",
+      "source_text": "An applicable individual demonstrates community engagement for a month if, for such month, the individual: Works not less than 80 hours; Completes not less than 80 hours of community service; Participates in a work program for not less than 80 hours; Is enrolled in an educational program at least half-time; Engages in any combination of the aforementioned activities for a total of not less than 80 hours; Has a monthly income that is not less than the applicable minimum wage requirement under section 6 of the Fair Labor Standards Act of 1938 (Federal minimum wage) multiplied by 80 hours",
+      "source_url": "https://www.federalregister.gov/documents/2026/06/03/2026-11094/medicaid-program-community-engagement-requirement-for-certain-individuals",
+      "last_verified": "2026-10-13",
+      "estimated_time": "10 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "ask_about_exemption",
+      "title": "Tell your Medicaid office why the work rules may not apply to you",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "age_group",
+            "eq": "19_to_64"
+          },
+          {
+            "fact": "exemptions",
+            "has_any": [
+              "pregnant",
+              "parent_young_child",
+              "disability_or_health",
+              "medicare",
+              "american_indian",
+              "former_foster",
+              "recently_released"
+            ]
+          }
+        ]
+      },
+      "depends_on": [
+        "learn_work_rules"
+      ],
+      "documents": [],
+      "deadlines": [],
+      "where": {
+        "label": "Find your state Medicaid agency (Medicaid.gov)",
+        "url": "https://www.medicaid.gov/about-us/where-can-people-get-help-medicaid-chip"
+      },
+      "plain_explanation": "You said something that can mean you don't have to follow the work rules, like being pregnant, caring for a child 13 or younger, having a disability or serious health condition, or having Medicare. Your Medicaid office decides. If it asks for more information, answer quickly so it knows you qualify for an exemption.",
+      "source_text": "Community engagement is not a condition of eligibility for specified excluded individuals. ... (2) The individual meets the definition of Indian ... (3) The individual is a parent, guardian, caretaker relative, or family caregiver ... (10) The individual is pregnant or entitled to postpartum medical assistance ... Dependent child means a child 13 years of age or under who relies on another individual for care.",
+      "source_url": "https://www.federalregister.gov/documents/2026/06/03/2026-11094/medicaid-program-community-engagement-requirement-for-certain-individuals",
+      "last_verified": "2026-10-13",
+      "estimated_time": "15 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "keep_activity_records",
+      "title": "Keep proof of your work, school, training, or volunteer hours",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "age_group",
+            "eq": "19_to_64"
+          },
+          {
+            "not": {
+              "fact": "exemptions",
+              "has_any": [
+                "pregnant",
+                "parent_young_child",
+                "disability_or_health",
+                "medicare",
+                "american_indian",
+                "former_foster",
+                "recently_released"
+              ]
+            }
+          }
+        ]
+      },
+      "depends_on": [
+        "learn_work_rules"
+      ],
+      "documents": [
+        "proof_of_income",
+        "proof_of_school",
+        "proof_of_hours"
+      ],
+      "deadlines": [],
+      "where": {
+        "label": "DHCS: work rules",
+        "url": "https://www.dhcs.ca.gov/medi-cal/updates/medi-cal-changes/#workrules"
+      },
+      "plain_explanation": "If the work rules apply to you, your Medicaid office will try to check your work or income on its own first. Keep pay stubs, a class schedule, or a log of training or volunteer hours each month anyway, so you can send proof quickly if it asks.",
+      "source_text": "Members must do one or more of the following: Work at a job and earn at least $580 a month Be a seasonal worker and earn an average of $580 a month over the last six months Be in a job training program (that helps you learn skills to get a job) for at least 80 hours a month Volunteer or do community service for at least 80 hours a month Go to school at least half-time (usually two or three classes, or about six to eight credits each semester)",
+      "source_url": "https://www.dhcs.ca.gov/medi-cal/updates/medi-cal-changes/",
+      "last_verified": "2026-10-13",
+      "estimated_time": "A few minutes each month",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "answer_work_rules_letter",
+      "title": "Answer a work-rules letter within 30 days",
+      "applies_if": {
+        "all": [
+          {
+            "not": {
+              "fact": "age_group",
+              "in": [
+                "under_19",
+                "65_plus"
+              ]
+            }
+          },
+          {
+            "fact": "got_work_rules_notice",
+            "eq": true
+          }
+        ]
+      },
+      "depends_on": [
+        "keep_activity_records"
+      ],
+      "documents": [
+        "proof_of_income",
+        "proof_of_school",
+        "proof_of_hours"
+      ],
+      "deadlines": [
+        "work_rules_response"
+      ],
+      "where": {
+        "label": "Find your state Medicaid agency (Medicaid.gov)",
+        "url": "https://www.medicaid.gov/about-us/where-can-people-get-help-medicaid-chip"
+      },
+      "plain_explanation": "If your Medicaid office couldn't confirm that you met the work rules, it must send you a letter and give you 30 days to show that you did, or that the rules don't apply to you. Send your proof before the 30 days are up so you keep your coverage. The letter also explains how to apply again if your coverage ends.",
+      "source_text": "When a State is unable to verify compliance, section 1902(xx)(6)(A)(i) and (ii) of the Act requires the State to provide the applicant or beneficiary with a notice of noncompliance and 30 calendar days from the date the notice is received for the individual to make a satisfactory showing that they met the community engagement requirement or that such requirement does not apply.",
+      "source_url": "https://www.federalregister.gov/documents/2026/06/03/2026-11094/medicaid-program-community-engagement-requirement-for-certain-individuals",
+      "last_verified": "2026-10-13",
+      "estimated_time": "30 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "report_changes_ca",
+      "title": "Report changes to Medi-Cal within 10 days",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ca"
+          },
+          {
+            "fact": "situation",
+            "has": "life_change"
+          }
+        ]
+      },
+      "depends_on": [
+        "update_contact_ca"
+      ],
+      "documents": [
+        "proof_of_income"
+      ],
+      "deadlines": [
+        "ca_report_change_10"
+      ],
+      "where": {
+        "label": "BenefitsCal",
+        "url": "https://benefitscal.com/"
+      },
+      "plain_explanation": "Tell your county within 10 days if something changes, like your address, income, a new job, a new baby, marriage, or who lives with you. You can report it online in BenefitsCal, by phone, or in person. Changes can affect your Medi-Cal, so report them even if you're not sure they matter.",
+      "source_text": "You must report any household changes within 10 days to your local county office. You can report changes in person, online, by phone, email or fax. Changes can affect your Medi-Cal eligibility.",
+      "source_url": "https://www.dhcs.ca.gov/medi-cal/help/",
+      "last_verified": "2026-10-13",
+      "estimated_time": "15 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "report_changes_other_state",
+      "title": "Report changes to your state Medicaid office",
+      "applies_if": {
+        "all": [
+          {
+            "not": {
+              "fact": "state",
+              "eq": "ca"
+            }
+          },
+          {
+            "fact": "situation",
+            "has": "life_change"
+          }
+        ]
+      },
+      "depends_on": [
+        "find_state_agency"
+      ],
+      "documents": [
+        "proof_of_income"
+      ],
+      "deadlines": [],
+      "where": {
+        "label": "Find your state Medicaid agency (Medicaid.gov)",
+        "url": "https://www.medicaid.gov/about-us/where-can-people-get-help-medicaid-chip"
+      },
+      "plain_explanation": "If your address, income, job, or household changes, tell your state Medicaid office. Ask how soon it needs to know, since each state sets its own deadline. A new address matters most: if your letters go to an old address, you can miss a renewal.",
+      "source_text": "You Must Contact Your State Medicaid Agency to: ... Apply for Medicaid or CHIP ... See if you're eligible for Medicaid or CHIP ... Check on a Medicaid or CHIP application",
+      "source_url": "https://www.medicaid.gov/about-us/where-can-people-get-help-medicaid-chip",
+      "last_verified": "2026-10-13",
+      "estimated_time": "15 minutes",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "fair_hearing_ca",
+      "title": "If you disagree with a decision, ask for a State Fair Hearing",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ca"
+          },
+          {
+            "fact": "situation",
+            "has": "coverage_ended"
+          }
+        ]
+      },
+      "depends_on": [
+        "restore_coverage_ca"
+      ],
+      "documents": [
+        "notice_of_action"
+      ],
+      "deadlines": [
+        "ca_fair_hearing_90"
+      ],
+      "where": {
+        "label": "California Department of Social Services: State Hearings",
+        "url": "https://www.cdss.ca.gov/hearing-requests"
+      },
+      "plain_explanation": "If you think your Medi-Cal ended by mistake, talk to your county worker first. If that doesn't fix it, ask for a State Fair Hearing within 90 days of the date on your Notice of Action. A judge who doesn't work for the county or Medi-Cal hears your case, and a friend, family member, or advocate can help you.",
+      "source_text": "If you get a Notice of Action letter teling you about an eligibility decision that you disagree with, you can talk to your county eligibility worker and/or ask for a State Fair Hearing. If you cannot solve your disagreement through the county, you must request a State Fair Hearing within 90 days of the date on the Notice of Action.",
+      "source_url": "https://www.dhcs.ca.gov/medi-cal/help/",
+      "last_verified": "2026-10-13",
+      "estimated_time": "20 minutes to request",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "marketplace_ca",
+      "title": "If you no longer qualify, get a plan through Covered California",
+      "applies_if": {
+        "all": [
+          {
+            "fact": "state",
+            "eq": "ca"
+          },
+          {
+            "fact": "situation",
+            "has": "coverage_ended"
+          }
+        ]
+      },
+      "depends_on": [
+        "restore_coverage_ca"
+      ],
+      "documents": [
+        "notice_of_action",
+        "proof_of_income"
+      ],
+      "deadlines": [
+        "marketplace_window"
+      ],
+      "where": {
+        "label": "Covered California",
+        "url": "https://www.coveredca.com/"
+      },
+      "plain_explanation": "If your income is now too high for Medi-Cal, you may be able to buy a health plan through Covered California, often with help paying for it. Losing Medi-Cal lets you sign up outside the usual enrollment season, so don't wait.",
+      "source_text": "Covered California is the State’s health insurance marketplace. ... If your income is too high for Medi-Cal, you may qualify to purchase health insurance through Covered California.",
+      "source_url": "https://www.dhcs.ca.gov/medi-cal/help/",
+      "last_verified": "2026-10-13",
+      "estimated_time": "1 hour",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "marketplace_other_state",
+      "title": "If you no longer qualify, get a Marketplace plan within 90 days",
+      "applies_if": {
+        "all": [
+          {
+            "not": {
+              "fact": "state",
+              "eq": "ca"
+            }
+          },
+          {
+            "fact": "situation",
+            "has": "coverage_ended"
+          }
+        ]
+      },
+      "depends_on": [
+        "restore_coverage_other_state"
+      ],
+      "documents": [
+        "notice_of_action",
+        "proof_of_income"
+      ],
+      "deadlines": [
+        "marketplace_window"
+      ],
+      "where": {
+        "label": "HealthCare.gov",
+        "url": "https://www.healthcare.gov/coverage-outside-open-enrollment/special-enrollment-period/"
+      },
+      "plain_explanation": "If you don't qualify for Medicaid anymore, you can sign up for a health plan through the Marketplace (HealthCare.gov or your state's marketplace) outside the usual enrollment season. Do it within 90 days after your Medicaid ended. Many people get help paying the monthly cost.",
+      "source_text": "If you lost Medicaid or Children's Health Insurance Program (CHIP) coverage in the past 90 days, you may qualify for a Special Enrollment Period.",
+      "source_url": "https://www.healthcare.gov/coverage-outside-open-enrollment/special-enrollment-period/",
+      "last_verified": "2026-10-13",
+      "estimated_time": "1 hour",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "still_stuck_ca",
+      "title": "Still stuck? Call or visit your county Medi-Cal office",
+      "applies_if": {
+        "fact": "state",
+        "eq": "ca"
+      },
+      "depends_on": [
+        "renew_ca"
+      ],
+      "documents": [
+        "renewal_form"
+      ],
+      "deadlines": [],
+      "where": {
+        "label": "Find your county Medi-Cal office",
+        "url": "https://www.dhcs.ca.gov/medi-cal/contact/find-a-county-office/"
+      },
+      "plain_explanation": "Your county office manages most Medi-Cal cases, so it's the best place to ask about your renewal, a letter you don't understand, or coverage that ended. Bring or have ready any letters you got. If you have a problem with your health plan, the Medi-Cal Managed Care Ombudsman can help: 1-888-452-8609.",
+      "source_text": "Your local county office manages most Medi-Cal cases for DHCS. You can reach your local county office online. You can also call your local county office.",
+      "source_url": "https://www.dhcs.ca.gov/medi-cal/help/",
+      "last_verified": "2026-10-13",
+      "estimated_time": "Varies",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    },
+    {
+      "id": "still_stuck_other_state",
+      "title": "Still stuck? Ask your state Medicaid office for help",
+      "applies_if": {
+        "not": {
+          "fact": "state",
+          "eq": "ca"
+        }
+      },
+      "depends_on": [
+        "renew_other_state"
+      ],
+      "documents": [
+        "renewal_form"
+      ],
+      "deadlines": [],
+      "where": {
+        "label": "Find your state Medicaid agency (Medicaid.gov)",
+        "url": "https://www.medicaid.gov/about-us/where-can-people-get-help-medicaid-chip"
+      },
+      "plain_explanation": "Your state Medicaid office runs your coverage, so it's the place to ask about a renewal, a letter you don't understand, or coverage that ended. Have your letters ready when you call, and write down who you talked to and when. Any letter about a decision also explains your right to appeal.",
+      "source_text": "You Must Contact Your State Medicaid Agency to: ... Apply for Medicaid or CHIP ... See if you're eligible for Medicaid or CHIP ... Check on a Medicaid or CHIP application ... You may also check the status of your renewal coverage by contacting your State Medicaid Agency.",
+      "source_url": "https://www.medicaid.gov/about-us/where-can-people-get-help-medicaid-chip",
+      "last_verified": "2026-10-13",
+      "estimated_time": "Varies",
+      "ai_drafted": true,
+      "review_status": "draft",
+      "verified_by": null
+    }
+  ],
+  "why_it_matters": {
+    "text": "Medicaid gives free or low-cost health coverage. Many people lose it over paperwork even when they still qualify, so answering letters on time matters.",
+    "source_text": "Medicaid and the Children’s Health Insurance Program (CHIP) provide free or low-cost health coverage to eligible low-income adults, families and children, pregnant women, the elderly, and people with disabilities.",
+    "source_url": "https://www.healthcare.gov/medicaid-chip/",
+    "last_verified": "2026-10-14"
+  },
+  "help": [
+    {
+      "id": "ca_county_office",
+      "applies_if": {
+        "fact": "state",
+        "eq": "ca"
+      },
+      "title": "Still stuck? Call or visit your county Medi-Cal office",
+      "text": "Your county office manages most Medi-Cal cases. If you disagree with a decision, ask for a State Fair Hearing within 90 days of the date on your Notice of Action. For problems with your health plan, the Medi-Cal Managed Care Ombudsman can help: 1-888-452-8609.",
+      "where": {
+        "label": "Find your county Medi-Cal office",
+        "url": "https://www.dhcs.ca.gov/medi-cal/contact/find-a-county-office/"
+      },
+      "prepare": [
+        "Your Medi-Cal letters, especially any Notice of Action",
+        "Your case number, if you have one"
+      ],
+      "source_text": "Your local county office manages most Medi-Cal cases for DHCS.",
+      "source_url": "https://www.dhcs.ca.gov/medi-cal/help/",
+      "last_verified": "2026-10-14"
+    },
+    {
+      "id": "state_medicaid_agency",
+      "applies_if": {
+        "not": {
+          "fact": "state",
+          "eq": "ca"
+        }
+      },
+      "title": "Still stuck? Contact your state Medicaid agency",
+      "text": "Your state Medicaid agency runs your coverage. Call it with your letters in front of you, and write down who you talked to and when. Every decision letter explains how to ask for a fair hearing if you disagree.",
+      "where": {
+        "label": "Find your state Medicaid agency (Medicaid.gov)",
+        "url": "https://www.medicaid.gov/about-us/where-can-people-get-help-medicaid-chip"
+      },
+      "prepare": [
+        "Your Medicaid letters",
+        "Your Medicaid ID or case number"
+      ],
+      "source_text": "You may also check the status of your renewal coverage by contacting your State Medicaid Agency.",
+      "source_url": "https://www.medicaid.gov/about-us/where-can-people-get-help-medicaid-chip",
+      "last_verified": "2026-10-14"
+    }
+  ]
+}

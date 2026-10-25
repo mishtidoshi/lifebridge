@@ -1,0 +1,27 @@
+{
+  "name": "Washington teenager with a renewal letter",
+  "today": "2026-10-15",
+  "input_text": "I'm 16 and I got a letter to renew my Apple Health in Washington.",
+  "facts": {
+    "state": "wa",
+    "situation": [
+      "renewal_letter"
+    ],
+    "age_group": "under_19"
+  },
+  "expected": {
+    "steps_in_order": [
+      "find_state_agency",
+      "renew_other_state",
+      "still_stuck_other_state"
+    ],
+    "may_apply": [],
+    "not_included": [
+      "learn_work_rules",
+      "answer_work_rules_letter",
+      "update_contact_ca",
+      "renew_ca",
+      "report_changes_other_state"
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Demo: apartment flooded in a declared disaster, family has renters insurance",
+  "today": "2026-10-15",
+  "input_text": "Our apartment flooded in the storm and we have renters insurance. What do we do now?",
+  "facts": {
+    "phase": "recovering",
+    "hazards": ["flood"],
+    "home_damaged": true,
+    "has_insurance": "yes",
+    "declared": "yes",
+    "lost_work": false
+  },
+  "expected": {
+    "steps_in_order": [
+      "return_safely",
+      "document_damage",
+      "file_insurance_claim",
+      "apply_fema",
+      "avoid_scams",
+      "sba_loan",
+      "fema_appeal",
+      "emotional_support"
+    ],
+    "may_apply": [],
+    "not_included": [
+      "get_alerts",
+      "make_plan",
+      "prep_flood_insurance",
+      "follow_officials",
+      "flood_safety_now",
+      "disaster_unemployment"
+    ]
+  }
+}

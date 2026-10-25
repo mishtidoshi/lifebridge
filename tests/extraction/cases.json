@@ -1,0 +1,344 @@
+{
+  "about": "Hand-written descriptions (messy, misspelled, incomplete on purpose) with the answers a careful person would read from them. 'expected' lists facts that should be filled in; facts not listed should stay unknown (a blank is fine, a wrong answer is not). Used by tests/unit/test_extraction.py.",
+  "cases": [
+    {
+      "pack": "financial_aid",
+      "text": "im a senior in houston texas and want to go to UT",
+      "expected": {
+        "state": "tx",
+        "grade_level": "hs_senior"
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "I'm a junior in Chicago thinking about college",
+      "expected": {
+        "state": "il",
+        "grade_level": "hs_junior"
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "my parents are self employed and we live in Oregon",
+      "expected": {
+        "state": "or",
+        "parent_self_employed": true
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "My parents aren't self-employed. I'm a senior in Ohio.",
+      "expected": {
+        "state": "oh",
+        "grade_level": "hs_senior",
+        "parent_self_employed": false
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "I'm undocumented, senior year, Los Angeles",
+      "expected": {
+        "state": "ca",
+        "grade_level": "hs_senior",
+        "citizenship_status": "undocumented_or_daca"
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "I have DACA and live in Seattle, applying to community college",
+      "expected": {
+        "state": "wa",
+        "citizenship_status": "undocumented_or_daca",
+        "college_types": [
+          "community_college"
+        ]
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "My mom is undocumented but I was born here. I'm a senior in San Diego.",
+      "expected": {
+        "state": "ca",
+        "grade_level": "hs_senior",
+        "citizenship_status": "us_citizen"
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "applying to private colleges and some out of state schools",
+      "expected": {
+        "college_types": [
+          "private",
+          "out_of_state"
+        ]
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "I already submitted my FAFSA last week",
+      "expected": {
+        "application_status": "submitted"
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "my college asked me to verify my FAFSA info",
+      "expected": {
+        "received_verification": true
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "I'm a green card holder in New Jersey going back to school as an adult",
+      "expected": {
+        "state": "nj",
+        "citizenship_status": "eligible_noncitizen",
+        "grade_level": "returning_adult"
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "help me pay for college",
+      "expected": {}
+    },
+    {
+      "pack": "financial_aid",
+      "text": "senior in florida, citizen, applying to UF and FSU",
+      "expected": {
+        "state": "fl",
+        "grade_level": "hs_senior",
+        "citizenship_status": "us_citizen"
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "I'm an independent student in Georgia",
+      "expected": {
+        "state": "ga",
+        "dependency_status": "independent"
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "I got a yellow envelope from the county about renewing my Medi-Cal",
+      "expected": {
+        "situation": [
+          "renewal_letter"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "my medicaid got cancelled last month in Arizona",
+      "expected": {
+        "state": "az",
+        "situation": [
+          "coverage_ended"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "I moved to a new apartment and got a new job, I have Medi-Cal in Fresno",
+      "expected": {
+        "state": "ca",
+        "situation": [
+          "life_change"
+        ],
+        "activities": [
+          "job"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "Do the work rules apply to me? I go to community college in Ohio.",
+      "expected": {
+        "state": "oh",
+        "situation": [
+          "work_rules"
+        ],
+        "activities": [
+          "school"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "I'm pregnant and on Medicaid in Michigan",
+      "expected": {
+        "state": "mi",
+        "exemptions": [
+          "pregnant"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "I have Medicare and Medi-Cal and I'm retired",
+      "expected": {
+        "age_group": "65_plus",
+        "exemptions": [
+          "medicare"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "I got a notice of noncompliance about the work requirements",
+      "expected": {
+        "situation": [
+          "work_rules"
+        ],
+        "got_work_rules_notice": true
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "I volunteer at a food bank and I'm a single mom in Nevada",
+      "expected": {
+        "state": "nv",
+        "exemptions": [
+          "parent_young_child"
+        ],
+        "activities": [
+          "volunteer"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "I aged out of foster care and have medicaid",
+      "expected": {
+        "exemptions": [
+          "former_foster"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "what do i do about my medi-cal",
+      "expected": {}
+    },
+    {
+      "pack": "medicaid",
+      "text": "I'm not pregnant, I just need to renew",
+      "expected": {
+        "situation": [
+          "renewal_letter"
+        ]
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "wildfire season is starting and we want to get ready",
+      "expected": {
+        "phase": "preparing",
+        "hazards": [
+          "wildfire"
+        ]
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "there's an evacuation order right now because of the fire",
+      "expected": {
+        "phase": "happening_now",
+        "hazards": [
+          "wildfire"
+        ]
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "our house flooded and we have renters insurance",
+      "expected": {
+        "phase": "recovering",
+        "hazards": [
+          "flood"
+        ],
+        "home_damaged": true,
+        "has_insurance": "yes"
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "the earthquake damaged our roof and we dont have insurance",
+      "expected": {
+        "hazards": [
+          "earthquake"
+        ],
+        "home_damaged": true,
+        "phase": "recovering",
+        "has_insurance": "no"
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "a hurricane is approaching our town",
+      "expected": {
+        "phase": "happening_now",
+        "hazards": [
+          "hurricane"
+        ]
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "the tornado destroyed my dad's shop and now he can't work",
+      "expected": {
+        "phase": "recovering",
+        "hazards": [
+          "other"
+        ],
+        "home_damaged": true,
+        "lost_work": true
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "FEMA declared a major disaster in our county after the flooding",
+      "expected": {
+        "declared": "yes",
+        "hazards": [
+          "flood"
+        ],
+        "phase": "recovering"
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "how do i make a go bag",
+      "expected": {
+        "phase": "preparing"
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "we're uninsured and the storm flooded the basement",
+      "expected": {
+        "has_insurance": "no",
+        "hazards": [
+          "flood"
+        ],
+        "home_damaged": true,
+        "phase": "recovering"
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "worried about earthquakes and floods",
+      "expected": {
+        "hazards": [
+          "flood",
+          "earthquake"
+        ]
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "what should we do",
+      "expected": {}
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Undocumented senior in Texas, applying to a state university and community college (TASFA path)",
+  "today": "2026-10-15",
+  "input_text": "I'm undocumented and a senior in Texas, applying to a state university and community college.",
+  "facts": {
+    "state": "tx",
+    "grade_level": "hs_senior",
+    "citizenship_status": "undocumented_or_daca",
+    "dependency_status": "dependent",
+    "college_types": [
+      "public_4yr",
+      "community_college"
+    ],
+    "received_verification": false,
+    "application_status": "not_started"
+  },
+  "expected": {
+    "steps_in_order": [
+      "choose_application",
+      "gather_documents",
+      "list_colleges",
+      "alt_app_tx",
+      "state_aid_tx",
+      "review_submission",
+      "college_extra_forms",
+      "compare_offers"
+    ],
+    "may_apply": [],
+    "not_included": [
+      "federal_aid_types",
+      "fafsa_create_accounts",
+      "submit_fafsa",
+      "parent_account_without_ssn",
+      "cadaa_create_account",
+      "submit_cadaa",
+      "undocumented_other_aid",
+      "confirm_gpa",
+      "css_profile",
+      "respond_verification",
+      "state_aid_ca"
+    ]
+  }
+}

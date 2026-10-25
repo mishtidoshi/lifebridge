@@ -1,0 +1,249 @@
+{
+  "about": "Held-out test for the machine-learning reader: misspelled and loosely worded descriptions, written before the model was tuned and never used for training or tuning. 'expected' lists answers that should be filled in; anything else should stay blank. Used by tests/unit/test_ml.py. Five expected answers were corrected after the first run because the reads were right and the expectations were incomplete (state from 'pennsylvaina', 'washingtn', and 'new jersy', and 'recovering' from 'damaged' and 'after the').",
+  "cases": [
+    {
+      "pack": "financial_aid",
+      "text": "im a senoir in teksas",
+      "expected": {
+        "grade_level": "hs_senior",
+        "state": "tx"
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "highschool senor from arizonia applying to comunity college",
+      "expected": {
+        "grade_level": "hs_senior",
+        "college_types": [
+          "community_college"
+        ]
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "my parents are self employd",
+      "expected": {
+        "parent_self_employed": true
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "im undocumentd and live in new jersy",
+      "expected": {
+        "citizenship_status": "undocumented_or_daca",
+        "state": "nj"
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "i alredy submited the fafsa",
+      "expected": {
+        "application_status": "submitted"
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "applying to privat colleges",
+      "expected": {
+        "college_types": [
+          "private"
+        ]
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "my mom is undocumented",
+      "expected": {}
+    },
+    {
+      "pack": "financial_aid",
+      "text": "my parents are not self employed",
+      "expected": {
+        "parent_self_employed": false
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "i'm a junoir thinking about colege",
+      "expected": {
+        "grade_level": "hs_junior"
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "pennsylvaina senior",
+      "expected": {
+        "grade_level": "hs_senior",
+        "state": "pa"
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "got a renewl form for medi cal",
+      "expected": {
+        "situation": [
+          "renewal_letter"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "my medicaid was terminatd",
+      "expected": {
+        "situation": [
+          "coverage_ended"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "im pregnent",
+      "expected": {
+        "exemptions": [
+          "pregnant"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "i do comunity service every week",
+      "expected": {
+        "activities": [
+          "volunteer"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "i have a disabilty",
+      "expected": {
+        "exemptions": [
+          "disability_or_health"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "we moved to a new adress",
+      "expected": {
+        "situation": [
+          "life_change"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "do the work requirments apply to me",
+      "expected": {
+        "situation": [
+          "work_rules"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "i'm not pregnant",
+      "expected": {}
+    },
+    {
+      "pack": "medicaid",
+      "text": "living in washingtn state",
+      "expected": {
+        "state": "wa"
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "single mom with a toddlr",
+      "expected": {
+        "exemptions": [
+          "parent_young_child"
+        ]
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "our house got floded",
+      "expected": {
+        "hazards": [
+          "flood"
+        ],
+        "home_damaged": true
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "huricane is coming",
+      "expected": {
+        "hazards": [
+          "hurricane"
+        ],
+        "phase": "happening_now"
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "the earthquak damaged our roof",
+      "expected": {
+        "hazards": [
+          "earthquake"
+        ],
+        "home_damaged": true,
+        "phase": "recovering"
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "we want to prepair an emergency kit",
+      "expected": {
+        "phase": "preparing"
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "wildfire smoke everywere",
+      "expected": {
+        "hazards": [
+          "wildfire"
+        ]
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "we have renters insurence",
+      "expected": {
+        "has_insurance": "yes"
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "my dad lost his job after the tornado",
+      "expected": {
+        "hazards": [
+          "other"
+        ],
+        "lost_work": true,
+        "phase": "recovering"
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "evacuation ordr right now",
+      "expected": {
+        "phase": "happening_now"
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "we are uninsurd",
+      "expected": {
+        "has_insurance": "no"
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "help",
+      "expected": {}
+    }
+  ]
+}

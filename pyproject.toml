@@ -1,0 +1,7 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"
+markers = [
+    "live_ai: calls the real AI API (costs money; skipped unless run with -m live_ai)",
+]

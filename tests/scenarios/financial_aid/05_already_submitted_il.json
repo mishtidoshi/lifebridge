@@ -1,0 +1,39 @@
+{
+  "name": "Illinois college student who already submitted the FAFSA and was selected for verification",
+  "today": "2026-10-15",
+  "input_text": "I'm in college in Illinois, I already submitted my FAFSA, and now my school wants to verify my information.",
+  "facts": {
+    "state": "il",
+    "grade_level": "college_student",
+    "citizenship_status": "us_citizen",
+    "dependency_status": "dependent",
+    "parent_ssn": "all",
+    "college_types": [
+      "public_4yr"
+    ],
+    "application_status": "submitted",
+    "received_verification": true
+  },
+  "expected": {
+    "steps_in_order": [
+      "choose_application",
+      "federal_aid_types",
+      "fafsa_create_accounts",
+      "gather_documents",
+      "list_colleges",
+      "submit_fafsa",
+      "review_submission",
+      "state_aid_il",
+      "respond_verification",
+      "college_extra_forms",
+      "compare_offers"
+    ],
+    "may_apply": [],
+    "not_included": [
+      "parent_account_without_ssn",
+      "alt_app_il",
+      "css_profile",
+      "confirm_gpa"
+    ]
+  }
+}

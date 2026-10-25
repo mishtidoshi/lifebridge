@@ -1,0 +1,160 @@
+{
+  "about": "Tuning set for the machine-learning reader (used to pick ML_THRESHOLD). Kept separate from cases.json and typos.json, which are only used to report results.",
+  "cases": [
+    {
+      "pack": "financial_aid",
+      "text": "senior in kansas, my dad has his own business",
+      "expected": {
+        "grade_level": "hs_senior",
+        "state": "ks",
+        "parent_self_employed": true
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "i'm a sophmore in college in virgina",
+      "expected": {
+        "grade_level": "college_student",
+        "state": "va"
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "thinking about college next year",
+      "expected": {}
+    },
+    {
+      "pack": "financial_aid",
+      "text": "i'm a citizen, my parents aren't",
+      "expected": {
+        "citizenship_status": "us_citizen"
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "applying to out of state universities and a privte school",
+      "expected": {
+        "college_types": [
+          "private",
+          "out_of_state"
+        ]
+      }
+    },
+    {
+      "pack": "financial_aid",
+      "text": "my parents live with me",
+      "expected": {}
+    },
+    {
+      "pack": "financial_aid",
+      "text": "i started the fafsa but didn't finish",
+      "expected": {
+        "application_status": "in_progress"
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "renewl packet came in the mail",
+      "expected": {
+        "situation": [
+          "renewal_letter"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "i'm not disabled and i work full time",
+      "expected": {
+        "activities": [
+          "job"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "i need to renew, i'm a college student",
+      "expected": {
+        "situation": [
+          "renewal_letter"
+        ],
+        "activities": [
+          "school"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "my coverage stopped",
+      "expected": {}
+    },
+    {
+      "pack": "medicaid",
+      "text": "i'm expectng a baby",
+      "expected": {
+        "exemptions": [
+          "pregnant"
+        ]
+      }
+    },
+    {
+      "pack": "medicaid",
+      "text": "what is medicaid",
+      "expected": {}
+    },
+    {
+      "pack": "disaster",
+      "text": "the fire burned our garage",
+      "expected": {
+        "hazards": [
+          "wildfire"
+        ],
+        "home_damaged": true
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "getting ready for hurricane season",
+      "expected": {
+        "phase": "preparing",
+        "hazards": [
+          "hurricane"
+        ]
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "we don't have flood insurance",
+      "expected": {
+        "has_insurance": "no"
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "what goes in a kit",
+      "expected": {}
+    },
+    {
+      "pack": "disaster",
+      "text": "the storm knocked out power for days",
+      "expected": {
+        "hazards": [
+          "other"
+        ]
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "earthquakes scare me",
+      "expected": {
+        "hazards": [
+          "earthquake"
+        ]
+      }
+    },
+    {
+      "pack": "disaster",
+      "text": "fema helped my neighbor",
+      "expected": {}
+    }
+  ]
+}

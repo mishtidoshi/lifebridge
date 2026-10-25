@@ -1,0 +1,45 @@
+{
+  "name": "U.S. citizen senior in California whose parent has no Social Security number, applying to public and private colleges",
+  "today": "2026-10-15",
+  "input_text": "I'm a citizen and a senior in Los Angeles, but my mom doesn't have a Social Security number. I'm applying to UCs and private colleges.",
+  "facts": {
+    "state": "ca",
+    "grade_level": "hs_senior",
+    "citizenship_status": "us_citizen",
+    "dependency_status": "dependent",
+    "parent_ssn": "some_or_none",
+    "parent_self_employed": false,
+    "college_types": [
+      "public_4yr",
+      "private"
+    ],
+    "received_verification": false,
+    "application_status": "not_started"
+  },
+  "expected": {
+    "steps_in_order": [
+      "choose_application",
+      "federal_aid_types",
+      "fafsa_create_accounts",
+      "parent_account_without_ssn",
+      "gather_documents",
+      "list_colleges",
+      "submit_fafsa",
+      "confirm_gpa",
+      "state_aid_ca",
+      "css_profile",
+      "review_submission",
+      "webgrants_account",
+      "college_extra_forms",
+      "compare_offers"
+    ],
+    "may_apply": [],
+    "not_included": [
+      "cadaa_create_account",
+      "submit_cadaa",
+      "respond_verification",
+      "undocumented_other_aid",
+      "alt_app_tx"
+    ]
+  }
+}
